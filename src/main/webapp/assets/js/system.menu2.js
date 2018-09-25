@@ -2,8 +2,8 @@
 var _menus_oneLeve=[{"menuid":"0","menuname":"车辆档案","icon":"fa-home"},{"menuid":"1","menuname":"从业人员","icon":"fa-trophy"},{"menuid":"2","menuname":"处罚文书","icon":"fa-inbox"},{"menuid":"3","menuname":"统计报表","icon":"fa-suitcase"},{"menuid":"4","menuname":"系统管理","icon":"fa-dropbox"}];
 var _menus=[
     {"menuid":"00","icon":"fa-trophy","menuname":"车辆管理",parentMenu:'0',
-        "menus":[{"menuid":"000","menuname":"车辆档案","icon":"fa-dashboard","url":"kanban.html"},
-                {"menuid":"001","menuname":"企业档案","icon":"fa-delicious","url":"dashboard.html"}
+        "menus":[{"menuid":"000","menuname":"车辆档案","icon":"fa-dashboard","url":"vehicle/vehicleListPage"},
+                {"menuid":"001","menuname":"企业档案","icon":"fa-delicious","url":"company/comListPage"}
             ]},{
      "menuid":"01","icon":"fa-television","menuname":"从业人员",parentMenu:'1',
         "menus":[{"menuid":"010","menuname":"新报名人员","icon":"fa-tty","url":"https://item.taobao.com/item.htm?id=545823027227"},
@@ -45,18 +45,19 @@ var _menus=[
             {"menuid":"224","menuname":"执法依据信息管理","icon":"fa-bookmark","url":"demo/msgTip.html"}
 		]
 	},
-    {"menuid":"31","icon":"fa-suitcase","menuname":"统计报表",parentMenu:'3',
-    	"menus":[{"menuid":"311","menuname":"全部文档","icon":"fa-inbox","url":"demo/msgTip.html"},
-    			{"menuid":"312","menuname":"我的分享","icon":"fa-share-alt-square","url":"demo/msgTip.html"}
+    {"menuid":"31","icon":"fa-suitcase","menuname":"车辆统计报表",parentMenu:'3',
+    	"menus":[{"menuid":"311","menuname":"车辆基本情况","icon":"fa-inbox","url":"demo/msgTip.html"},
+    			{"menuid":"312","menuname":"各公司分布情况","icon":"fa-share-alt-square","url":"demo/msgTip.html"},
+    			{"menuid":"312","menuname":"车辆分布情况","icon":"fa-share-alt-square","url":"demo/msgTip.html"},
+    			{"menuid":"312","menuname":"路线分布情况","icon":"fa-share-alt-square","url":"demo/msgTip.html"},
+    			{"menuid":"312","menuname":"车型公司统计","icon":"fa-share-alt-square","url":"demo/msgTip.html"}
     		]
     	},
 	{"menuid":"41","icon":"fa-dashboard","menuname":"系统管理",parentMenu:'4',
 		"menus":[
-			{"menuid":"411","menuname":"系统管理","icon":"fa-id-card","url":"demo/resource.html"},
-			{"menuid":"412","menuname":"表单示例","icon":"fa-users","url":"demo/msgTip.html"},
-			{"menuid":"413","menuname":"角色管理","icon":"fa-address-card","url":"demo/msgTip.html"},
-			{"menuid":"414","menuname":"权限设置","icon":"fa-user-plus","url":"demo/msgTip.html"},
-			{"menuid":"415","menuname":"升级日志","icon":"fa-list","url":"https://blog.csdn.net/DJCBPL/article/details/80281869"}
+			{"menuid":"411","menuname":"菜单管理","icon":"fa-id-card","url":"demo/resource.html"},
+			{"menuid":"412","menuname":"用户管理","icon":"fa-users","url":"demo/msgTip.html"},
+			{"menuid":"413","menuname":"角色管理","icon":"fa-address-card","url":"demo/msgTip.html"}
 		]
 	}
 		
