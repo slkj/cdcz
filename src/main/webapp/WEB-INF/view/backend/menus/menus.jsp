@@ -54,14 +54,7 @@
 					}
 					return s;
 				}
-			} ] ],
-			toolbar : [ {
-				text : '新增',
-				iconCls : 'icon-add',
-				handler : function() {
-					openRukuWin();
-				}
-			} ]
+			} ] ]
 		});
 	}
 	/*弹出入库窗口*/
@@ -126,7 +119,7 @@
 		}
 	}
 	function editRow(id) {
-		var url = getContextPath() + "/module/menusInfo?pkey="+id;
+		var url = getContextPath() + "/module/menusInfo?pkey=" + id;
 		var dialog = createDialog({
 			frameID : 'addComShow',
 			title : '菜单信息',
@@ -166,6 +159,12 @@
 </script>
 </head>
 <body>
+	<div class="btnbar-tools">
+		<a href="javascript:;" class="add" onclick="openRukuWin()">
+			<i class="fa fa-plus-square success"></i>
+			添加
+		</a>
+	</div>
 	<table id="listGrid"></table>
 </body>
 </html>

@@ -42,20 +42,12 @@
 					s += "&nbsp;|&nbsp;";
 					s += "<a href=\"javascript:void(0)\"><span onclick=\"javaScript:editFun('" + index + "');\">编辑</span></a>";
 					s += "&nbsp;|&nbsp;";
-// 					s += "<a href=\"javascript:void(0)\"><span onclick=\"javaScript:loadUser('" + index + "');\">用户</span></a>";
-// 					s += "&nbsp;|&nbsp;";
+					// 					s += "<a href=\"javascript:void(0)\"><span onclick=\"javaScript:loadUser('" + index + "');\">用户</span></a>";
+					// 					s += "&nbsp;|&nbsp;";
 					s += "<a href=\"javascript:void(0)\"><span onclick=\"javaScript:loadModlue('" + index + "');\">设置权限</span></a>";
 					return s;
 				}
 			} ] ],
-			toolbar : [ {
-				id : '',
-				text : '添加',
-				iconCls : 'icon-add',
-				handler : function() {
-					addFun();
-				}
-			} ],
 			onLoadSuccess : function() {
 				$('#listGrid').datagrid('clearSelections');
 			}
@@ -270,10 +262,15 @@
 	<div region="center">
 		<div class="easyui-layout" fit="true">
 			<div data-options="region:'center'" style="padding: 1px;">
+				<div class="btnbar-tools">
+					<a href="javascript:;" class="add" onclick="addFun()">
+						<i class="fa fa-plus-square success"></i>
+						添加
+					</a>
+				</div>
 				<table id="listGrid"></table>
 			</div>
-			<div id="right-panel" data-options="region:'east',title:'权限设置',split:true" style="width: 400px;">
-			</div>
+			<div id="right-panel" data-options="region:'east',title:'权限设置',split:true" style="width: 400px;"></div>
 		</div>
 	</div>
 </body>

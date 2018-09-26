@@ -17,7 +17,6 @@
 		//datagrid初始化 
 		$grid.datagrid({
 			url : '../user/list',
-			title : '用户列表',
 			striped : true,
 			nowrap : false,
 			fit : true,
@@ -57,25 +56,25 @@
 
 				}
 			} ] ],
-			toolbar : [ {
-				iconCls : 'icon-add',
-				text : '添加',
-				handler : function() {
-					showAdd();
-				}
-			}, '-', {
-				iconCls : 'fa fa-unlink',
-				text : '禁用',
-				handler : function() {
-					edit();
-				}
-			}, '-', {
-				iconCls : 'fa fa-file-excel-o',
-				text : '导出',
-				handler : function() {
-					exportData();
-				}
-			} ],
+			// 			toolbar : [ {
+			// 				iconCls : 'icon-add',
+			// 				text : '添加',
+			// 				handler : function() {
+			// 					showAdd();
+			// 				}
+			// 			}, '-', {
+			// 				iconCls : 'fa fa-unlink',
+			// 				text : '禁用',
+			// 				handler : function() {
+			// 					edit();
+			// 				}
+			// 			}, '-', {
+			// 				iconCls : 'fa fa-file-excel-o',
+			// 				text : '导出',
+			// 				handler : function() {
+			// 					exportData();
+			// 				}
+			// 			} ],
 			onLoadSuccess : function(data) {
 				if (data && data.rows && data.rows.length > 0) {
 					$grid.datagrid("clearSelections");
@@ -121,16 +120,29 @@
 </script>
 </head>
 <body class="easyui-layout">
-
-	<div data-options="region:'north',border:false,title:'查询条件'" style="height: 85px">
-		<div id="divQuery" data-options="region:'north',border:false" style="height: 85px">
-			<div class='input_search '>
-				<form id="searchForm">
-					账号：
-					<input name="compName" type="text" class="easyui-textbox" style="height: 26px" />
-					<a href="#" onclick="query()" class="easyui-linkbutton" data-options="iconCls:'icon-search'"> 查 询 </a>
-				</form>
+	<div data-options="region:'north',border:false">
+		<div class="comp-search-box">
+			<div class="screen-top">
+				<div class="colRow">
+					<input type="text" class="easyui-textbox" name="username" data-options="label:'账号'" />
+				</div>
+				<div class="colRow">
+					<button class="easyui-linkbutton btnDefault" onclick="query()">
+						<i class="fa fa-search"></i>
+						查询
+					</button>
+				</div>
 			</div>
+		</div>
+		<div class="btnbar-tools">
+			<a href="javascript:;" class="add" onclick="showAdd()">
+				<i class="fa fa-plus-square success"></i>
+				添加
+			</a>
+			<a href="javascript:;" class="edit" onclick="editShow()">
+				<i class="fa fa-pencil-square info"></i>
+				编辑
+			</a>
 		</div>
 	</div>
 	<div data-options="region:'center',border:true">

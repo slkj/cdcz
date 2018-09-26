@@ -55,9 +55,9 @@ var _menus=[
     	},
 	{"menuid":"41","icon":"fa-dashboard","menuname":"系统管理",parentMenu:'4',
 		"menus":[
-			{"menuid":"411","menuname":"菜单管理","icon":"fa-id-card","url":"demo/resource.html"},
-			{"menuid":"412","menuname":"用户管理","icon":"fa-users","url":"demo/msgTip.html"},
-			{"menuid":"413","menuname":"角色管理","icon":"fa-address-card","url":"demo/msgTip.html"}
+			{"menuid":"411","menuname":"菜单管理","icon":"fa-id-card","url":"module/menusPage"},
+			{"menuid":"412","menuname":"用户管理","icon":"fa-users","url":"user/userListPage"},
+			{"menuid":"413","menuname":"角色管理","icon":"fa-address-card","url":"role/rolePage"}
 		]
 	}
 		

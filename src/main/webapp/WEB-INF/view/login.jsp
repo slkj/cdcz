@@ -162,7 +162,7 @@
 	<div class="footBorder_t01">
 		<div class="ce_about_foot">
 			<p class="ce_about_copyright">
-				<a href="javascript:;">承德市运输管理局</a>
+				<a href="javascript:;">承德市交通运输局</a>
 				<span class="">|</span>
 				<a href="javascript:;">联系邮箱：sssssss@163.com</a>
 			</p>

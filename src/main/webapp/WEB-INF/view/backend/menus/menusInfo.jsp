@@ -56,7 +56,7 @@
 <body>
 	<form id="postForm" metdod="post">
 		<input id="id" name="id" type="hidden" />
-		<table>
+		<table style="width: 100%">
 			<tr>
 				<td align="right" width="70px">菜单名称:</td>
 				<td>
