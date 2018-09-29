@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.slkj.cdtaxt.mapper.ZfajMapper">
+	<sql id="sql_temp">
+		id, ajbh,ajmc,grxm,jlr,ay
+	</sql>
+	<select id="queryZfajList" resultType="Zfaj" parameterType="hashmap">
+		SELECT * FROM zf_aj
+		<where>
+			<if test="ajbh != null and ajbh != ''">
+				AND ajbh LIKE '%'+ #{ajbh} +'%'
+			</if>
+			<if test="ajmc != null and ajmc != ''">
+				AND ajmc LIKE '%'+ #{ajmc} +'%'
+			</if>
+			<if test="grxm != null and grxm != ''">
+				AND grxm LIKE '%'+ #{grxm} +'%'
+			</if>
+			<if test="ay != null and ay != ''">
+				AND ay LIKE '%'+ #{ay} +'%'
+			</if>
+		</where>
+	</select>
+</mapper>

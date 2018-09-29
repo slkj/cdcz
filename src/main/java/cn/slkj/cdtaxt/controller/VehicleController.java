@@ -59,7 +59,7 @@ public class VehicleController {
 	}
 
 	/**
-	 * 查询用户列表，返回easyUI数据格式
+	 * 查询列表，返回easyUI数据格式
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/list", method = { RequestMethod.POST })

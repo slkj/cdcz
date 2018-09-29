@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.slkj.cdtaxt.mapper.ZfxxMapper">
+	<sql id="zfry_sql_temp">
+		id, zfxm,zfzh,zw
+	</sql>
+	<sql id="zfyj_sql_temp">
+		id, zfyj,zfyjt,zfyjk,zfyjx,jysm
+	</sql>
+	<select id="queryZfryList" resultType="Zfry" parameterType="hashmap">
+		SELECT * FROM zf_zfry
+	</select>
+	<select id="queryZfyj" resultType="Zfry" parameterType="hashmap">
+		SELECT * FROM zf_zfry
+	</select>
+	
+	
+	<select id="queryZfyjList" resultType="Zfyj" parameterType="hashmap">
+		SELECT * FROM zf_zfyj
+	</select>
+	
+	
+	<insert id="zfyjSave" parameterType="Zfyj">
+		INSERT INTO ZF_ZFYJ (zfyj,zfyjt,zfyjk,zfyjx,jysm )
+		VALUES (#{zfyj},#{zfyjt},#{zfyjk},#{zfyjx},#{jysm})
+	</insert>
+	<update id="zfyjUpdate" parameterType="Zfyj">
+		UPDATE ZF_ZFYJ SET  
+			ZFYJ = #{zfyj},
+			ZFYJT = #{zfyjt},
+			ZFYJK = #{zfyjk},
+			ZFYJX = #{zfyjx},
+			JYSM = #{jysm}
+		WHERE ID =#{id}
+	</update>
+</mapper>

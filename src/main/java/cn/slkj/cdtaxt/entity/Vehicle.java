@@ -37,6 +37,7 @@ public class Vehicle {
 	private String carProductEndDateString;// 车辆出厂日期
 	/* ---客户信息 */
 	private int customerType;// 客户类型
+	private String customerId;// 客户id
 	private String customerName;// 客户名称
 	private String linkman;// 联系人
 	private String linkmanTel;// 联系人电话
@@ -374,17 +375,31 @@ public class Vehicle {
 	public void setCarPlateColText(String carPlateColText) {
 		this.carPlateColText = carPlateColText;
 	}
+	public String getCustomerId() {
+		return customerId;
+	}
+	public void setCustomerId(String customerId) {
+		this.customerId = customerId;
+	}
 	@Override
 	public String toString() {
-		return "Vehicle [id=" + id + ", pkey=" + pkey + ", carPlateNo=" + carPlateNo + ", carPlateCol=" + carPlateCol + ", carType2=" + carType2 + ", ifDangerVehicle="
-				+ ifDangerVehicle + ", transportNo=" + transportNo + ", carAddProvince=" + carAddProvince + ", carAddCity=" + carAddCity + ", carAddCounty=" + carAddCounty
-				+ ", hgzDataSource=" + hgzDataSource + ", vin2=" + vin2 + ", engineNo=" + engineNo + ", carBrand=" + carBrand + ", quality=" + quality + ", approvedQua="
-				+ approvedQua + ", axleCount=" + axleCount + ", tyreCount=" + tyreCount + ", tyreSpecificate=" + tyreSpecificate + ", dragQua=" + dragQua + ", outLen=" + outLen
-				+ ", outwide=" + outwide + ", outhigh=" + outhigh + ", inlen=" + inlen + ", inwide=" + inwide + ", inhigh=" + inhigh + ", vehicleModel=" + vehicleModel
-				+ ", carColor=" + carColor + ", carProductEndDateString=" + carProductEndDateString + ", customerType=" + customerType + ", customerName=" + customerName
-				+ ", linkman=" + linkman + ", linkmanTel=" + linkmanTel + ", carOwner=" + carOwner + ", carOwnerTel=" + carOwnerTel + ", driver1=" + driver1 + ", driver1Tel="
-				+ driver1Tel + ", driver2=" + driver2 + ", driver2Tel=" + driver2Tel + ", simNo=" + simNo + ", terminalId=" + terminalId + ", terminalType=" + terminalType
-				+ ", terminalGYS=" + terminalGYS + ", inNetDateString=" + inNetDateString + ", memo=" + memo + "]";
+		return "Vehicle [id=" + id + ", pkey=" + pkey + ", carPlateNo=" + carPlateNo + ", carPlateCol=" + carPlateCol
+				+ ", carPlateColText=" + carPlateColText + ", carType2=" + carType2 + ", ifDangerVehicle="
+				+ ifDangerVehicle + ", transportNo=" + transportNo + ", carAddProvince=" + carAddProvince
+				+ ", carAddCity=" + carAddCity + ", carAddCounty=" + carAddCounty + ", hgzDataSource=" + hgzDataSource
+				+ ", vin2=" + vin2 + ", engineNo=" + engineNo + ", carBrand=" + carBrand + ", carBrandText="
+				+ carBrandText + ", quality=" + quality + ", approvedQua=" + approvedQua + ", axleCount=" + axleCount
+				+ ", tyreCount=" + tyreCount + ", tyreSpecificate=" + tyreSpecificate + ", dragQua=" + dragQua
+				+ ", outLen=" + outLen + ", outwide=" + outwide + ", outhigh=" + outhigh + ", inlen=" + inlen
+				+ ", inwide=" + inwide + ", inhigh=" + inhigh + ", vehicleModel=" + vehicleModel + ", carColor="
+				+ carColor + ", carProductEndDateString=" + carProductEndDateString + ", customerType=" + customerType
+				+ ", customerId=" + customerId + ", customerName=" + customerName + ", linkman=" + linkman
+				+ ", linkmanTel=" + linkmanTel + ", carOwner=" + carOwner + ", carOwnerTel=" + carOwnerTel
+				+ ", driver1=" + driver1 + ", driver1Tel=" + driver1Tel + ", driver2=" + driver2 + ", driver2Tel="
+				+ driver2Tel + ", simNo=" + simNo + ", terminalId=" + terminalId + ", terminalType=" + terminalType
+				+ ", terminalGYS=" + terminalGYS + ", inNetDateString=" + inNetDateString + ", memo=" + memo
+				+ ", carOwnerPhoto=" + carOwnerPhoto + ", carPhoto=" + carPhoto + ", certificatePhoto="
+				+ certificatePhoto + ", certificatePhoto2=" + certificatePhoto2 + ", driverPhoto=" + driverPhoto + "]";
 	}
  
 

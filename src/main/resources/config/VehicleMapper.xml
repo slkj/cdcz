@@ -54,7 +54,7 @@
 		vin2, engineNo, carBrand, quality, approvedQua, axleCount, tyreCount,
 		tyreSpecificate, dragQua, outLen, outwide, outhigh, inlen, inwide,
 		inhigh, vehicleModel, carColor, carProductEndDateString, customerType,
-		customerName, linkman, linkmanTel, carOwner, carOwnerTel, driver1,
+		customerId, linkman, linkmanTel, carOwner, carOwnerTel, driver1,
 		driver1Tel, driver2, driver2Tel, simNo, terminalId, terminalType,
 		terminalGYS, inNetDateString, memo,
 		pkey,carOwnerPhoto,carPhoto,certificatePhoto,certificatePhoto2,driverPhoto
@@ -65,7 +65,7 @@
 		#{carAddCity},#{carAddCounty},#{hgzDataSource},#{vin2},#{engineNo},#{carBrand},#{quality},
 		#{approvedQua},#{axleCount},#{tyreCount},#{tyreSpecificate},#{dragQua},#{outLen},#{outwide},
 		#{outhigh},#{inlen},#{inwide},#{inhigh},#{vehicleModel},#{carColor},#{carProductEndDateString},
-		#{customerType},#{customerName},#{linkman},#{linkmanTel},#{carOwner},#{carOwnerTel},#{driver1},
+		#{customerType},#{customerId},#{linkman},#{linkmanTel},#{carOwner},#{carOwnerTel},#{driver1},
 		#{driver1Tel},#{driver2},#{driver2Tel},#{simNo},#{terminalId},#{terminalType},#{terminalGYS},
 		#{inNetDateString},#{memo},#{pkey},#{carOwnerPhoto},#{carPhoto},#{certificatePhoto},#{certificatePhoto2},#{driverPhoto}
 		)
@@ -86,7 +86,7 @@
 		inhigh=#{inhigh}, vehicleModel=#{vehicleModel}, carColor=#{carColor},
 		carProductEndDateString=#{carProductEndDateString},
 		customerType=#{customerType},
-		customerName=#{customerName},linkman=#{linkman},
+		customerId=#{customerId},linkman=#{linkman},
 		linkmanTel=#{linkmanTel},
 		carOwner=#{carOwner}, carOwnerTel=#{carOwnerTel},
 		driver1=#{driver1},driver1Tel=#{driver1Tel}, driver2=#{driver2},

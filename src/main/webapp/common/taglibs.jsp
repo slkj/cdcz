@@ -8,3 +8,4 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/easyui/easyui-lang-zh_CN.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/util.js" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/assets/js/msgConst.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/assets/js/layer.js" type="text/javascript"></script>

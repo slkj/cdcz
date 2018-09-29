@@ -65,11 +65,11 @@
 </head>
 <body>
 	<!--头部start-->
-	<div class="login-header">
-		<div id="login-header-nav" class="nobogder">
-			<div id="login-header-nav_ctx"></div>
-		</div>
-	</div>
+<!-- 	<div class="login-header"> -->
+<!-- 		<div id="login-header-nav" class="nobogder"> -->
+<!-- 			<div id="login-header-nav_ctx"></div> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
 	<!--头部end-->
 	<!-- 	<form id="loginForm" name="loginForm" class="fm-v clearfix" method="post"> -->
 	<input type="hidden" name="lt">
