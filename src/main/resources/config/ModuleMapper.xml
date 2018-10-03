@@ -84,4 +84,28 @@
 		</if>
 		ORDER BY sort
 	</select>
+	<select id="oneLeveListByUser" resultType="Module" 	parameterType="hashmap">
+		SELECT DISTINCT TBM.* FROM TB_MODULE TBM ,TB_ROLE_RES TBRR 
+		<where>
+			 TBM.ID = TBRR.MODULE_ID AND TBM.PRIORITY &lt; 3
+			<if test="userid != null and userid != ''">
+				AND TBRR.ROLE_ID = (SELECT roleId FROM TB_USER WHERE 1 = 1 AND ID = #{userid} )
+			</if>
+			<if test="pid != null and pid != ''">
+				AND P_ID = #{pid}
+			</if>
+		</where>
+		ORDER BY SORT
+	</select>
+		<select id="menusListByUser" resultType="Module" 	parameterType="hashmap">
+		SELECT DISTINCT TBM.* FROM TB_MODULE TBM ,TB_ROLE_RES TBRR 
+		<where>
+			 TBM.ID = TBRR.MODULE_ID AND TBM.PRIORITY &lt; 3 AND P_ID >  1
+			<if test="userid != null and userid != ''">
+				AND TBRR.ROLE_ID = (SELECT roleId FROM TB_USER WHERE 1 = 1 AND ID = #{userid} )
+			</if>
+			 
+		</where>
+		ORDER BY SORT
+	</select>
 </mapper>

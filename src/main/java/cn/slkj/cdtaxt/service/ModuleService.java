@@ -3,6 +3,7 @@ package cn.slkj.cdtaxt.service;
 import java.util.HashMap;
 import java.util.List;
 
+import cn.slkj.cdtaxt.entity.Menus;
 import cn.slkj.cdtaxt.entity.Module;
 
 public interface ModuleService {
@@ -24,4 +25,8 @@ public interface ModuleService {
 	public int saveUserRes(HashMap<String, Object> map);
 
 	public List<Module> getRolePer(HashMap<String, Object> map);
+
+	public List<Module> oneLeveListByUser(HashMap<String, Object> map);
+
+	public List<Module> menusListByUser(HashMap<String, Object> map);
 }

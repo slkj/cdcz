@@ -4,7 +4,7 @@
 	<sql id="sql_temp">
 		id, compCode,compName,linkman,mobile,email,qq,
 		level, bCompany,corporate,contactMenber,contactWay,organizationCode,businessLicense,
-		registeredCapital, compAddress,introduction,xkz,remarks,sfbz,status
+		registeredCapital, compAddress,introduction,xkz,remarks,sfbz,status,compNameJc
 	</sql>
 	<select id="queryComList" resultType="Company" parameterType="hashmap">
 		SELECT * FROM COMPANY
@@ -32,18 +32,18 @@
 	<insert id="save" parameterType="Company">
 		INSERT INTO COMPANY (compCode,compName,linkman,mobile,email,qq,
 		level, bCompany,corporate,contactMenber,contactWay,organizationCode,businessLicense,
-		registeredCapital, compAddress,introduction,xkz,remarks,sfbz,status)
+		registeredCapital, compAddress,introduction,xkz,remarks,sfbz,status,compNameJc)
 		VALUES(#{compCode},#{compName},#{linkman},#{mobile},#{email},#{qq},#{level},
 		#{ bCompany},#{corporate},#{contactMenber},#{contactWay},#{organizationCode},
 		#{businessLicense},#{registeredCapital},#{ compAddress},#{introduction},
-		#{xkz},#{remarks},#{sfbz},#{status} )
+		#{xkz},#{remarks},#{sfbz},#{status},#{compNameJc} )
 	</insert>
 
 	<update id="edit" parameterType="Company">
 		UPDATE COMPANY SET
 		compCode=#{compCode}, compName=#{compName},linkman=#{linkman},
 		mobile=#{mobile},email=#{email},qq=#{qq},
-        status=#{ status}
+        status=#{ status},compNameJc=#{compNameJc}
         WHERE ID= #{id}
 	</update>
 

@@ -26,28 +26,25 @@
 			pageList : [ 10, 20, 30, 40, 50, 100 ],
 			columns : [ [ {
 				field : 'compCode',
-				title : '企业编号',
-				width : 100
+				title : '企业编号'
 			}, {
 				field : 'compName',
-				title : '企业名称',
-				width : 300
+				title : '企业名称'
+			}, {
+				field : 'compNameJc',
+				title : '企业简称'
 			}, {
 				field : 'linkman',
-				title : '联系人',
-				width : 120
+				title : '联系人'
 			}, {
 				field : 'mobile',
-				title : '联系电话',
-				width : 120
+				title : '联系电话'
 			}, {
 				field : 'email',
-				title : 'Email',
-				width : 120
+				title : 'Email'
 			}, {
 				field : 'qq',
-				title : 'QQ',
-				width : 120
+				title : 'QQ'
 			} ] ]
 		});
 	}
@@ -59,34 +56,37 @@
 			width : 600,
 			height : 400,
 			url : url,
-			toolbar : [ {
-				text : common016,
-				iconCls : 'icon-save',
-				handler : function() {
-					var data = parent.document.getElementById('addComShow').contentWindow.save();
-					$.ajax({
-						type : "post",
-						dataType : "json",
-						url : data.url,
-						data : data.param,
-						async : true,
-						success : function(result) {
-							if (result.success) {
-								dialog.dialog("destroy");
-								$grid.datagrid("reload");
-							} else {
-								showError(result.msg);
-							}
+			toolbar : [
+					{
+						text : common016,
+						iconCls : 'icon-save',
+						handler : function() {
+							var data = parent.document
+									.getElementById('addComShow').contentWindow
+									.save();
+							$.ajax({
+								type : "post",
+								dataType : "json",
+								url : data.url,
+								data : data.param,
+								async : true,
+								success : function(result) {
+									if (result.success) {
+										dialog.dialog("destroy");
+										$grid.datagrid("reload");
+									} else {
+										showError(result.msg);
+									}
+								}
+							})
 						}
-					})
-				}
-			}, '-', {
-				text : common009,
-				iconCls : 'icon-cancel',
-				handler : function() {
-					dialog.dialog("destroy");
-				}
-			} ]
+					}, '-', {
+						text : common009,
+						iconCls : 'icon-cancel',
+						handler : function() {
+							dialog.dialog("destroy");
+						}
+					} ]
 		});
 	}
 
@@ -102,34 +102,37 @@
 			width : 600,
 			height : 400,
 			url : url,
-			toolbar : [ {
-				text : common016,
-				iconCls : 'icon-save',
-				handler : function() {
-					var data = parent.document.getElementById('addComShow').contentWindow.save();
-					$.ajax({
-						type : "post",
-						dataType : "json",
-						url : data.url,
-						data : data.param,
-						async : true,
-						success : function(result) {
-							if (result.success) {
-								dialog.dialog("destroy");
-								$grid.datagrid("reload");
-							} else {
-								showError(result.msg);
-							}
+			toolbar : [
+					{
+						text : common016,
+						iconCls : 'icon-save',
+						handler : function() {
+							var data = parent.document
+									.getElementById('addComShow').contentWindow
+									.save();
+							$.ajax({
+								type : "post",
+								dataType : "json",
+								url : data.url,
+								data : data.param,
+								async : true,
+								success : function(result) {
+									if (result.success) {
+										dialog.dialog("destroy");
+										$grid.datagrid("reload");
+									} else {
+										showError(result.msg);
+									}
+								}
+							})
 						}
-					})
-				}
-			}, '-', {
-				text : common009,
-				iconCls : 'icon-cancel',
-				handler : function() {
-					dialog.dialog("destroy");
-				}
-			} ]
+					}, '-', {
+						text : common009,
+						iconCls : 'icon-cancel',
+						handler : function() {
+							dialog.dialog("destroy");
+						}
+					} ]
 		});
 	}
 
@@ -140,17 +143,14 @@
 </script>
 </head>
 <body class="easyui-layout" data-options="border:false, fit:true">
-	<div data-options="region:'center',border:true">
+	<div data-options="region:'north',split:false"  style="height: 40px">
 		<div class="btnbar-tools">
-			<a href="javascript:;" class="add" onclick="showAdd()">
-				<i class="fa fa-plus-square success"></i>
-				添加
-			</a>
-			<a href="javascript:;" class="edit" onclick="editShow()">
-				<i class="fa fa-pencil-square info"></i>
-				编辑
+			<a href="javascript:;" class="add" onclick="showAdd()"> <i class="fa fa-plus-square success"></i> 添加
+			</a> <a href="javascript:;" class="edit" onclick="editShow()"> <i class="fa fa-pencil-square info"></i> 编辑
 			</a>
 		</div>
+	</div>
+	<div data-options="region:'center',border:true">
 		<table id="list_data"></table>
 	</div>
 </body>

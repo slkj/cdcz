@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -33,18 +32,19 @@
 					pageSize : 50,
 					pageList : [ 10, 20, 30, 40, 50, 100 ],
 					frozenColumns : [ [
+// 							{
+// 								width : 80,
+// 								align : 'center',
+// 								field : '_pkey',
+// 								title : '定位',
+// 								formatter : function(value, row, index) {
+// 									return '<a href="javascript:void(0);" '
+// 											+ 'style="color:#0070a9" class="easyui-linkbutton" '
+// 											+ 'data-options="iconCls:\'icon-search\',plain:true" onclick="showGpsMap('
+// 											+ index + ');">查看位置</a>';
+// 								}
+// 							},
 							{
-								width : 80,
-								align : 'center',
-								field : '_pkey',
-								title : '定位',
-								formatter : function(value, row, index) {
-									return '<a href="javascript:void(0);" '
-											+ 'style="color:#0070a9" class="easyui-linkbutton" '
-											+ 'data-options="iconCls:\'icon-search\',plain:true" onclick="showGpsMap('
-											+ index + ');">查看位置</a>';
-								}
-							}, {
 								width : 80,
 								field : 'transportNo',
 								title : '营运证号'
@@ -88,31 +88,31 @@
 						field : 'driver1',
 						title : '原车主'
 					} ] ],
-// 					toolbar : [ {
-// 						iconCls : 'icon-search',
-// 						text : '查看',
-// 						handler : function() {
-// 							view();
-// 						}
-// 					}, {
-// 						iconCls : 'icon-add',
-// 						text : '添加',
-// 						handler : function() {
-// 							add();
-// 						}
-// 					}, '-', {
-// 						iconCls : 'icon-edit',
-// 						text : '编辑',
-// 						handler : function() {
-// 							edit();
-// 						}
-// 					}, '-', {
-// 						iconCls : 'icon-print',
-// 						text : '导出',
-// 						handler : function() {
-// 							exportData();
-// 						}
-// 					} ],
+					// 					toolbar : [ {
+					// 						iconCls : 'icon-search',
+					// 						text : '查看',
+					// 						handler : function() {
+					// 							view();
+					// 						}
+					// 					}, {
+					// 						iconCls : 'icon-add',
+					// 						text : '添加',
+					// 						handler : function() {
+					// 							add();
+					// 						}
+					// 					}, '-', {
+					// 						iconCls : 'icon-edit',
+					// 						text : '编辑',
+					// 						handler : function() {
+					// 							edit();
+					// 						}
+					// 					}, '-', {
+					// 						iconCls : 'icon-print',
+					// 						text : '导出',
+					// 						handler : function() {
+					// 							exportData();
+					// 						}
+					// 					} ],
 					onLoadSuccess : function(data) {
 						if (data && data.rows && data.rows.length > 0) {
 							$grid.datagrid("clearSelections");
@@ -204,20 +204,17 @@
 </script>
 </head>
 <body class="easyui-layout" data-options="border:false, fit:true">
-	<div data-options="region:'center',border:true">
+	<div data-options="region:'north',split:false" style="height: 90px">
 		<div class="comp-search-box">
 			<div class="screen-top">
 				<div class="colRow">
-					<input type="text" class="easyui-textbox" id="carPlateNo"
-						data-options="label:'车牌号'" />
+					<input type="text" class="easyui-textbox" id="carPlateNo" data-options="label:'车牌号'" />
 				</div>
 				<div class="colRow">
-					<input type="text" class="easyui-textbox" id="transportNo"
-						data-options="label:'营运证号'" />
+					<input type="text" class="easyui-textbox" id="transportNo" data-options="label:'营运证号'" />
 				</div>
 				<div class="colRow">
-					<input type="text" class="easyui-textbox" id="carOwner"
-						data-options="label:'车主姓名'" />
+					<input type="text" class="easyui-textbox" id="carOwner" data-options="label:'车主姓名'" />
 				</div>
 				<div class="colRow">
 					<button class="easyui-linkbutton btnDefault" onclick="query()">
@@ -227,13 +224,17 @@
 			</div>
 		</div>
 		<div class="btnbar-tools">
-			<a href="javascript:;" class="add"  onclick="view()"> <i class="fa fa-search "></i> 查看</a>
-			<a href="javascript:;" class="add"  onclick="add()"> <i class="fa fa-plus "></i> 添加</a> 
-			<a href="javascript:;" class="edit" onclick="edit()"> <i class="fa fa-pencil "></i> 编辑</a> 
-<!-- 			<a href="javascript:;" class="del"> <i class="fa fa-times-rectangle danger"></i> 删除</a>  -->
-<!-- 			<a href="javascript:;" class="count"> <i class="fa fa-pie-chart purple"></i> 统计</a>  -->
-			<a href="javascript:;" class="check" onclick="exportData()"> <i class="fa fa-print"></i> 导出</a>
+			<a href="javascript:;" class="add" onclick="view()"> <i class="fa fa-search "></i> 查看
+			</a> <a href="javascript:;" class="add" onclick="add()"> <i class="fa fa-plus "></i> 添加
+			</a> <a href="javascript:;" class="edit" onclick="edit()"> <i class="fa fa-pencil "></i> 编辑
+			</a>
+			<!-- 			<a href="javascript:;" class="del"> <i class="fa fa-times-rectangle danger"></i> 删除</a>  -->
+			<!-- 			<a href="javascript:;" class="count"> <i class="fa fa-pie-chart purple"></i> 统计</a>  -->
+			<a href="javascript:;" class="check" onclick="exportData()"> <i class="fa fa-print"></i> 导出
+			</a>
 		</div>
+	</div>
+	<div data-options="region:'center',border:true">
 		<table id=list_data data-options="fit:true,border:false"></table>
 	</div>
 </body>

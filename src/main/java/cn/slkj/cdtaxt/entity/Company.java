@@ -11,6 +11,7 @@ public class Company {
 	private String id;
 	private String compCode;// 公 司 编号
 	private String compName;// 公 司 名 称
+	private String compNameJc;// 公司简称
 	private String linkman;//联系人
 	private String mobile;// 手机号码
 	private String email;// email
@@ -31,6 +32,12 @@ public class Company {
 	private String remarks;// 备注
 	private Double sfbz;// 收费标准
 	
+	public String getCompNameJc() {
+		return compNameJc;
+	}
+	public void setCompNameJc(String compNameJc) {
+		this.compNameJc = compNameJc;
+	}
 	private int status;
 	public int getStatus() {
 		return status;
@@ -160,7 +167,7 @@ public class Company {
 	}
 	@Override
 	public String toString() {
-		return "Company [id=" + id + ", compCode=" + compCode + ", compName=" + compName + ", linkman=" + linkman + ", mobile=" + mobile + "]";
+		return "Company [id=" + id + ", compCode=" + compCode + ", compName=" + compName + ", compNameJc=" + compNameJc + ", linkman=" + linkman + ", mobile=" + mobile + ", email=" + email + ", qq=" + qq + ", level=" + level + ", bCompany=" + bCompany + ", corporate=" + corporate + ", contactMenber=" + contactMenber + ", contactWay=" + contactWay + ", organizationCode=" + organizationCode + ", businessLicense=" + businessLicense + ", registeredCapital=" + registeredCapital + ", compAddress=" + compAddress + ", introduction=" + introduction + ", xkz=" + xkz + ", remarks=" + remarks + ", sfbz=" + sfbz + ", status=" + status + "]";
 	}
 
 }

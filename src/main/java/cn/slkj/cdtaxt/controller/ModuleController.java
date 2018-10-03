@@ -18,6 +18,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSON;
+
+import cn.slkj.cdtaxt.entity.Menus;
 import cn.slkj.cdtaxt.entity.Module;
 import cn.slkj.cdtaxt.entity.User;
 import cn.slkj.cdtaxt.service.ModuleService;
@@ -42,6 +45,71 @@ public class ModuleController {
 		return "backend/menus/menusInfo";
 	}
 
+	@ResponseBody
+	@RequestMapping(value = "/oneLeveListByUser")
+	public List<Menus> oneLeveListByUser(HttpServletRequest request) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		User user = (User) request.getSession().getAttribute(Const.SESSION_USER);
+		map.put("userid", user.getId());
+		map.put("pid", "1");
+		List<Module> list = moduleService.oneLeveListByUser(map);
+		List<Menus> menusList = new ArrayList<>();
+		for (int i = 0; i < list.size(); i++) {
+			Module module = list.get(i);
+			Menus menus = new Menus();
+			menus.setMenuid(module.getId());
+			menus.setMenuname(module.getName());
+			menus.setParentMenu(module.getP_id());
+			menus.setIcon(module.getIcon());
+			menus.setUrl(module.getUrl());
+			menusList.add(menus);
+		}
+		return menusList;
+	}
+
+	@ResponseBody
+	@RequestMapping(value="/menusListByUser",produces = "application/json; charset=utf-8")
+	public String menusListByUser(HttpServletRequest request) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		User user = (User) request.getSession().getAttribute(Const.SESSION_USER);
+		map.put("userid", user.getId());
+		map.put("pid", "1");
+		List<Module> oneLeveList = moduleService.oneLeveListByUser(map);
+		List<Menus> oneLeve = new ArrayList<>();
+		for (int i = 0; i < oneLeveList.size(); i++) {
+			Module module = oneLeveList.get(i);
+			Menus menus = new Menus();
+			menus.setMenuid(module.getId());
+			menus.setMenuname(module.getName());
+			menus.setParentMenu(module.getP_id());
+			menus.setIcon(module.getIcon());
+			menus.setUrl(module.getUrl());
+			oneLeve.add(menus);
+		}
+
+		List<Module> menusList = moduleService.menusListByUser(map);
+		List<Menus> menuslist = new ArrayList<>();
+		for (int i = 0; i < menusList.size(); i++) {
+			Module module = menusList.get(i);
+			Menus menus = new Menus();
+			menus.setMenuid(module.getId());
+			menus.setMenuname(module.getName());
+			menus.setParentMenu(module.getP_id());
+			menus.setIcon(module.getIcon());
+			menus.setUrl(module.getUrl());
+			menuslist.add(menus);
+		}
+        // 拼装树形json字符串
+		List<Menus> json = new TreeBuilder().buildTree(menuslist);
+//		Map<String, Object> map = new HashMap<String, String, Object>();
+		Map<String, Object>  resultMap =new  HashMap<String, Object>();
+		resultMap.put("oneLeve", oneLeve);
+		resultMap.put("menus", json);
+		String jsonString = JSON.toJSONString(resultMap);
+		return jsonString;
+	}
+
+	// -----------------------------------------
 	/**
 	 * 根据id查询
 	 * 
@@ -347,4 +415,5 @@ public class ModuleController {
 		}
 		return trees;
 	}
+	
 }

@@ -16,6 +16,7 @@
 		<typeAlias alias="Zfaj" type="cn.slkj.cdtaxt.entity.Zfaj" />
 		<typeAlias alias="Zfry" type="cn.slkj.cdtaxt.entity.Zfry" />
 		<typeAlias alias="Zfyj" type="cn.slkj.cdtaxt.entity.Zfyj" />
+		<typeAlias alias="Cyry" type="cn.slkj.cdtaxt.entity.Cyry" />
 	</typeAliases>
 	<plugins>
 		<plugin

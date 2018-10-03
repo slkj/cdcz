@@ -38,15 +38,22 @@ public class ZfwsController {
 	@Autowired
 	private ZfajServiceImpl zfajServiceImpl;
 
-	/* 跳转页面 */
+	// 案件查询页面 
 	@RequestMapping("/ajListPage")
 	public String toWritAddPage() {
 		return "zfws/ajList";
 	}
+	//案件添加
 	@RequestMapping("/xywzAddPage")
 	public String xywzAddPage() {
 		return "zfws/xywzAdd";
 	}
+	//案件涉嫌车辆
+	@RequestMapping("/ajclPage")
+	public String ajclPage() {
+		return "zfws/ajcl";
+	}
+	//案件文本
 	@RequestMapping("/ajwbPage")
 	public String ajwbPage() {
 		return "zfws/ajwb";

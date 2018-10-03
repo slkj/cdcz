@@ -3,35 +3,23 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>案件-案由</title>
+<title>案件-车辆</title>
 <%@ include file="/common/taglibs.jsp"%>
 <style type="text/css">
 .form2-column .form-column2 .form-column-left .textbox-label,
 	.form2-column .form-column1 .form-column-left .textbox-label,
 	.form1-column .form-column1 .form-column-left .textbox-label {
-	width: 80px !important;
+	width: 100px !important;
 }
 </style>
 <script type="text/javascript">
 	function toAjwbPage() {
-		self.location.href = "../zfws/ajclPage";
+		self.location.href = "../zfws/ajwbPage";
 	}
 	$(function() {
-		loadzfyj();
-		//性别初始化
-		$('#sex').combo({
-		    required:true,
-		    editable:false,
-		    panelHeight:50
-		});
-		$('#sex_opt').appendTo($('#sex').combo('panel'));
-		$('#sex_opt input').click(function(){
-		    var v = $(this).val();
-		    var s = $(this).next('span').text();
-		    $('#sex').combo('setValue', v).combo('setText', s).combo('hidePanel');
-		});
+		// 		loadzfyj();
 	});
-	 
+
 	function loadzfyj() {
 		$('#lyyj').combogrid(
 				{
@@ -64,63 +52,60 @@
 	<div class="row">
 		<div class="col-md-12">
 			<form id="vui_sample" class="easyui-form form2-column" method="post" data-options="novalidate:true" style="margin: 0 0 0 0;">
-				<div class="form-column1">
+				<div class="form-column2">
 					<div class="form-column-left">
-						<input class="easyui-textbox" name="language" label="案件名称:" style="width: 100%;" />
+						<input class="easyui-textbox" name="email" style="width: 100%" data-options="label:'车牌号码:'">
+					</div>
+					<div class="form-column-left fm-left">
+						<input class="easyui-textbox" name="subject" style="width: 100%" data-options="label:'车辆颜色:'">
 					</div>
 				</div>
 				<div class="form-column2">
 					<div class="form-column-left">
-						<input class="easyui-textbox" name="name" style="width: 100%" data-options="label:'姓名:'">
+						<input class="easyui-textbox" name="email" style="width: 100%" data-options="label:'车辆型号:'">
 					</div>
 					<div class="form-column-left fm-left">
-						<label class="textbox-label textbox-label-before" style="text-align: left; height: 30px; line-height: 30px;">性别:</label>
-<!-- 						<input class="easyui-textbox" name="name" style="width: 100%" data-options="label:'性别:'"> -->
-						<select id="sex" name="sex" ></select>
-						<div id="sex_opt">
-							<div style="text-align: center;margin-top: 10px">
-								<input type="radio" name="rsex" value="男"><span>男</span>
-								<input type="radio" name="rsex" value="女"><span>女</span>
-							</div>
-						</div>
+						<input class="easyui-textbox" name="subject" style="width: 100%" data-options="label:'乘客人数:'">
 					</div>
 				</div>
 				<div class="form-column2">
 					<div class="form-column-left">
-						<input class="easyui-textbox" name="email" style="width: 100%" data-options="label:'联系电话:'">
+						<input class="easyui-textbox" name="email" style="width: 100%" data-options="label:'车费:'">
 					</div>
 					<div class="form-column-left fm-left">
-						<input class="easyui-textbox" name="subject" style="width: 100%" data-options="label:'邮编:'">
+						<input class="easyui-textbox" name="subject" style="width: 100%" data-options="label:'发生时间:'">
 					</div>
 				</div>
 				<div class="form-column2">
 					<div class="form-column-left">
-						<input class="easyui-textbox" name="email" style="width: 100%" data-options="label:'身份证号:'">
+						<input class="easyui-textbox" name="email" style="width: 100%" data-options="label:'发生地点:'">
 					</div>
 					<div class="form-column-left fm-left">
-						<input class="easyui-textbox" name="subject" style="width: 100%" data-options="label:'邮编:'">
+						<input class="easyui-textbox" name="subject" style="width: 100%" data-options="label:'道路运输证号:'">
 					</div>
 				</div>
 				<div class="form-column2">
 					<div class="form-column-left">
-						<input class="easyui-textbox" name="email" style="width: 100%" data-options="label:'职业:'">
+						<input class="easyui-textbox" name="email" style="width: 100%" data-options="label:'乘客起点地址:'">
 					</div>
 					<div class="form-column-left fm-left">
-						<input class="easyui-textbox" name="subject" style="width: 100%" data-options="label:'与案件关系:'">
+						<input class="easyui-textbox" name="subject" style="width: 100%" data-options="label:'乘客目的地址:'">
 					</div>
 				</div>
 				<div class="form-column1">
 					<div class="form-column-left">
-						<input class="easyui-textbox" name="message" style="width: 100%;" data-options="label:'住址:'">
+						<input class="easyui-combobox" id="lyyj" name="message" style="width: 100%;" data-options="label:'案由:'">
 					</div>
 				</div>
 				<div class="form-column1">
 					<div class="form-column-left">
-						<input class="easyui-combobox" id="lyyj" name="message" style="width: 100%;" data-options="label:'立案依据:'">
+						<input class="easyui-textbox" name="message" style="width: 100%;" data-options="label:'行政处罚:'">
 					</div>
 				</div>
+
 				<div class="form-btnBar pl75">
-					<input type="submit" name="" value="下一步，涉嫌车辆" class="easyui-linkbutton btnPrimary" onclick="toAjwbPage()" style="width: 180px" />
+					<input type="submit" name="" value="下一步，案件文本" class="easyui-linkbutton btnPrimary" onclick="toAjwbPage()" style="width: 180px" />
+					<input type="submit" name="" value="上一步" class="easyui-linkbutton btnDefault"  onclick="javascript:history.go(-1);" style="width:80px" />
 				</div>
 			</form>
 		</div>

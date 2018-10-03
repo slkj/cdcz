@@ -87,6 +87,12 @@
 				</td>
 			</tr>
 			<tr>
+				<td align="right">图标:</td>
+				<td>
+					<input type="text" class="easyui-textbox" name="icon" style="width: 95%;" />
+				</td>
+			</tr>
+			<tr>
 				<td align="right">顺&nbsp;&nbsp;&nbsp;序&nbsp;:</td>
 				<td>
 					<input type="text" class="easyui-textbox" name="sort" value="10" style="width: 95%;" />

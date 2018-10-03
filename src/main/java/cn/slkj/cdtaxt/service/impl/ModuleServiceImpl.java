@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import cn.slkj.cdtaxt.entity.Menus;
 import cn.slkj.cdtaxt.entity.Module;
 import cn.slkj.cdtaxt.mapper.ModuleMapper;
 import cn.slkj.cdtaxt.service.ModuleService;
@@ -79,6 +80,17 @@ public class ModuleServiceImpl implements ModuleService {
 	public List<Module> getRolePer(HashMap<String, Object> map) {
 		// TODO Auto-generated method stub
 		return mapper.getRolePer(map);
+	}
+
+	@Override
+	public List<Module> oneLeveListByUser(HashMap<String, Object> map) {
+		return mapper.oneLeveListByUser(map);
+	}
+
+	@Override
+	public List<Module> menusListByUser(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		return mapper.menusListByUser(map);
 	}
 
 }

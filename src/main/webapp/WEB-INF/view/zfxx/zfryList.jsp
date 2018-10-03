@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>承德市出租汽车管理系统</title>
+<title>新报名人员</title>
 <%@ include file="/common/taglibs.jsp"%>
 <script>
 	var $grid;
@@ -77,12 +77,15 @@
 </script>
 </head>
 <body class="easyui-layout" data-options="border:false, fit:true">
-	<div data-options="region:'center',border:true">
+	<div data-options="region:'north',split:false" style="height: 40px">
 		<div class="btnbar-tools">
 			<a href="javascript:;" class="add" id="newData"> <i class="fa fa-plus "></i> 添加
 			</a> <a href="javascript:;" class="edit" onclick="edit()"> <i class="fa fa-pencil "></i> 编辑
 			</a>
 		</div>
+	</div>
+	<div data-options="region:'center',border:true">
+
 		<table id=list_data data-options="fit:true,border:false"></table>
 	</div>
 	<!-- 新增和编辑数据 -->
