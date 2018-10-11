@@ -38,37 +38,47 @@ public class ZfwsController {
 	@Autowired
 	private ZfajServiceImpl zfajServiceImpl;
 
-	// 案件查询页面 
+	// 案件查询页面
 	@RequestMapping("/ajListPage")
 	public String toWritAddPage() {
 		return "zfws/ajList";
 	}
-	//案件添加
+
+	// 案件添加
 	@RequestMapping("/xywzAddPage")
 	public String xywzAddPage() {
 		return "zfws/xywzAdd";
 	}
-	//案件涉嫌车辆
+
+	// 案件涉嫌车辆
 	@RequestMapping("/ajclPage")
 	public String ajclPage() {
 		return "zfws/ajcl";
 	}
-	//案件文本
+
+	// 案件文本
 	@RequestMapping("/ajwbPage")
 	public String ajwbPage() {
 		return "zfws/ajwb";
 	}
+
+	// 案件送达
 	@RequestMapping("/ajsdPage")
 	public String ajsdPage() {
 		return "zfws/ajsd";
+	} 
+	// 案件封皮
+	@RequestMapping("/ajfmPage")
+	public String ajfmPage() {
+		return "zfws/ajfm";
 	}
+
 	/**
 	 * 查询列表，返回easyUI数据格式
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/list", method = { RequestMethod.POST })
-	public EPager<Zfaj> getAll(HttpServletRequest request, HttpSession session,
-			@RequestParam(required = false, defaultValue = "1") Integer page,
+	public EPager<Zfaj> getAll(HttpServletRequest request, HttpSession session, @RequestParam(required = false, defaultValue = "1") Integer page,
 			@RequestParam(required = false, defaultValue = "20") Integer rows) {
 		String sortString = "";
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();

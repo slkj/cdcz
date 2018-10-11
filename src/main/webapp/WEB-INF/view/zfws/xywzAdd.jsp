@@ -9,12 +9,12 @@
 .form2-column .form-column2 .form-column-left .textbox-label,
 	.form2-column .form-column1 .form-column-left .textbox-label,
 	.form1-column .form-column1 .form-column-left .textbox-label {
-	width: 80px !important;
+	width: 100px !important;
 }
 </style>
 <script type="text/javascript">
 	function toAjwbPage() {
-		self.location.href = "../zfws/ajclPage";
+		self.location.href = "../zfws/ajwbPage";
 	}
 	$(function() {
 		loadzfyj();
@@ -119,8 +119,64 @@
 						<input class="easyui-combobox" id="lyyj" name="message" style="width: 100%;" data-options="label:'立案依据:'">
 					</div>
 				</div>
+				<div class="form-column2">
+					<div class="form-column-left">
+						<input class="easyui-textbox" name="email" style="width: 100%" data-options="label:'车牌号码:'">
+					</div>
+					<div class="form-column-left fm-left">
+						<input class="easyui-textbox" name="subject" style="width: 100%" data-options="label:'车辆颜色:'">
+					</div>
+				</div>
+				<div class="form-column2">
+					<div class="form-column-left">
+						<input class="easyui-textbox" name="email" style="width: 100%" data-options="label:'车辆型号:'">
+					</div>
+					<div class="form-column-left fm-left">
+						<input class="easyui-textbox" name="subject" style="width: 100%" data-options="label:'乘客人数:'">
+					</div>
+				</div>
+				<div class="form-column2">
+					<div class="form-column-left">
+						<input class="easyui-textbox" name="email" style="width: 100%" data-options="label:'车费:'">
+					</div>
+					<div class="form-column-left fm-left">
+						<input class="easyui-textbox" name="subject" style="width: 100%" data-options="label:'发生时间:'">
+					</div>
+				</div>
+				<div class="form-column2">
+					<div class="form-column-left">
+						<input class="easyui-textbox" name="email" style="width: 100%" data-options="label:'发生地点:'">
+					</div>
+					<div class="form-column-left fm-left">
+						<input class="easyui-textbox" name="subject" style="width: 100%" data-options="label:'道路运输证号:'">
+					</div>
+				</div>
+				<div class="form-column2">
+					<div class="form-column-left">
+						<input class="easyui-textbox" name="email" style="width: 100%" data-options="label:'乘客起点地址:'">
+					</div>
+					<div class="form-column-left fm-left">
+						<input class="easyui-textbox" name="subject" style="width: 100%" data-options="label:'乘客目的地址:'">
+					</div>
+				</div>
+				<div class="form-column1">
+					<div class="form-column-left">
+<!-- 						<input class="easyui-combobox" id="lyyj" name="message" style="width: 100%;" data-options="label:'案由:'"> -->
+						<select class="easyui-combobox" panelMaxHeight="130px" style="width: 100%;" data-options="label:'案由:'">
+								<option>涉嫌擅自从事网络预约出租汽车经营活动</option>
+								<option>涉嫌擅自从事巡游出租汽车经营活动</option>
+								<option>涉嫌擅自从事与乘客进行议价</option>
+								<option>涉嫌车容车貌不符要求</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-column1">
+					<div class="form-column-left">
+						<input class="easyui-textbox" name="message" style="width: 100%;" data-options="label:'行政处罚:'">
+					</div>
+				</div>
 				<div class="form-btnBar pl75">
-					<input type="submit" name="" value="下一步，涉嫌车辆" class="easyui-linkbutton btnPrimary" onclick="toAjwbPage()" style="width: 180px" />
+					<input type="submit" name="" value="下一步，案件文本" class="easyui-linkbutton btnPrimary" onclick="toAjwbPage()" style="width: 180px" />
 				</div>
 			</form>
 		</div>

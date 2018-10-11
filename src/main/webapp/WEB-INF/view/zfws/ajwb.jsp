@@ -14,7 +14,7 @@
 </style>
 <script type="text/javascript">
 	function toAjwbPage() {
-		self.location.href = "../zfws/ajwbPage";
+		self.location.href = "../zfws/ajsdPage";
 	}
 	$(function() {
 		// 		loadzfyj();
@@ -84,32 +84,32 @@
 						<input class="easyui-textbox" name="subject" style="width: 100%" data-options="label:'执法主体:'">
 					</div>
 				</div>
-				<div class="form-column2">
-					<div class="form-column-left">
-						<input class="easyui-textbox" name="email" style="width: 100%" data-options="label:'案件基本情况文本:'">
-					</div>
-					<div class="form-column-left fm-left">
-						<input class="easyui-textbox" name="subject" style="width: 100%" data-options="label:'乘客目的地址:'">
+				<div class="form-column1">
+					<div class="form-column-left"  style="text-align: center;">
+						案件基本情况文本:
+						<br>
+						<input class="easyui-textbox" name="email" style="width: 100%;height: 50px;"  >
 					</div>
 				</div>
 				<div class="form-column1">
-					<div class="form-column-left">
-						<input class="easyui-combobox" id="lyyj" name="message" style="width: 100%;" data-options="label:'违法行为文本(《违法行为通知书》):'">
+					<div class="form-column-left" style="text-align: center;">
+						违法行为文本(《违法行为通知书》): 
+						<input class="easyui-textbox" id="lyyj" name="message" style="width: 100%;height: 50px;"  >
 					</div>
 				</div>
 				<div class="form-column1">
-					<div class="form-column-left">
-						<input class="easyui-textbox" name="message" style="width: 100%;" data-options="label:'讨论记录文本(《集体讨论记录》):'">
+					<div class="form-column-left"  style="text-align: center;">
+						讨论记录文本(《集体讨论记录》):<input class="easyui-textbox" name="message" style="width: 100%;height: 50px;" >
 					</div>
 				</div>
 				<div class="form-column1">
-					<div class="form-column-left">
-						<input class="easyui-combobox" id="lyyj" name="message" style="width: 100%;" data-options="label:'结论性意见文本(《集体讨论记录》):'">
+					<div class="form-column-left"  style="text-align: center;">
+						结论性意见文本(《集体讨论记录》):<input class="easyui-textbox" id="lyyj" name="message" style="width: 100%;height: 50px;"  >
 					</div>
 				</div>
 				<div class="form-column1">
-					<div class="form-column-left">
-						<input class="easyui-textbox" name="message" style="width: 100%;" data-options="label:'调查结论和处理意见文本(《调查报告》):'">
+					<div class="form-column-left"  style="text-align: center;">
+						调查结论和处理意见文本(《调查报告》):<input class="easyui-textbox" name="message"   style="width: 100%;height: 50px;" >
 					</div>
 				</div>
 				<div class="form-btnBar pl75">
