@@ -67,9 +67,9 @@ public class VehicleController {
 			@RequestParam(required = false, defaultValue = "20") Integer rows) {
 		String sortString = "";
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();
-		hashMap.put("carPlateNo", request.getParameter("carPlateNo"));
-		hashMap.put("transportNo", request.getParameter("transportNo"));
-		hashMap.put("carOwner", request.getParameter("carOwner"));
+		hashMap.put("PlateNum", request.getParameter("PlateNum"));
+		hashMap.put("OpretaCertNum", request.getParameter("OpretaCertNum"));
+		hashMap.put("OrigOwnerName", request.getParameter("OrigOwnerName"));
 		PageBounds pageBounds = new PageBounds(page, rows, Order.formString(sortString));
 		List<Vehicle> list = vehicleService.getAllList(hashMap, pageBounds);
 		PageList pageList = (PageList) list;
@@ -133,7 +133,7 @@ public class VehicleController {
 		return new JsonResult(false, "操作失败！");
 	}
 
-	@RequestMapping("/getWithImage")
+	/*@RequestMapping("/getWithImage")
 	public void getWithImage(String imageType, String pkey, HttpServletResponse response, HttpServletRequest request) throws Exception {
 		// 根据id获取车辆信息
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();
@@ -175,7 +175,7 @@ public class VehicleController {
 		outputStream.close();
 		fileInputStream.close();
 
-	}
+	}*/
 
 	/**
 	 * 导出设备汇总表
@@ -209,7 +209,7 @@ public class VehicleController {
 			pageMap.put("simNumber", request.getParameter("simNumber"));
 			pageMap.put("inspector", request.getParameter("inspector"));
 			
-			vehicleService.exportExcel(pageMap, titles, outputStream);
+			//vehicleService.exportExcel(pageMap, titles, outputStream);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

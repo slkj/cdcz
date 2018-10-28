@@ -2,405 +2,228 @@ package cn.slkj.cdtaxt.entity;
 
 public class Vehicle {
 	private String id;
-	private String pkey;//档案号
-	/* ---落籍信息 */
-	private String carPlateNo;// 车牌号
-	private String carPlateCol;// 车牌颜色
-	private String carPlateColText;// 车牌颜色名称
-	private String carType2;// 车辆类型
-	private int ifDangerVehicle;// 是否危险品车
-	private String transportNo;// 道路运输证号
-	private String carAddProvince;// 所属地区省
-	private String carAddCity;// 所属地区市
-	private String carAddCounty; // 所属地区县
-
-	/* ---车辆基本信息 */
-	private String hgzDataSource;// 汽车制造厂
-	private String vin2;// 车辆识别代码/车架号
-	private String engineNo;// 发动机号
-	private String carBrand;// 车辆品牌
-	private String carBrandText;// 车辆品牌
-	private int quality;// 总质量(kg)
-	private int approvedQua;// 核定载质量(kg)
-	private int axleCount;// 轴数
-	private int tyreCount;// 轮胎数
-	private String tyreSpecificate;// 轮胎规格
-	private int dragQua;// 准牵引总质量(kg)
-	private int outLen;// 外廓尺寸(mm)长
-	private int outwide;// 外廓尺寸(mm)宽
-	private int outhigh;// 外廓尺寸(mm)高
-	private int inlen;// 货箱内部尺寸(mm)长
-	private int inwide;// 货箱内部尺寸(mm)宽
-	private int inhigh;// 货箱内部尺寸(mm)高
-	private String vehicleModel;// 车辆型号
-	private String carColor;// 车身颜色
-	private String carProductEndDateString;// 车辆出厂日期
-	/* ---客户信息 */
-	private int customerType;// 客户类型
-	private String customerId;// 客户id
-	private String customerName;// 客户名称
-	private String linkman;// 联系人
-	private String linkmanTel;// 联系人电话
-	private String carOwner;// 车主
-	private String carOwnerTel;// 车主电话
-	private String driver1;// 驾驶员1
-	private String driver1Tel;// 驾驶员1电话
-	private String driver2;// 驾驶员2
-	private String driver2Tel;// 驾驶员2电话
-	/* ---终端信息 */
-	private String simNo;// SIM卡卡号
-	private String terminalId;// 终端ID
-	private String terminalType;// 终端型号
-	private String terminalGYS;// 终端供应商
-	/*---入网信息*/
-	private String inNetDateString;// 入网日期
-	private String memo;// 备注
-	
-	
-	private String carOwnerPhoto;//车主照片路径
-	private String carPhoto;//车辆照片路径
-	private String certificatePhoto;//车辆登记证照片路径
-	private String certificatePhoto2;//车辆登记证照片2路径
-	private String driverPhoto;//车辆合格证/行驶证照片路径
+	private String fileNum; 
+	private String opretaCertNum; 
+	private String plateNum; 
+	private String corpName; 
+	private String ownerName; 
+	private String origOwnerName; 
+	private String origPlateNum; 
+	private String employPerson; 
+	private String color; 
+	private String sign; 
+	private String sealRecord; 
+	private String address; 
+	private String phoneNum; 
+	private String iDNumber; 
+	private String ownerChange; 
+	private String drvLicenseDate; 
+	private String vehicleInspRec;
+	private String ownerNamePic; 
+	private String vehiclePic; 
+	private String tonsSeat; 
+	private String carLen; 
+	private String carWidth; 
+	private String carHigh; 
+	private String frameNumber; 
+	private String engineNumber;
+	private String aDDTIME; 
+	private String checkDate; 
+	private String transferDate;
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getPkey() {
-		return pkey;
+	public String getFileNum() {
+		return fileNum;
 	}
-	public void setPkey(String pkey) {
-		this.pkey = pkey;
+	public void setFileNum(String fileNum) {
+		this.fileNum = fileNum;
 	}
-	public String getCarPlateNo() {
-		return carPlateNo;
+	public String getOpretaCertNum() {
+		return opretaCertNum;
 	}
-	public void setCarPlateNo(String carPlateNo) {
-		this.carPlateNo = carPlateNo;
+	public void setOpretaCertNum(String opretaCertNum) {
+		this.opretaCertNum = opretaCertNum;
 	}
-	public String getCarPlateCol() {
-		return carPlateCol;
+	public String getPlateNum() {
+		return plateNum;
 	}
-	public void setCarPlateCol(String carPlateCol) {
-		this.carPlateCol = carPlateCol;
+	public void setPlateNum(String plateNum) {
+		this.plateNum = plateNum;
 	}
-	public String getCarType2() {
-		return carType2;
+	public String getCorpName() {
+		return corpName;
 	}
-	public void setCarType2(String carType2) {
-		this.carType2 = carType2;
+	public void setCorpName(String corpName) {
+		this.corpName = corpName;
 	}
-	public int getIfDangerVehicle() {
-		return ifDangerVehicle;
+	public String getOwnerName() {
+		return ownerName;
 	}
-	public void setIfDangerVehicle(int ifDangerVehicle) {
-		this.ifDangerVehicle = ifDangerVehicle;
+	public void setOwnerName(String ownerName) {
+		this.ownerName = ownerName;
 	}
-	public String getTransportNo() {
-		return transportNo;
+	public String getOrigOwnerName() {
+		return origOwnerName;
 	}
-	public void setTransportNo(String transportNo) {
-		this.transportNo = transportNo;
+	public void setOrigOwnerName(String origOwnerName) {
+		this.origOwnerName = origOwnerName;
 	}
-	public String getCarAddProvince() {
-		return carAddProvince;
+	public String getOrigPlateNum() {
+		return origPlateNum;
 	}
-	public void setCarAddProvince(String carAddProvince) {
-		this.carAddProvince = carAddProvince;
+	public void setOrigPlateNum(String origPlateNum) {
+		this.origPlateNum = origPlateNum;
 	}
-	public String getCarAddCity() {
-		return carAddCity;
+	public String getEmployPerson() {
+		return employPerson;
 	}
-	public void setCarAddCity(String carAddCity) {
-		this.carAddCity = carAddCity;
+	public void setEmployPerson(String employPerson) {
+		this.employPerson = employPerson;
 	}
-	public String getCarAddCounty() {
-		return carAddCounty;
+	public String getColor() {
+		return color;
 	}
-	public void setCarAddCounty(String carAddCounty) {
-		this.carAddCounty = carAddCounty;
+	public void setColor(String color) {
+		this.color = color;
 	}
-	public String getHgzDataSource() {
-		return hgzDataSource;
+	public String getSign() {
+		return sign;
 	}
-	public void setHgzDataSource(String hgzDataSource) {
-		this.hgzDataSource = hgzDataSource;
+	public void setSign(String sign) {
+		this.sign = sign;
 	}
-	public String getVin2() {
-		return vin2;
+	public String getSealRecord() {
+		return sealRecord;
 	}
-	public void setVin2(String vin2) {
-		this.vin2 = vin2;
+	public void setSealRecord(String sealRecord) {
+		this.sealRecord = sealRecord;
 	}
-	public String getEngineNo() {
-		return engineNo;
+	public String getAddress() {
+		return address;
 	}
-	public void setEngineNo(String engineNo) {
-		this.engineNo = engineNo;
+	public void setAddress(String address) {
+		this.address = address;
 	}
-	public String getCarBrand() {
-		return carBrand;
+	public String getPhoneNum() {
+		return phoneNum;
 	}
-	public void setCarBrand(String carBrand) {
-		this.carBrand = carBrand;
+	public void setPhoneNum(String phoneNum) {
+		this.phoneNum = phoneNum;
 	}
-	public int getQuality() {
-		return quality;
+	public String getiDNumber() {
+		return iDNumber;
 	}
-	public void setQuality(int quality) {
-		this.quality = quality;
+	public void setiDNumber(String iDNumber) {
+		this.iDNumber = iDNumber;
 	}
-	public int getApprovedQua() {
-		return approvedQua;
+	public String getOwnerChange() {
+		return ownerChange;
 	}
-	public void setApprovedQua(int approvedQua) {
-		this.approvedQua = approvedQua;
+	public void setOwnerChange(String ownerChange) {
+		this.ownerChange = ownerChange;
 	}
-	public int getAxleCount() {
-		return axleCount;
+	public String getDrvLicenseDate() {
+		return drvLicenseDate;
 	}
-	public void setAxleCount(int axleCount) {
-		this.axleCount = axleCount;
+	public void setDrvLicenseDate(String drvLicenseDate) {
+		this.drvLicenseDate = drvLicenseDate;
 	}
-	public int getTyreCount() {
-		return tyreCount;
+	public String getVehicleInspRec() {
+		return vehicleInspRec;
 	}
-	public void setTyreCount(int tyreCount) {
-		this.tyreCount = tyreCount;
+	public void setVehicleInspRec(String vehicleInspRec) {
+		this.vehicleInspRec = vehicleInspRec;
 	}
-	public String getTyreSpecificate() {
-		return tyreSpecificate;
+	public String getOwnerNamePic() {
+		return ownerNamePic;
 	}
-	public void setTyreSpecificate(String tyreSpecificate) {
-		this.tyreSpecificate = tyreSpecificate;
+	public void setOwnerNamePic(String ownerNamePic) {
+		this.ownerNamePic = ownerNamePic;
 	}
-	public int getDragQua() {
-		return dragQua;
+	public String getVehiclePic() {
+		return vehiclePic;
 	}
-	public void setDragQua(int dragQua) {
-		this.dragQua = dragQua;
+	public void setVehiclePic(String vehiclePic) {
+		this.vehiclePic = vehiclePic;
 	}
-	public int getOutLen() {
-		return outLen;
+	public String getTonsSeat() {
+		return tonsSeat;
 	}
-	public void setOutLen(int outLen) {
-		this.outLen = outLen;
+	public void setTonsSeat(String tonsSeat) {
+		this.tonsSeat = tonsSeat;
 	}
-	public int getOutwide() {
-		return outwide;
+	public String getCarLen() {
+		return carLen;
 	}
-	public void setOutwide(int outwide) {
-		this.outwide = outwide;
+	public void setCarLen(String carLen) {
+		this.carLen = carLen;
 	}
-	public int getOuthigh() {
-		return outhigh;
+	public String getCarWidth() {
+		return carWidth;
 	}
-	public void setOuthigh(int outhigh) {
-		this.outhigh = outhigh;
+	public void setCarWidth(String carWidth) {
+		this.carWidth = carWidth;
 	}
-	public int getInlen() {
-		return inlen;
+	public String getCarHigh() {
+		return carHigh;
 	}
-	public void setInlen(int inlen) {
-		this.inlen = inlen;
+	public void setCarHigh(String carHigh) {
+		this.carHigh = carHigh;
 	}
-	public int getInwide() {
-		return inwide;
+	public String getFrameNumber() {
+		return frameNumber;
 	}
-	public void setInwide(int inwide) {
-		this.inwide = inwide;
+	public void setFrameNumber(String frameNumber) {
+		this.frameNumber = frameNumber;
 	}
-	public int getInhigh() {
-		return inhigh;
+	public String getEngineNumber() {
+		return engineNumber;
 	}
-	public void setInhigh(int inhigh) {
-		this.inhigh = inhigh;
+	public void setEngineNumber(String engineNumber) {
+		this.engineNumber = engineNumber;
 	}
-	
-	public String getVehicleModel() {
-		return vehicleModel;
+	public String getaDDTIME() {
+		return aDDTIME;
 	}
-	public void setVehicleModel(String vehicleModel) {
-		this.vehicleModel = vehicleModel;
+	public void setaDDTIME(String aDDTIME) {
+		this.aDDTIME = aDDTIME;
 	}
-	public String getCarColor() {
-		return carColor;
+	public String getCheckDate() {
+		return checkDate;
 	}
-	public void setCarColor(String carColor) {
-		this.carColor = carColor;
+	public void setCheckDate(String checkDate) {
+		this.checkDate = checkDate;
 	}
-	public String getCarProductEndDateString() {
-		return carProductEndDateString;
+	public String getTransferDate() {
+		return transferDate;
 	}
-	public void setCarProductEndDateString(String carProductEndDateString) {
-		this.carProductEndDateString = carProductEndDateString;
-	}
-	public int getCustomerType() {
-		return customerType;
-	}
-	public void setCustomerType(int customerType) {
-		this.customerType = customerType;
-	}
-	public String getCustomerName() {
-		return customerName;
-	}
-	public void setCustomerName(String customerName) {
-		this.customerName = customerName;
-	}
-	public String getLinkman() {
-		return linkman;
-	}
-	public void setLinkman(String linkman) {
-		this.linkman = linkman;
-	}
-	public String getLinkmanTel() {
-		return linkmanTel;
-	}
-	public void setLinkmanTel(String linkmanTel) {
-		this.linkmanTel = linkmanTel;
-	}
-	public String getCarOwner() {
-		return carOwner;
-	}
-	public void setCarOwner(String carOwner) {
-		this.carOwner = carOwner;
-	}
-	public String getCarOwnerTel() {
-		return carOwnerTel;
-	}
-	public void setCarOwnerTel(String carOwnerTel) {
-		this.carOwnerTel = carOwnerTel;
-	}
-	public String getDriver1() {
-		return driver1;
-	}
-	public void setDriver1(String driver1) {
-		this.driver1 = driver1;
-	}
-	public String getDriver1Tel() {
-		return driver1Tel;
-	}
-	public void setDriver1Tel(String driver1Tel) {
-		this.driver1Tel = driver1Tel;
-	}
-	public String getDriver2() {
-		return driver2;
-	}
-	public void setDriver2(String driver2) {
-		this.driver2 = driver2;
-	}
-	public String getDriver2Tel() {
-		return driver2Tel;
-	}
-	public void setDriver2Tel(String driver2Tel) {
-		this.driver2Tel = driver2Tel;
-	}
-	public String getSimNo() {
-		return simNo;
-	}
-	public void setSimNo(String simNo) {
-		this.simNo = simNo;
-	}
-	public String getTerminalId() {
-		return terminalId;
-	}
-	public void setTerminalId(String terminalId) {
-		this.terminalId = terminalId;
-	}
-	public String getTerminalType() {
-		return terminalType;
-	}
-	public void setTerminalType(String terminalType) {
-		this.terminalType = terminalType;
-	}
-	public String getTerminalGYS() {
-		return terminalGYS;
-	}
-	public void setTerminalGYS(String terminalGYS) {
-		this.terminalGYS = terminalGYS;
-	}
-	public String getInNetDateString() {
-		return inNetDateString;
-	}
-	public void setInNetDateString(String inNetDateString) {
-		this.inNetDateString = inNetDateString;
-	}
-	public String getMemo() {
-		return memo;
-	}
-	public void setMemo(String memo) {
-		this.memo = memo;
-	}
-	public String getCarOwnerPhoto() {
-		return carOwnerPhoto;
-	}
-	public void setCarOwnerPhoto(String carOwnerPhoto) {
-		this.carOwnerPhoto = carOwnerPhoto;
-	}
-	public String getCarPhoto() {
-		return carPhoto;
-	}
-	public void setCarPhoto(String carPhoto) {
-		this.carPhoto = carPhoto;
-	}
-	public String getCertificatePhoto() {
-		return certificatePhoto;
-	}
-	public void setCertificatePhoto(String certificatePhoto) {
-		this.certificatePhoto = certificatePhoto;
-	}
-	public String getCertificatePhoto2() {
-		return certificatePhoto2;
-	}
-	public void setCertificatePhoto2(String certificatePhoto2) {
-		this.certificatePhoto2 = certificatePhoto2;
-	}
-	public String getDriverPhoto() {
-		return driverPhoto;
-	}
-	public void setDriverPhoto(String driverPhoto) {
-		this.driverPhoto = driverPhoto;
-	}
-	public String getCarBrandText() {
-		return carBrandText;
-	}
-	public void setCarBrandText(String carBrandText) {
-		this.carBrandText = carBrandText;
-	}
-	public String getCarPlateColText() {
-		return carPlateColText;
-	}
-	public void setCarPlateColText(String carPlateColText) {
-		this.carPlateColText = carPlateColText;
-	}
-	public String getCustomerId() {
-		return customerId;
-	}
-	public void setCustomerId(String customerId) {
-		this.customerId = customerId;
+	public void setTransferDate(String transferDate) {
+		this.transferDate = transferDate;
 	}
 	@Override
 	public String toString() {
-		return "Vehicle [id=" + id + ", pkey=" + pkey + ", carPlateNo=" + carPlateNo + ", carPlateCol=" + carPlateCol
-				+ ", carPlateColText=" + carPlateColText + ", carType2=" + carType2 + ", ifDangerVehicle="
-				+ ifDangerVehicle + ", transportNo=" + transportNo + ", carAddProvince=" + carAddProvince
-				+ ", carAddCity=" + carAddCity + ", carAddCounty=" + carAddCounty + ", hgzDataSource=" + hgzDataSource
-				+ ", vin2=" + vin2 + ", engineNo=" + engineNo + ", carBrand=" + carBrand + ", carBrandText="
-				+ carBrandText + ", quality=" + quality + ", approvedQua=" + approvedQua + ", axleCount=" + axleCount
-				+ ", tyreCount=" + tyreCount + ", tyreSpecificate=" + tyreSpecificate + ", dragQua=" + dragQua
-				+ ", outLen=" + outLen + ", outwide=" + outwide + ", outhigh=" + outhigh + ", inlen=" + inlen
-				+ ", inwide=" + inwide + ", inhigh=" + inhigh + ", vehicleModel=" + vehicleModel + ", carColor="
-				+ carColor + ", carProductEndDateString=" + carProductEndDateString + ", customerType=" + customerType
-				+ ", customerId=" + customerId + ", customerName=" + customerName + ", linkman=" + linkman
-				+ ", linkmanTel=" + linkmanTel + ", carOwner=" + carOwner + ", carOwnerTel=" + carOwnerTel
-				+ ", driver1=" + driver1 + ", driver1Tel=" + driver1Tel + ", driver2=" + driver2 + ", driver2Tel="
-				+ driver2Tel + ", simNo=" + simNo + ", terminalId=" + terminalId + ", terminalType=" + terminalType
-				+ ", terminalGYS=" + terminalGYS + ", inNetDateString=" + inNetDateString + ", memo=" + memo
-				+ ", carOwnerPhoto=" + carOwnerPhoto + ", carPhoto=" + carPhoto + ", certificatePhoto="
-				+ certificatePhoto + ", certificatePhoto2=" + certificatePhoto2 + ", driverPhoto=" + driverPhoto + "]";
+		return "Vehicle [id=" + id + ", fileNum=" + fileNum
+				+ ", opretaCertNum=" + opretaCertNum + ", plateNum=" + plateNum
+				+ ", corpName=" + corpName + ", ownerName=" + ownerName
+				+ ", origOwnerName=" + origOwnerName + ", origPlateNum="
+				+ origPlateNum + ", employPerson=" + employPerson + ", color="
+				+ color + ", sign=" + sign + ", sealRecord=" + sealRecord
+				+ ", address=" + address + ", phoneNum=" + phoneNum
+				+ ", iDNumber=" + iDNumber + ", ownerChange=" + ownerChange
+				+ ", drvLicenseDate=" + drvLicenseDate + ", vehicleInspRec="
+				+ vehicleInspRec + ", ownerNamePic=" + ownerNamePic
+				+ ", vehiclePic=" + vehiclePic + ", tonsSeat=" + tonsSeat
+				+ ", carLen=" + carLen + ", carWidth=" + carWidth
+				+ ", carHigh=" + carHigh + ", frameNumber=" + frameNumber
+				+ ", engineNumber=" + engineNumber + ", aDDTIME=" + aDDTIME
+				+ ", checkDate=" + checkDate + ", transferDate=" + transferDate
+				+ "]";
 	}
- 
+	
+	
 
 }

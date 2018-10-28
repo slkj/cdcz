@@ -263,235 +263,106 @@
 		style="height: 100%; padding-left: 15px">
 		<form id="form" method="post">
 			<input name="id" type="hidden" />
-			<div class="itemForm" style="width: 740px">
-				<div class="formtitle">
-					<span>客户信息</span>
-				</div>
-				<div style="height: 160px">
-					<div class='item col4'>
-						<label class="labelWidth2"> <span style="color: red">*</span>
-							客户类型
-						</label> <select class="easyui-combobox" name="customerType"
-							style="width: 200px">
-							<option value="1">运输企业</option>
-							<option value="2">个人</option>
-						</select>
-					</div>
-					<div class='item col4'>
-						<label class="labelWidth2"> <span style="color: red">*</span>
-							客户名称
-						</label> <input class="easyui-combobox" name="customerId"
-							data-options="valueField:'id',textField:'compName',required:true,
-											url:'../company/queryComList'"
-							style="width: 200px"></input>
-					</div>
-					<div class='item col4'>
-						<label class="labelWidth2"> <span style="color: red">*</span>
-							联系人
-						</label> <input class="easyui-textbox" type="text" name="linkman"
-							data-options="required:true" style="width: 200px"></input>
-					</div>
-					<div class='item col4'>
-						<label class="labelWidth2"> <span style="color: red">*</span>
-							联系人电话
-						</label> <input type="text" name="linkmanTel" class="easyui-textbox"
-							data-options="required:true,validType:'mobile'"
-							style="width: 200px" />
-					</div>
-					<div class='item col4'>
-						<label class="labelWidth2"> <span style="color: red">*</span>
-							车主
-						</label> <input class="easyui-textbox readonly" type="text"
-							name="carOwner" data-options="required:true" style="width: 200px"></input>
-					</div>
-					<div class='item col4'>
-						<label class="labelWidth2"> <span style="color: red">*</span>
-							车主电话
-						</label> <input type="text" name="carOwnerTel" class="easyui-textbox"
-							data-options="required:true,validType:'mobile'"
-							style="width: 200px" />
-					</div>
-					<div class='item col4'>
-						<label class="labelWidth2"> <span style="color: red">*</span>
-							身份证号
-						</label> <input type="text" name="driver2" class="easyui-textbox"
-							data-options="required:true,validType:'idcard'"
-							style="width: 200px" />
-					</div>
-					<div class='item col4'>
-						<label class="labelWidth2">家庭住址</label> <input
-							class="easyui-textbox" type="text" name="driver2Tel"
-							data-options="required:true" style="width: 200px"></input>
-					</div>
-					<div class='item col4'>
-						<label class="labelWidth2">原车主</label> <input
-							class="easyui-textbox" type="text" name="driver1"
-							style="width: 200px"></input>
-					</div>
-					<div class='item col4'>
-						<label class="labelWidth2">原车牌号</label> <input type="text"
-							name="driver1Tel" class="easyui-textbox"
-							data-options="validType:'carNo'" style="width: 200px" />
-					</div>
-				</div>
-				<div style="height: 40px"></div>
-				<div class="formtitle">
-					<span>落籍信息</span>
-				</div>
-				<div style="height: 200px">
-					<div class='item col4'>
-						<label class="labelWidth2"> <span style="color: red">*</span>
-							档案号
-						</label> <input type="text" name="pkey" class="easyui-textbox"
-							data-options="required:true" style="width: 200px" />
-					</div>
-					<div class='item col4'>
-						<label class="labelWidth2"> <span style="color: red">*</span>
-							车牌号
-						</label> <input type="text" name="carPlateNo" class="easyui-textbox"
-							data-options="required:true,validType:'carNo'"
-							style="width: 200px" />
-					</div>
-					<div class='item col4'>
-						<label class="labelWidth2"> <span style="color: red">*</span>
-							车牌颜色
-						</label> <select class="easyui-combobox" name="carPlateCol"
-							style="width: 200px">
-							<option value="Y">黄色</option>
-							<option value="U">蓝色</option>
-							<option value="B">黑色</option>
-							<option value="W">白色</option>
-							<option value="O">其他</option>
-						</select>
-					</div>
-					<div class='item col4'>
-						<label class="labelWidth2"> <span style="color: red">*</span>
-							车辆类型
-						</label> <select class="easyui-combobox" name="carType2"
-							style="width: 200px">
-							<option value="燃油车">燃油车</option>
-							<option value="双燃料">双燃料</option>
-							<option value="新能源">新能源</option>
-
-						</select>
-
-					</div>
-					<div class='item col4'>
-						<label class="labelWidth2"> <span style="color: red">*</span>
-							营运证号
-						</label> <input class="easyui-textbox" type="text" name="transportNo"
-							validType="length[0,30]" data-options="required:true"
-							style="width: 200px"></input>
-					</div>
-
-					<div class='item col4'>
-						<label class="labelWidth2"> <span style="color: red">*</span>
-							车辆品牌
-						</label> <select class="easyui-combobox" name="carBrand" id="carBrand"
-							data-options="valueField:'key',textField:'value',required:true,
-											url:'../common/VEHICLE_CARTYPE.json'"
-							style="width: 200px"></select>
-					</div>
-					<div class='item col4'>
-						<label class="labelWidth2"> <span style="color: red">*</span>
-							车身颜色
-						</label> <input class="easyui-textbox" name="carColor"
-							validType="length[0,50]" data-options="required:true"
-							style="width: 200px"></input>
-					</div>
-					<div class='item col4'>
-						<label class="labelWidth2">行驶证初次登记</label> <input class="Wdate"
-							style="width: 200px"
-							onfocus="WdatePicker({readOnly:true,dateFmt:'yyyy/MM/dd'})"
-							name="terminalGYS"></input>
-					</div>
-					<div class='item col4'>
-						<label class="labelWidth2">车辆型号</label> <input
-							class="easyui-textbox" type="text" name="vehicleModel"
-							style="width: 200px"></input>
-					</div>
-					<div class='item col4'>
-						<label class="labelWidth2">汽车制造厂</label> <select
-							class="easyui-textbox" type="text" name="hgzDataSource"
-							style="width: 200px"></select>
-					</div>
-					<div class='item col4'>
-						<label class="labelWidth2">车辆识别代码/车架号</label> <input
-							class="easyui-textbox" type="text" name="vin2" id="vin2"
-							style="width: 200px"></input>
-					</div>
-					<div class='item col4'>
-						<label class="labelWidth2">发动机号</label> <input
-							class="easyui-textbox" type="text" name="engineNo" style="width: 200px"></input>
-					</div>
-					<div class="item col4">
-						<label class="labelWidth2">车辆出厂日期</label> <input class="Wdate"
-							style="width: 200px"
-							onfocus="WdatePicker({readOnly:true,dateFmt:'yyyy/MM/dd'})"
-							name="carProductEndDateString"></input>
-					</div>
-
-				</div>
-				<div style="height:80px"></div>
-				<div class="formtitle">
-					<span>上传图片</span>
-				</div>
-				<div style="height: 100px;">
-					<div class='item show' style="width: 150">
-						<a href="javascript:void(0);" class="easyui-linkbutton"
+			<table style="width: 90%">
+			<tr>
+				<td align="right" width="70px">档案号:</td>
+				<td><input class="easyui-textbox" name="fileNum" type="text" style="width: 200px;" /></td>
+				<td align="right" width="70px">车主姓名:</td>
+				<td><input class="easyui-textbox" name="ownerName" type="text" style="width: 200px;" /></td>
+			</tr>
+			<tr>
+				<td align="right" width="70px">颜色:</td>
+				<td><input class="easyui-textbox" name="color" type="text" style="width: 200px;" /></td>
+				<td align="right" width="70px">车型:</td>
+				<td><input class="easyui-textbox" name="sign" type="text" style="width: 200px;" /></td>
+			</tr>
+			<tr>
+				<td align="right" width="70px">营运证号:</td>
+				<td><input class="easyui-textbox" name="opretaCertNum" type="text" style="width: 200px;" /></td>
+				<td align="right" width="70px">原车主:</td>
+				<td><input class="easyui-textbox" name="origOwnerName" type="text" style="width: 200px;" /></td>
+			</tr>
+			<tr>
+				<td align="right" width="70px">公司名称:</td>
+				<td><input class="easyui-textbox" name="corpName" type="text" style="width: 200px;" /></td>
+				<td align="right" width="70px">联系电话:</td>
+				<td><input class="easyui-textbox" name="phoneNum" type="text" style="width: 200px;" /></td>
+			</tr>
+			<tr>
+				<td align="right" width="70px">变更日期:</td>
+				<td><input class="easyui-textbox" name="transferDate" type="text" style="width: 200px;" /></td>
+				<td align="right" width="70px">变更记录:</td>
+				<td><input class="easyui-textbox" name="ownerChange" type="text" style="width: 200px;" /></td>
+			</tr>
+			<tr>
+				<td align="right" width="70px">车牌号:</td>
+				<td><input class="easyui-textbox" name="plateNum" type="text" style="width: 200px;" /></td>
+				<td align="right" width="70px">原车牌号:</td>
+				<td><input class="easyui-textbox" name="origPlateNum" type="text" style="width: 200px;" /></td>
+			</tr>
+			<tr>
+				<td align="right" width="70px">查封记录:</td>
+				<td><input class="easyui-textbox" name="sealRecord" type="text" style="width: 200px;" /></td>
+				<td align="right" width="70px">行驶证初次登记:</td>
+				<td><input class="easyui-textbox" name="drvLicenseDate" type="text" style="width: 200px;" /></td>
+			</tr>
+			<tr>
+				<td align="right" width="70px">身份证号:</td>
+				<td><input class="easyui-textbox" name="iDNumber" type="text" style="width: 200px;" /></td>
+				<td align="right" width="70px">发证日期:</td>
+				<td><input class="easyui-textbox" name="checkDate" type="text" style="width: 200px;" /></td>
+				
+			</tr>
+			<tr>
+				<td align="right" width="70px">家庭住址:</td>
+				<td  colspan="3"><input class="easyui-textbox" name="address" type="text" style="width: 400px;" /></td>
+				
+			</tr>
+			<tr>
+						
+				<td align="right" width="70px">吨位:</td>
+				<td><input class="easyui-textbox" name="tonsSeat" type="text" style="width: 200px;" /></td>
+				<td align="right" width="70px">长:</td>
+				<td><input class="easyui-textbox" name="carLen" type="text" style="width: 200px;" /></td>
+							
+			</tr>
+			<tr>
+						
+				<td align="right" width="70px">宽:</td>
+				<td><input class="easyui-textbox" name="carWidth" type="text" style="width: 200px;" /></td>
+				<td align="right" width="70px">高:</td>
+				<td><input class="easyui-textbox" name="carHigh" type="text" style="width: 200px;" /></td>
+							
+			</tr>
+			<tr>
+				<td align="right" width="70px" >车架号:</td>
+				<td><input class="easyui-textbox" name="frameNumber" type="text" style="width: 200px;" /></td>
+				<td align="right" width="70px">发动机号:</td>
+				<td><input class="easyui-textbox" name="engineNumber" type="text" style="width: 200px;" /></td>
+			</tr>
+			<tr>
+				<td align="right" width="70px" height="100px">车辆审验记录:</td>
+				<td  colspan="3"><input class="easyui-textbox" name="vehicleInspRec" type="text" style="width: 600px;height:100px;"  multiline="true"/></td>
+				
+			</tr>
+			<tr>
+				<td   colspan="2"><a href="javascript:void(0);" class="easyui-linkbutton"
 							data-options="iconCls:'icon-add',plain:true"
 							onclick="uploadCarOwnerPhoto();">上传车主照片</a>
-					</div>
-					<div class='item show' style="width: 150">
-						<a href="javascript:void(0);" class="easyui-linkbutton"
+				<a href="javascript:void(0);" class="easyui-linkbutton"
 							data-options="iconCls:'icon-add',plain:true"
-							onclick="uploadCarPhoto();">上传车身照片</a>
-					</div>
-					<div class='item show' style="width: 150">
-						<a href="javascript:void(0);" class="easyui-linkbutton"
-							data-options="iconCls:'icon-add',plain:true"
-							onclick="uploadCertificatePhoto();">上传车辆登记证照片</a>
-					</div>
-					<div class='item show' style="width: 150">
-						<a href="javascript:void(0);" class="easyui-linkbutton"
-							data-options="iconCls:'icon-add',plain:true"
-							onclick="uploadCertificatePhoto2();">上传车辆登记证2照片</a>
-					</div>
-					<div class='item show' style="width: 190">
-						<a href="javascript:void(0);" class="easyui-linkbutton"
-							data-options="iconCls:'icon-add',plain:true"
-							onclick="uploadDriverPhoto();">上传车辆合格证/行驶证照片</a>
-					</div>
-					<div class='item' style="width: 150">
-						<a href="javascript:void(0);" class="easyui-linkbutton"
+							onclick="uploadCarPhoto();">上传车身照片</a></td>
+				<td   colspan="2"><a href="javascript:void(0);" class="easyui-linkbutton"
 							data-options="iconCls:'icon-search',plain:true"
 							onclick="showCarOwnerPhoto();">查看车主照片</a>
-					</div>
-					<div class='item' style="width: 150">
-						<a href="javascript:void(0);" class="easyui-linkbutton"
+					
+				<a href="javascript:void(0);" class="easyui-linkbutton"
 							data-options="iconCls:'icon-search',plain:true"
-							onclick="showCarPhoto();">查看车身照片</a>
-					</div>
-					<div class='item' style="width: 150">
-						<a href="javascript:void(0);" class="easyui-linkbutton"
-							data-options="iconCls:'icon-search',plain:true"
-							onclick="showCertificatePhoto();">查看车辆登记证照片</a>
-					</div>
-					<div class='item' style="width: 150">
-						<a href="javascript:void(0);" class="easyui-linkbutton"
-							data-options="iconCls:'icon-search',plain:true"
-							onclick="showCertificatePhoto2();">查看车辆登记证照片</a>
-					</div>
-					<div class='item' style="width: 190">
-						<a href="javascript:void(0);" class="easyui-linkbutton"
-							data-options="iconCls:'icon-search',plain:true"
-							onclick="showDriverPhoto();">查看车辆合格证/行驶证照片</a>
-					</div>
-					<div class='item' style="width: 500">
-						<span style="color: red; margin-left: 10px">备注：小于3M，jpg、jpeg格式，且车身照片为车辆左前方45角度图片</span>
-					</div>
-				</div>
-			</div>
+							onclick="showCarPhoto();">查看车身照片</a></td>
+			</tr>
+			
+		</table>
+			
 		</form>
 	</div>
 </body>

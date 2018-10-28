@@ -19,7 +19,7 @@ public interface VehicleService {
 
 	int edit(Vehicle vehicle);
 	
-	public void exportExcel(HashMap<String, Object> map, String[] titles, ServletOutputStream outputStream);
+//public void exportExcel(HashMap<String, Object> map, String[] titles, ServletOutputStream outputStream);
 	
 	List<Vehicle> getList(HashMap<String, Object> hashMap);
 

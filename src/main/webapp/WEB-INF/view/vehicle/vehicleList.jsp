@@ -7,7 +7,7 @@
 <%@ include file="/common/taglibs.jsp"%>
 <script>
 	var $grid;
-	var curUserComCode;
+	
 	$(function() {
 		$grid = $("#list_data");
 		initGrid();
@@ -32,87 +32,45 @@
 					pageSize : 50,
 					pageList : [ 10, 20, 30, 40, 50, 100 ],
 					frozenColumns : [ [
-// 							{
-// 								width : 80,
-// 								align : 'center',
-// 								field : '_pkey',
-// 								title : '定位',
-// 								formatter : function(value, row, index) {
-// 									return '<a href="javascript:void(0);" '
-// 											+ 'style="color:#0070a9" class="easyui-linkbutton" '
-// 											+ 'data-options="iconCls:\'icon-search\',plain:true" onclick="showGpsMap('
-// 											+ index + ');">查看位置</a>';
-// 								}
-// 							},
+// 							
 							{
-								width : 80,
-								field : 'transportNo',
-								title : '营运证号'
+								width : 150,
+								field : 'fileNum',
+								title : '档案号'
 							}, {
-								width : 80,
-								field : 'carPlateNo',
+								width : 150,
+								field : 'plateNum',
 								title : '车牌号'
 							}, {
-								field : 'carType2',
-								title : '燃料类型'
-							}, {
-								width : 50,
-								field : 'carColor',
-								title : '颜色'
-							}, {
-								width : 100,
-								field : 'carBrandText',
-								title : '车辆品牌'
-							}, {
-								width : 180,
-								field : 'customerName',
-								title : '公司名称'
-							}, {
-								width : 80,
-								field : 'carOwner',
+								width : 150,
+								field : 'ownerName',
 								title : '车主'
 							}, {
-								width : 100,
-								field : 'carOwnerTel',
-								title : '联系电话'
-							} ] ],
-					columns : [ [ {
-						field : 'driver2',
-						title : '身份证号'
-					}, {
-						width : 80,
-						field : 'driver1Tel',
-						title : '原车号'
-					}, {
-						width : 80,
-						field : 'driver1',
-						title : '原车主'
-					} ] ],
-					// 					toolbar : [ {
-					// 						iconCls : 'icon-search',
-					// 						text : '查看',
-					// 						handler : function() {
-					// 							view();
-					// 						}
-					// 					}, {
-					// 						iconCls : 'icon-add',
-					// 						text : '添加',
-					// 						handler : function() {
-					// 							add();
-					// 						}
-					// 					}, '-', {
-					// 						iconCls : 'icon-edit',
-					// 						text : '编辑',
-					// 						handler : function() {
-					// 							edit();
-					// 						}
-					// 					}, '-', {
-					// 						iconCls : 'icon-print',
-					// 						text : '导出',
-					// 						handler : function() {
-					// 							exportData();
-					// 						}
-					// 					} ],
+								width : 150,
+								field : 'opretaCertNum',
+								title : '营运证号'
+							}, {
+								width : 150,
+								field : 'corpName',
+								title : '公司名称'
+							} , {
+						field : 'opt',
+						title : '操作',
+						width : 150,
+						align : 'center',
+						formatter : function(value, row) {
+							var s = "";
+							s += "<a href=\"javascript:void(0)\" onclick=\"showRow('" + row.id + "');\"><i class=\"fa fa-search \"></i>查看</a>";
+							s += "|";
+							s += "<a href=\"javascript:void(0)\" onclick=\"editRow('" + row.id + "');\"><i class=\"fa fa-pencil \"></i>编辑</a>";
+							s += "|";
+							s += "<a href=\"javascript:void(0)\" onclick=\"javaScript:deleteRow('" + row.id + "');\"><i class=\"fa fa-times-rectangle danger\"></i>删除 </a>";
+							if (row.parent_id == "0") {
+								return "";
+							}
+							return s;
+						}
+					} ] ],					
 					onLoadSuccess : function(data) {
 						if (data && data.rows && data.rows.length > 0) {
 							$grid.datagrid("clearSelections");
@@ -124,38 +82,15 @@
 				});
 	}
 
-	function showGpsMap(index) {
-		var rows = getSelectRows($grid);
-		// 		window.open("http://hbslkj.com:89/Interface/findPosition.action?carNum=冀H88002"+rows[0].carPlateNo);      
-		window
-				.open("http://hbslkj.com:89/Interface/findPosition.action?carNum=冀H88002");
-	}
-	function queryBtnClick() {
-		var data = serializeObject($('#searchForm'));
-		$grid.datagrid('load', data);
-	};
-
-	function edit() {
-		var rows = getSelectRows($grid);
-		if (rows) {
-			if (rows.length == 1) {
+	
+	
+	function editRow(id) {		
 				self.location.href = getContextPath()
-						+ "/vehicle/vehicleFormPage?pkey=" + rows[0].id;
-			} else {
-				showError(common018);
-			}
-		}
+						+ "/vehicle/vehicleFormPage?pkey=" + id;
 	}
-	function view() {
-		var rows = getSelectRows($grid);
-		if (rows) {
-			if (rows.length == 1) {
+	function showRow(id) {
 				self.location.href = getContextPath()
-						+ "/vehicle/vehicleFormPage?mode=V&pkey=" + rows[0].id;
-			} else {
-				showError(common018);
-			}
-		}
+						+ "/vehicle/vehicleFormPage?mode=V&pkey=" + id;
 	}
 	function add() {
 		self.location.href = getContextPath() + "/vehicle/vehicleFormPage";
@@ -183,24 +118,17 @@
 	}
 
 	function query() {
-		// 		var data = serializeObject($('#searchForm'));
-		// 		$grid.datagrid('load', data);
-		//$('#searchForm').form('reset')
+		
 		$grid.datagrid({
 			queryParams : {
-				carPlateNo : $('#carPlateNo').val(),
-				transportNo : $('#transportNo').val(),
-				carOwner : $('#carOwner').val()
+				PlateNum : $('#PlateNum').val(),
+				OpretaCertNum : $('#OpretaCertNum').val(),
+				OrigOwnerName : $('#OrigOwnerName').val()
 			}
 		});
 
 	}
-	// 导出excel
-	function exportData() {
-		// 获取条件
-		var param = serializeObject($('#searchForm'));
-		window.location.href = encodeURI("../vehicle/exporsb?" + param);
-	}
+
 </script>
 </head>
 <body class="easyui-layout" data-options="border:false, fit:true">
@@ -208,13 +136,13 @@
 		<div class="comp-search-box">
 			<div class="screen-top">
 				<div class="colRow">
-					<input type="text" class="easyui-textbox" id="carPlateNo" data-options="label:'车牌号'" />
+					<input type="text" class="easyui-textbox" id="PlateNum" data-options="label:'车牌号'" />
 				</div>
 				<div class="colRow">
-					<input type="text" class="easyui-textbox" id="transportNo" data-options="label:'营运证号'" />
+					<input type="text" class="easyui-textbox" id="OpretaCertNum" data-options="label:'营运证号'" />
 				</div>
 				<div class="colRow">
-					<input type="text" class="easyui-textbox" id="carOwner" data-options="label:'车主姓名'" />
+					<input type="text" class="easyui-textbox" id="OrigOwnerName" data-options="label:'车主姓名'" />
 				</div>
 				<div class="colRow">
 					<button class="easyui-linkbutton btnDefault" onclick="query()">
@@ -224,14 +152,8 @@
 			</div>
 		</div>
 		<div class="btnbar-tools">
-			<a href="javascript:;" class="add" onclick="view()"> <i class="fa fa-search "></i> 查看
-			</a> <a href="javascript:;" class="add" onclick="add()"> <i class="fa fa-plus "></i> 添加
-			</a> <a href="javascript:;" class="edit" onclick="edit()"> <i class="fa fa-pencil "></i> 编辑
-			</a>
-			<!-- 			<a href="javascript:;" class="del"> <i class="fa fa-times-rectangle danger"></i> 删除</a>  -->
-			<!-- 			<a href="javascript:;" class="count"> <i class="fa fa-pie-chart purple"></i> 统计</a>  -->
-			<a href="javascript:;" class="check" onclick="exportData()"> <i class="fa fa-print"></i> 导出
-			</a>
+			<a href="javascript:;" class="add" onclick="add()"> <i class="fa fa-plus-square success "></i> 添加
+			</a> 
 		</div>
 	</div>
 	<div data-options="region:'center',border:true">

@@ -24,28 +24,50 @@
 			singleSelect : true,
 			pageSize : 50,
 			pageList : [ 10, 20, 30, 40, 50, 100 ],
-			columns : [ [ {
+			columns : [ [ /* {
 				field : 'compCode',
 				title : '企业编号'
-			}, {
+			}, */ {
+				width : 250,
 				field : 'compName',
 				title : '企业名称'
 			}, {
+				width : 150,
 				field : 'compNameJc',
-				title : '企业简称'
-			}, {
-				field : 'linkman',
-				title : '联系人'
-			}, {
-				field : 'mobile',
 				title : '联系电话'
 			}, {
-				field : 'email',
-				title : 'Email'
+				width : 150,
+				field : 'linkman',
+				title : '经营许可证号'
 			}, {
+				width : 150,
+				field : 'mobile',
+				title : '企业代码'
+			}, {
+				width : 150,
+				field : 'email',
+				title : '法人代表'
+			}, /* {
 				field : 'qq',
 				title : 'QQ'
-			} ] ]
+			},  */{
+				field : 'opt',
+				title : '操作',
+				width : 150,
+				align : 'center',
+				formatter : function(value, row) {
+					var s = "";
+					s += "<a href=\"javascript:void(0)\" onclick=\"showRow('" + row.id + "');\"><i class=\"fa fa-search \"></i>查看</a>";
+					s += "|";
+					s += "<a href=\"javascript:void(0)\" onclick=\"editRow('" + row.id + "');\"><i class=\"fa fa-pencil \"></i>编辑</a>";
+					s += "|";
+					s += "<a href=\"javascript:void(0)\" onclick=\"javaScript:deleteRow();\"> <i class=\"fa fa-times-rectangle danger\"></i>删除 </a>";
+					if (row.parent_id == "0") {
+						return "";
+					}
+					return s;
+				}
+			}  ] ]
 		});
 	}
 	function showAdd() {
@@ -143,11 +165,29 @@
 </script>
 </head>
 <body class="easyui-layout" data-options="border:false, fit:true">
-	<div data-options="region:'north',split:false"  style="height: 40px">
+	<div data-options="region:'north',split:false"  style="height: 90px">
+	<div class="comp-search-box">
+			<div class="screen-top">
+				<div class="colRow">
+					<input type="text" class="easyui-textbox" id="carPlateNo" data-options="label:'车牌号'" />
+				</div>
+				<div class="colRow">
+					<input type="text" class="easyui-textbox" id="transportNo" data-options="label:'营运证号'" />
+				</div>
+				<div class="colRow">
+					<input type="text" class="easyui-textbox" id="carOwner" data-options="label:'车主姓名'" />
+				</div>
+				<div class="colRow">
+					<button class="easyui-linkbutton btnDefault" onclick="query()">
+						<i class="fa fa-search"></i> 查询
+					</button>
+				</div>
+			</div>
+		</div>
 		<div class="btnbar-tools">
 			<a href="javascript:;" class="add" onclick="showAdd()"> <i class="fa fa-plus-square success"></i> 添加
-			</a> <a href="javascript:;" class="edit" onclick="editShow()"> <i class="fa fa-pencil-square info"></i> 编辑
-			</a>
+			</a> <!-- <a href="javascript:;" class="edit" onclick="editShow()"> <i class="fa fa-pencil-square info"></i> 编辑
+			</a> -->
 		</div>
 	</div>
 	<div data-options="region:'center',border:true">

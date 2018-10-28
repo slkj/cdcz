@@ -53,9 +53,9 @@ public class VehicleServiceImpl implements VehicleService {
 		return mapper.edit(vehicle);
 	}
 
-	/**
+/*	*//**
 	 * 导出Excel
-	 */
+	 *//*
 	public void exportExcel(HashMap<String, Object> map, String[] titles, ServletOutputStream outputStream) {
 		List<Vehicle> list = mapper.getAllList(map);
 		// 创建一个workbook 对应一个excel应用文件
@@ -142,7 +142,7 @@ public class VehicleServiceImpl implements VehicleService {
 			}
 		}
 
-	}
+	}*/
 
 	@Override
 	public List<TotalNum> getBarData(HashMap<String, Object> hashMap) {
