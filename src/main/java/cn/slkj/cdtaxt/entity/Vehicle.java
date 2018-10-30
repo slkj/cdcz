@@ -1,35 +1,45 @@
 package cn.slkj.cdtaxt.entity;
+/**
+ * 
 
+* <p>Title: Vehicle</p>  
+
+* <p>Description: </p>  
+
+* @author wangling  
+
+* @date 2018年10月30日
+ */
 public class Vehicle {
 	private String id;
-	private String fileNum; 
-	private String opretaCertNum; 
-	private String plateNum; 
-	private String corpName; 
-	private String ownerName; 
-	private String origOwnerName; 
-	private String origPlateNum; 
-	private String employPerson; 
-	private String color; 
-	private String sign; 
-	private String sealRecord; 
-	private String address; 
-	private String phoneNum; 
-	private String iDNumber; 
-	private String ownerChange; 
-	private String drvLicenseDate; 
-	private String vehicleInspRec;
-	private String ownerNamePic; 
-	private String vehiclePic; 
-	private String tonsSeat; 
-	private String carLen; 
-	private String carWidth; 
-	private String carHigh; 
-	private String frameNumber; 
-	private String engineNumber;
-	private String aDDTIME; 
-	private String checkDate; 
-	private String transferDate;
+	private String fileNum; //档案号
+	private String opretaCertNum; //营运证号
+	private String plateNum; //车牌号
+	private String corpName; //公司名称
+	private String ownerName; //车主姓名
+	private String origOwnerName;// 原车主
+	private String origPlateNum; //原车牌号
+	private String employPerson; //操作人员
+	private String color; //颜色
+	private String sign; //车型
+	private String sealRecord;// 查封记录
+	private String address; //家庭住址
+	private String phoneNum; //联系电话
+	private String iDNumber; //身份证号
+	private String ownerChange;// 变更记录
+	private String drvLicenseDate;// 行驶证初次登记
+	private String vehicleInspRec;//车辆审验记录
+	private String ownerNamePic; //车主照片
+	private String vehiclePic; //车辆照片
+	private String tonsSeat; //吨位
+	private String carLen; //长
+	private String carWidth; //宽
+	private String carHigh; //高
+	private String frameNumber;//车架号 
+	private String engineNumber;//发动机号
+	private String aDDTIME; //操作日期
+	private String checkDate; //发证日期
+	private String transferDate;//变更日期
 	public String getId() {
 		return id;
 	}

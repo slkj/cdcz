@@ -26,32 +26,56 @@
 		<input id="id" name="id" type="hidden" />
 		<table style="width: 100%">
 			<tr>
-				<td align="right" width="70px">企业编号:</td>
-				<td><input class="easyui-textbox" name="compCode" type="text" style="width: 95%;" /></td>
-			</tr>
-			<tr>
-				<td align="right">企业名称:</td>
-				<td><input class="easyui-textbox" name="compName" type="text" style="width: 95%;" /></td>
-			</tr>
-			<tr>
-				<td align="right">企业简称:</td>
-				<td><input type="text" class="easyui-textbox" name="compNameJc" style="width: 95%;" /></td>
-			</tr>
-			<tr>
-				<td align="right">联系人:</td>
-				<td><input class="easyui-textbox" name="linkman" type="text" style="width: 95%;" /></td>
+				<td align="right" width="120px">单位名称:</td>
+				<td><input class="easyui-textbox" name="unitname" type="text" style="width: 95%;" /></td>
 			</tr>
 			<tr>
 				<td align="right">联系电话:</td>
-				<td><input type="text" class="easyui-textbox" name="mobile" style="width: 95%;" /></td>
+				<td><input class="easyui-textbox" name="phone" type="text" style="width: 95%;" /></td>
 			</tr>
 			<tr>
-				<td align="right">Email:</td>
-				<td><input type="text" class="easyui-textbox" name="email" style="width: 95%;" /></td>
+				<td align="right">单位地址:</td>
+				<td><input type="text" class="easyui-textbox" name="unitaddr" style="width: 95%;" /></td>
 			</tr>
 			<tr>
-				<td align="right">QQ:</td>
-				<td><input type="text" class="easyui-textbox" name="qq" style="width: 95%;" /></td>
+				<td align="right">经营范围:</td>
+				<td><input class="easyui-textbox" name="businessscope" type="text" style="width: 95%;height:100px;"  multiline="true" /></td>
+			</tr>
+			<tr>
+				<td align="right">经营许可证号:</td>
+				<td><input type="text" class="easyui-textbox" name="businessno" style="width: 95%;" /></td>
+			</tr>
+			<tr>
+				<td align="right">企业代码:</td>
+				<td><input type="text" class="easyui-textbox" name="enterprisecode" style="width: 95%;" /></td>
+			</tr>
+			<tr>
+				<td align="right">注册资本:</td>
+				<td><input type="text" class="easyui-textbox" name="regcapital" style="width: 95%;" /></td>
+			</tr>
+			<tr>
+				<td align="right">经济类型:</td>
+				<td><input type="text" class="easyui-textbox" name="economytype" style="width: 95%;" /></td>
+			</tr>
+			<tr>
+				<td align="right">法人代表:</td>
+				<td><input type="text" class="easyui-textbox" name="legalrepresentative" style="width: 95%;" /></td>
+			</tr>
+			<tr>
+				<td align="right">车辆总数:</td>
+				<td><input type="text" class="easyui-textbox" name="vehiclesnum" style="width: 95%;" /></td>
+			</tr>
+			<tr>
+				<td align="right">从业人员总数:</td>
+				<td><input type="text" class="easyui-textbox" name="employeescount" style="width: 95%;" /></td>
+			</tr>
+			<tr>
+				<td align="right">安全管理人员总数:</td>
+				<td><input type="text" class="easyui-textbox" name="manageersonnel" style="width: 95%;" /></td>
+			</tr>
+			<tr>
+				<td align="right">企业自有车数:</td>
+				<td><input type="text" class="easyui-textbox" name="carnum" style="width: 95%;" /></td>
 			</tr>
 		</table>
 	</form>

@@ -2,52 +2,52 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.slkj.cdtaxt.mapper.CompanyMapper">
 	<sql id="sql_temp">
-		id, compCode,compName,linkman,mobile,email,qq,
-		level, bCompany,corporate,contactMenber,contactWay,organizationCode,businessLicense,
-		registeredCapital, compAddress,introduction,xkz,remarks,sfbz,status,compNameJc
+		id, unitname, phone, unitaddr, businessscope, businessno,
+		 enterprisecode, regcapital, economytype, legalrepresentative,
+		  vehiclesnum, employeescount, manageersonnel, carnum, addtime
 	</sql>
 	<select id="queryComList" resultType="Company" parameterType="hashmap">
-		SELECT * FROM COMPANY
+		SELECT * FROM tb_enterprise_info
 		<where>
-			<if test="compName != null and compName != ''">
-				AND COMPNAME LIKE '%'+ #{compName} +'%'
+			<if test="unitname != null and unitname != ''">
+				AND unitname LIKE '%'+ #{unitname} +'%'
 			</if>
 		</where>
 	</select>
 	<select id="queryList" resultType="Company" parameterType="hashmap">
 		SELECT
 		<include refid="sql_temp" />
-		FROM COMPANY
+		FROM tb_enterprise_info
 		<where>
-			<if test="compName != null and compName != ''">
-				AND COMPNAME LIKE '%'+ #{compName} +'%'
+			<if test="unitname != null and unitname != ''">
+				AND unitname LIKE '%'+ #{unitname} +'%'
 			</if>
 		</where>
 	</select>
 
 	<select id="queryOne" resultType="Company" parameterType="string">
-		SELECT <include refid="sql_temp" /> FROM COMPANY WHERE ID = #{id}
+		SELECT <include refid="sql_temp" /> FROM tb_enterprise_info WHERE ID = #{id}
 	</select>
 
 	<insert id="save" parameterType="Company">
-		INSERT INTO COMPANY (compCode,compName,linkman,mobile,email,qq,
-		level, bCompany,corporate,contactMenber,contactWay,organizationCode,businessLicense,
-		registeredCapital, compAddress,introduction,xkz,remarks,sfbz,status,compNameJc)
-		VALUES(#{compCode},#{compName},#{linkman},#{mobile},#{email},#{qq},#{level},
-		#{ bCompany},#{corporate},#{contactMenber},#{contactWay},#{organizationCode},
-		#{businessLicense},#{registeredCapital},#{ compAddress},#{introduction},
-		#{xkz},#{remarks},#{sfbz},#{status},#{compNameJc} )
+		INSERT INTO tb_enterprise_info (unitname, phone, unitaddr, 
+		businessscope, businessno,enterprisecode, regcapital, economytype,
+		 legalrepresentative,vehiclesnum, employeescount, manageersonnel, carnum, addtime)
+		VALUES(#{unitname}, #{phone}, #{unitaddr}, #{businessscope}, #{ businessno},
+		#{enterprisecode}, #{ regcapital}, #{ economytype}, #{legalrepresentative},
+		#{vehiclesnum}, #{employeescount}, #{manageersonnel}, #{carnum}, getdate() )
 	</insert>
 
 	<update id="edit" parameterType="Company">
-		UPDATE COMPANY SET
-		compCode=#{compCode}, compName=#{compName},linkman=#{linkman},
-		mobile=#{mobile},email=#{email},qq=#{qq},
-        status=#{ status},compNameJc=#{compNameJc}
+		UPDATE tb_enterprise_info SET
+		unitname=#{unitname}, phone=#{phone}, unitaddr=#{unitaddr},businessscope=#{businessscope}, 
+		businessno=#{businessno},enterprisecode=#{enterprisecode}, regcapital=#{regcapital}, 
+		economytype=#{economytype},legalrepresentative=#{legalrepresentative},vehiclesnum=#{vehiclesnum}, 
+		employeescount=#{employeescount}, manageersonnel=#{manageersonnel}, carnum=#{carnum}
         WHERE ID= #{id}
 	</update>
 
 	<delete id="delete" parameterType="string">
-		DELETE FROM COMPANY WHERE ID = #{id}
+		DELETE FROM tb_enterprise_info WHERE ID = #{id}
 	</delete>
 </mapper>

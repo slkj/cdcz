@@ -69,7 +69,7 @@
 		   IDNumber=#{iDNumber}, OwnerChange=#{ownerChange}, DrvLicenseDate=#{drvLicenseDate},
 		    VehicleInspRec=#{vehicleInspRec}, OwnerNamePic=#{ownerNamePic}, VehiclePic=#{vehiclePic}, 
 		TonsSeat=#{tonsSeat}, CarLen=#{carLen}, CarWidth=#{carWidth}, CarHigh=#{carHigh},
-		 FrameNumber=#{frameNumber}, EngineNumber=#{engineNumber}, ADDTIME=#{aDDTIME}, 
+		 FrameNumber=#{frameNumber}, EngineNumber=#{engineNumber}, 
 		 CheckDate=#{checkDate}, TransferDate=#{transferDate}
 		WHERE ID = #{ id }
 	</update>

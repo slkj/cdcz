@@ -29,28 +29,25 @@
 				title : '企业编号'
 			}, */ {
 				width : 250,
-				field : 'compName',
+				field : 'unitname',
 				title : '企业名称'
 			}, {
 				width : 150,
-				field : 'compNameJc',
+				field : 'phone',
 				title : '联系电话'
 			}, {
 				width : 150,
-				field : 'linkman',
+				field : 'businessno',
 				title : '经营许可证号'
 			}, {
 				width : 150,
-				field : 'mobile',
+				field : 'enterprisecode',
 				title : '企业代码'
 			}, {
 				width : 150,
-				field : 'email',
+				field : 'legalrepresentative',
 				title : '法人代表'
-			}, /* {
-				field : 'qq',
-				title : 'QQ'
-			},  */{
+			}, {
 				field : 'opt',
 				title : '操作',
 				width : 150,
@@ -76,7 +73,7 @@
 			frameID : 'addComShow',
 			title : '添加用户',
 			width : 600,
-			height : 400,
+			height : 600,
 			url : url,
 			toolbar : [
 					{
@@ -169,13 +166,13 @@
 	<div class="comp-search-box">
 			<div class="screen-top">
 				<div class="colRow">
-					<input type="text" class="easyui-textbox" id="carPlateNo" data-options="label:'车牌号'" />
+					<input type="text" class="easyui-textbox" id="unitname" data-options="label:'单位名称'" />
 				</div>
 				<div class="colRow">
-					<input type="text" class="easyui-textbox" id="transportNo" data-options="label:'营运证号'" />
+					<input type="text" class="easyui-textbox" id="businessno" data-options="label:'经营许可证号'" />
 				</div>
 				<div class="colRow">
-					<input type="text" class="easyui-textbox" id="carOwner" data-options="label:'车主姓名'" />
+					<input type="text" class="easyui-textbox" id="legalrepresentative" data-options="label:'法人代表'" />
 				</div>
 				<div class="colRow">
 					<button class="easyui-linkbutton btnDefault" onclick="query()">
