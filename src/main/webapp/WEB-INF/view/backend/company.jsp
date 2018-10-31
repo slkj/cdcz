@@ -24,10 +24,7 @@
 			singleSelect : true,
 			pageSize : 50,
 			pageList : [ 10, 20, 30, 40, 50, 100 ],
-			columns : [ [ /* {
-				field : 'compCode',
-				title : '企业编号'
-			}, */ {
+			columns : [ [ {
 				width : 250,
 				field : 'unitname',
 				title : '企业名称'
@@ -71,7 +68,7 @@
 		var url = getContextPath() + "/company/comAddPage";
 		var dialog = createDialog({
 			frameID : 'addComShow',
-			title : '添加用户',
+			title : '添加企业信息',
 			width : 600,
 			height : 600,
 			url : url,
@@ -109,17 +106,13 @@
 		});
 	}
 
-	function editShow() {
-		var rows = getSelectRows($grid);
-		if (rows.length < 1) {
-			return showError(common018);
-		}
-		var url = getContextPath() + "/company/comEditPage?pkey=" + rows[0].id;
+	function editShow(id) {		
+		var url = getContextPath() + "/company/comAddPage?pkey=" + id;
 		var dialog = createDialog({
-			frameID : 'addComShow',
-			title : '添加用户',
+			frameID : 'editComShow',
+			title : '编辑企业信息',
 			width : 600,
-			height : 400,
+			height : 600,
 			url : url,
 			toolbar : [
 					{
@@ -155,14 +148,22 @@
 		});
 	}
 
-	function query() {
-		var data = serializeObject($('#searchForm'));
-		$grid.datagrid('load', data);
+function query() {
+		
+		$grid.datagrid({
+			queryParams : {
+				unitname : $('#unitname').val(),
+				businessno : $('#businessno').val(),
+				legalrepresentative : $('#legalrepresentative').val()
+			}
+		});
+
 	}
 </script>
 </head>
 <body class="easyui-layout" data-options="border:false, fit:true">
 	<div data-options="region:'north',split:false"  style="height: 90px">
+	
 	<div class="comp-search-box">
 			<div class="screen-top">
 				<div class="colRow">
@@ -181,6 +182,7 @@
 				</div>
 			</div>
 		</div>
+		
 		<div class="btnbar-tools">
 			<a href="javascript:;" class="add" onclick="showAdd()"> <i class="fa fa-plus-square success"></i> 添加
 			</a> <!-- <a href="javascript:;" class="edit" onclick="editShow()"> <i class="fa fa-pencil-square info"></i> 编辑

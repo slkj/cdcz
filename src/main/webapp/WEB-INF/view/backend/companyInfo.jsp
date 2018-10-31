@@ -6,6 +6,31 @@
 <title>Insert title here</title>
 <%@ include file="/common/taglibs.jsp"%>
 <script type="text/javascript">
+var $form;
+var pkey;
+var mode;
+$(function() {
+	$form = $("#form");
+	newOrEdit();
+});
+function newOrEdit() {
+	pkey = getUrlParam("pkey");
+	$.ajax({
+		type : "post",
+		dataType : "json",
+		url : '../company/queryOne?id='+pkey,
+		async : true,
+		success : function(result) {
+			if (result) {
+				$form.form("load", result);	
+			} else {
+				showError("系统异常");
+			}
+		}
+	})
+	
+	
+}
 	function save() {
 		//校验
 		var validate = $("#form").form('validate');

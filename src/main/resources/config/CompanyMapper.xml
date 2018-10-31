@@ -22,6 +22,12 @@
 			<if test="unitname != null and unitname != ''">
 				AND unitname LIKE '%'+ #{unitname} +'%'
 			</if>
+			<if test="businessno != null and businessno != ''">
+				AND businessno LIKE '%'+ #{businessno} +'%'
+			</if>
+			<if test="legalrepresentative != null and legalrepresentative != ''">
+				AND legalrepresentative LIKE '%'+ #{legalrepresentative} +'%'
+			</if>
 		</where>
 	</select>
 

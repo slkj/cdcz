@@ -56,7 +56,9 @@ public class CompanyController {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		int page = Integer.parseInt(request.getParameter("page"));
 		int rows = Integer.parseInt(request.getParameter("rows"));
-		map.put("compName", request.getParameter("compName"));
+		map.put("unitname", request.getParameter("unitname"));
+		map.put("businessno", request.getParameter("businessno"));
+		map.put("legalrepresentative", request.getParameter("legalrepresentative"));
 		String sortString = "id.asc";
 		PageBounds pageBounds = new PageBounds(page, rows, Order.formString(sortString));
 		List<Company> list = companyService.getAll(map, pageBounds);
