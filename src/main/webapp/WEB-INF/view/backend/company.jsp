@@ -106,7 +106,7 @@
 		});
 	}
 
-	function editShow(id) {		
+	function editRow(id) {		
 		var url = getContextPath() + "/company/comAddPage?pkey=" + id;
 		var dialog = createDialog({
 			frameID : 'editComShow',
@@ -120,7 +120,7 @@
 						iconCls : 'icon-save',
 						handler : function() {
 							var data = parent.document
-									.getElementById('addComShow').contentWindow
+									.getElementById('editComShow').contentWindow
 									.save();
 							$.ajax({
 								type : "post",
@@ -147,7 +147,24 @@
 					} ]
 		});
 	}
-
+	function showRow(id) {		
+		var url = getContextPath() + "/company/comAddPage?pkey=" + id;
+		var dialog = createDialog({
+			frameID : 'ComShow',
+			title : '查看企业信息',
+			width : 600,
+			height : 600,
+			url : url,
+			toolbar : [
+				 {
+						text : common009,
+						iconCls : 'icon-cancel',
+						handler : function() {
+							dialog.dialog("destroy");
+						}
+					} ]
+		});
+	}
 function query() {
 		
 		$grid.datagrid({

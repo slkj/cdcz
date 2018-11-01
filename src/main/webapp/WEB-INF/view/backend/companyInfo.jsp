@@ -8,13 +8,16 @@
 <script type="text/javascript">
 var $form;
 var pkey;
-var mode;
+var upUrl = getContextPath() + '/company/save';
 $(function() {
 	$form = $("#form");
 	newOrEdit();
 });
 function newOrEdit() {
 	pkey = getUrlParam("pkey");
+	if(pkey){
+		upUrl = getContextPath() + '/company/editCompany';
+	
 	$.ajax({
 		type : "post",
 		dataType : "json",
@@ -28,7 +31,7 @@ function newOrEdit() {
 			}
 		}
 	})
-	
+	}
 	
 }
 	function save() {
@@ -39,7 +42,7 @@ function newOrEdit() {
 		}
 		var data = serializeObject($("#form"));
 		return {
-			url : getContextPath() + "/company/save",
+			url : upUrl,
 			param : data
 		}
 	}

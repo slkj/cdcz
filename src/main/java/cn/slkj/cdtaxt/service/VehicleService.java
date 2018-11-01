@@ -9,6 +9,7 @@ import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 
 import cn.slkj.cdtaxt.echarts.TotalNum;
 import cn.slkj.cdtaxt.entity.Vehicle;
+import cn.slkj.cdtaxt.entity.VehicleCheck;
 
 public interface VehicleService {
 	List<Vehicle> getAllList(HashMap<String, Object> hashMap, PageBounds pageBounds);
@@ -19,13 +20,15 @@ public interface VehicleService {
 
 	int edit(Vehicle vehicle);
 	
+	List<VehicleCheck> getCheckList(HashMap<String, Object> hashMap, PageBounds pageBounds);
+	
 //public void exportExcel(HashMap<String, Object> map, String[] titles, ServletOutputStream outputStream);
 	
-	List<Vehicle> getList(HashMap<String, Object> hashMap);
+	/*List<Vehicle> getList(HashMap<String, Object> hashMap);
 
 	List<TotalNum> getBarData(HashMap<String, Object> hashMap);
 
 	List<TotalNum> queryByCom(HashMap<String, Object> hashMap);
-	List<TotalNum> queryByCarType(HashMap<String, Object> hashMap);
+	List<TotalNum> queryByCarType(HashMap<String, Object> hashMap);*/
 	
 }

@@ -9,6 +9,9 @@
 		   VehiclePic, TonsSeat, CarLen, CarWidth, CarHigh, FrameNumber,
 		    EngineNumber, ADDTIME, CheckDate, TransferDate
 	</sql>
+	<sql id="sql_base1">
+		id, operatingnum, annualdate, nextannualdate, vehicle, addtime, status
+	</sql>
 
 	<select id="getAllList" resultType="Vehicle">
 		SELECT
@@ -73,8 +76,17 @@
 		 CheckDate=#{checkDate}, TransferDate=#{transferDate}
 		WHERE ID = #{ id }
 	</update>
-
-	<select id="getBarData" parameterType="hashmap" resultType="TotalNum">
+	<select id="getCheckList" resultType="VehicleCheck">
+		SELECT
+		<include refid="sql_base1"></include>
+		FROM TB_TAXICAR_CHECK
+		<where>
+			<if test="operatingnum != null and operatingnum != ''">
+				AND operatingnum LIKE '%'+#{operatingnum}+'%'
+			</if>
+		</where>
+	</select>
+	<!-- <select id="getBarData" parameterType="hashmap" resultType="TotalNum">
 
 		SELECT e.compname as week, count(e.compname) as count
 		FROM tb_vehicle_taxt d,company e
@@ -97,6 +109,6 @@
 		and e.lookupCode='VEHICLE_CARTYPE'
 		group by e.[value]
 
-	</select>
+	</select> -->
 
 </mapper>
