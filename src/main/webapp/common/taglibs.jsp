@@ -9,3 +9,4 @@
 <script src="${pageContext.request.contextPath}/assets/js/util.js" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/assets/js/msgConst.js" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/assets/js/layer.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/assets/My97DatePicker/WdatePicker.js" language="javascript" type="text/javascript" ></script>
