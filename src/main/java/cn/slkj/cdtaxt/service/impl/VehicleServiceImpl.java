@@ -18,6 +18,7 @@ import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 
 import cn.slkj.cdtaxt.echarts.TotalNum;
 import cn.slkj.cdtaxt.entity.Vehicle;
+import cn.slkj.cdtaxt.entity.VehicleCheck;
 import cn.slkj.cdtaxt.mapper.VehicleMapper;
 import cn.slkj.cdtaxt.service.VehicleService;
 import cn.slkj.slUtil.ExportUtil;
@@ -32,10 +33,7 @@ public class VehicleServiceImpl implements VehicleService {
 		return mapper.getAllList(hashMap, pageBounds);
 	}
 
-	@Override
-	public List<Vehicle> getList(HashMap<String, Object> hashMap) {
-		return mapper.getAllList(hashMap);
-	}
+	
 
 	@Override
 	public int save(Vehicle vehicle) {
@@ -51,6 +49,16 @@ public class VehicleServiceImpl implements VehicleService {
 	public int edit(Vehicle vehicle) {
 		// TODO Auto-generated method stub
 		return mapper.edit(vehicle);
+	}
+	
+	@Override
+	public List<VehicleCheck> getCheckList(HashMap<String, Object> hashMap, PageBounds pageBounds) {
+		return mapper.getCheckList(hashMap, pageBounds);
+	}
+	
+	@Override
+	public List<VehicleCheck> getOutCheckList(HashMap<String, Object> hashMap, PageBounds pageBounds) {
+		return mapper.getOutCheckList(hashMap, pageBounds);
 	}
 
 /*	*//**
@@ -144,6 +152,11 @@ public class VehicleServiceImpl implements VehicleService {
 
 	}*/
 
+	/*@Override
+	public List<Vehicle> getList(HashMap<String, Object> hashMap) {
+		return mapper.getAllList(hashMap);
+	}
+	
 	@Override
 	public List<TotalNum> getBarData(HashMap<String, Object> hashMap) {
 		// TODO Auto-generated method stub
@@ -159,6 +172,6 @@ public class VehicleServiceImpl implements VehicleService {
 	public List<TotalNum> queryByCarType(HashMap<String, Object> hashMap) {
 		// TODO Auto-generated method stub
 		return mapper.queryByCarType(hashMap);
-	}
+	}*/
 	
 }

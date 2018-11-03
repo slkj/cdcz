@@ -6,6 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <%@ include file="/common/taglibs.jsp"%>
+<script src="${pageContext.request.contextPath}/assets/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/My97DatePicker/skin/WdatePicker.css">
 <script type="text/javascript">
 	var $form;
 	var pkey;
@@ -54,7 +56,8 @@
 		self.location.href = getContextPath() + "/vehicle/vehicleListPage";
 	}
 	function save() {
-
+		var file = $('#ownernamepic1').files[0];
+		alert(file);
 		//校验
 		var validate = $form.form('validate');
 		if (validate == false) {
@@ -99,7 +102,7 @@
 		})
 	}
 
-	function uploadCarOwnerPhoto() {
+	/* function uploadCarOwnerPhoto() {
 		imageUploadDialog = uploadImageDialog('carOwnerPhoto',
 				'vehicle/vehicleForm');
 	}
@@ -236,7 +239,7 @@
 				}
 			} ]
 		});
-	}
+	} */
 </script>
 </head>
 
@@ -261,7 +264,7 @@
 	</div>
 	<div data-options="region:'center',border:true"
 		style="height: 100%; padding-left: 15px">
-		<form id="form" method="post">
+		<form id="form" method="post" enctype="multipart/form-data">
 			<input name="id" type="hidden" />
 			<table style="width: 90%">
 			<tr>
@@ -290,7 +293,8 @@
 			</tr>
 			<tr>
 				<td align="right" width="70px">变更日期:</td>
-				<td><input class="easyui-textbox" name="transferDate" type="text" style="width: 200px;" /></td>
+				<td><input class="Wdate" name="transferDate"  style="width: 200px;" 
+				onfocus="WdatePicker({readOnly:true,dateFmt:'yyyy-MM-dd'})"/></td>
 				<td align="right" width="70px">变更记录:</td>
 				<td><input class="easyui-textbox" name="ownerChange" type="text" style="width: 200px;" /></td>
 			</tr>
@@ -310,7 +314,8 @@
 				<td align="right" width="70px">身份证号:</td>
 				<td><input class="easyui-textbox" name="iDNumber" type="text" style="width: 200px;" /></td>
 				<td align="right" width="70px">发证日期:</td>
-				<td><input class="easyui-textbox" name="checkDate" type="text" style="width: 200px;" /></td>
+				<td><input  class="Wdate" name="checkDate" style="width: 200px;" 
+				onfocus="WdatePicker({readOnly:true,dateFmt:'yyyy-MM-dd'})"/></td>
 				
 			</tr>
 			<tr>
@@ -346,19 +351,27 @@
 				
 			</tr>
 			<tr>
-				<td   colspan="2"><a href="javascript:void(0);" class="easyui-linkbutton"
+				<td   colspan="2"  height="170px"><!-- <a href="javascript:void(0);" class="easyui-linkbutton show"
 							data-options="iconCls:'icon-add',plain:true"
 							onclick="uploadCarOwnerPhoto();">上传车主照片</a>
-				<a href="javascript:void(0);" class="easyui-linkbutton"
+							<a href="javascript:void(0);" class="easyui-linkbutton"
+							data-options="iconCls:'icon-search',plain:true"
+							onclick="showCarOwnerPhoto();">查看车主照片</a> -->
+				<div style="width: 125px; height: 155px; margin-left: 70px;margin-top: 20px;" style="text-align: center;">
+					<img id="uploadPreviewOwnerNamePic" style="width: 125px; height: 155px;" />
+				<div style="text-align: center;">
+	         	<input id="ownernamepic1" name="ownernamepic1" type="file"/>上传车主照片
+				</div>
+	         		</div>
+				</td>
+				<td   colspan="2">
+					<a href="javascript:void(0);" class="easyui-linkbutton show"
 							data-options="iconCls:'icon-add',plain:true"
-							onclick="uploadCarPhoto();">上传车身照片</a></td>
-				<td   colspan="2"><a href="javascript:void(0);" class="easyui-linkbutton"
-							data-options="iconCls:'icon-search',plain:true"
-							onclick="showCarOwnerPhoto();">查看车主照片</a>
-					
+							onclick="uploadCarPhoto();">上传车身照片</a>
 				<a href="javascript:void(0);" class="easyui-linkbutton"
 							data-options="iconCls:'icon-search',plain:true"
-							onclick="showCarPhoto();">查看车身照片</a></td>
+							onclick="showCarPhoto();">查看车身照片</a>
+			    </td>
 			</tr>
 			
 		</table>

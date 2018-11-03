@@ -17,6 +17,7 @@ import com.github.miemiedev.mybatis.paginator.domain.PageList;
 
 import cn.slkj.cdtaxt.entity.Company;
 import cn.slkj.cdtaxt.service.CompanyService;
+import cn.slkj.slUtil.UuidUtil;
 import cn.slkj.slUtil.easyuiUtil.EPager;
 import cn.slkj.slUtil.easyuiUtil.JsonResult;
 
@@ -90,6 +91,7 @@ public class CompanyController {
 	@ResponseBody
 	@RequestMapping(value = "/save", method = { RequestMethod.POST })
 	public JsonResult save(Company company) {
+		company.setId(UuidUtil.get32UUID());
 		int i = companyService.save(company);
 		if (i > 0) {
 			return new JsonResult(true, "");

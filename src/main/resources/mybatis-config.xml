@@ -8,6 +8,7 @@
 		<typeAlias alias="LinkedCaseInsensitiveMap"
 			type="org.springframework.util.LinkedCaseInsensitiveMap" />
 		<typeAlias alias="Vehicle" type="cn.slkj.cdtaxt.entity.Vehicle" />
+		<typeAlias alias="VehicleCheck" type="cn.slkj.cdtaxt.entity.VehicleCheck" />
 		<typeAlias alias="Company" type="cn.slkj.cdtaxt.entity.Company" />
 		<typeAlias alias="User" type="cn.slkj.cdtaxt.entity.User" />
 		<typeAlias alias="Module" type="cn.slkj.cdtaxt.entity.Module" />

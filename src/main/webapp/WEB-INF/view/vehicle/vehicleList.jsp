@@ -29,7 +29,7 @@
 					singleSelect : true,
 					fitColumns : true,
 					idField : 'pkey',
-					pageSize : 50,
+					pageSize : 10,
 					pageList : [ 10, 20, 30, 40, 50, 100 ],
 					frozenColumns : [ [
 // 							
@@ -50,7 +50,7 @@
 								field : 'opretaCertNum',
 								title : '营运证号'
 							}, {
-								width : 150,
+								width : 250,
 								field : 'corpName',
 								title : '公司名称'
 							} , {
