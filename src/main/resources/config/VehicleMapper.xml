@@ -28,6 +28,7 @@
 				AND OrigOwnerName LIKE '%'+#{OrigOwnerName}+'%'
 			</if>
 		</where>
+		ORDER BY ADDTIME DESC
 	</select>
 	<select id="queryOne" parameterType="hashmap" resultType="Vehicle">
 		SELECT
@@ -45,7 +46,7 @@
 
 	<insert id="save" parameterType="Vehicle">
 		INSERT INTO TB_TAXICAR (
-		FileNum, OpretaCertNum, PlateNum, CorpName, OwnerName, 
+		id,FileNum, OpretaCertNum, PlateNum, CorpName, OwnerName, 
 		OrigOwnerName, OrigPlateNum, EmployPerson, Color, Sign, 
 		SealRecord, Address, PhoneNum, IDNumber, OwnerChange, 
 		DrvLicenseDate, VehicleInspRec, OwnerNamePic, VehiclePic, 
@@ -54,7 +55,7 @@
 		)
 		VALUES
 		(
-		#{fileNum},#{opretaCertNum},#{plateNum},#{corpName},#{ownerName} 
+		#{id},#{fileNum},#{opretaCertNum},#{plateNum},#{corpName},#{ownerName} 
 		,#{origOwnerName},#{origPlateNum},#{employPerson},#{color},#{sign}, 
 		#{sealRecord},#{address},#{phoneNum},#{iDNumber},#{ownerChange}, 
 		#{drvLicenseDate},#{vehicleInspRec},#{ownerNamePic},#{vehiclePic}, 
@@ -85,6 +86,18 @@
 				AND operatingnum LIKE '%'+#{operatingnum}+'%'
 			</if>
 		</where>
+		ORDER BY ADDTIME DESC
+	</select>
+	<select id="getOutCheckList" resultType="VehicleCheck">
+		SELECT
+		<include refid="sql_base1"></include>
+		FROM TB_TAXICAR_CHECK where status=1 or status=2 or status=3 
+		<!-- <where> -->
+			<if test="operatingnum != null and operatingnum != ''">
+				AND operatingnum LIKE '%'+#{operatingnum}+'%'
+			</if>			
+		<!-- </where> -->
+		ORDER BY ADDTIME DESC
 	</select>
 	<!-- <select id="getBarData" parameterType="hashmap" resultType="TotalNum">
 

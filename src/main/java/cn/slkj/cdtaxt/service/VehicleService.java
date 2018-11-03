@@ -22,6 +22,8 @@ public interface VehicleService {
 	
 	List<VehicleCheck> getCheckList(HashMap<String, Object> hashMap, PageBounds pageBounds);
 	
+	List<VehicleCheck> getOutCheckList(HashMap<String, Object> hashMap, PageBounds pageBounds);
+	
 //public void exportExcel(HashMap<String, Object> map, String[] titles, ServletOutputStream outputStream);
 	
 	/*List<Vehicle> getList(HashMap<String, Object> hashMap);

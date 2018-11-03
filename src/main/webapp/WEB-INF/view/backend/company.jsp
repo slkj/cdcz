@@ -22,7 +22,7 @@
 			rownumbers : true,
 			pagination : true,
 			singleSelect : true,
-			pageSize : 50,
+			pageSize : 10,
 			pageList : [ 10, 20, 30, 40, 50, 100 ],
 			columns : [ [ {
 				width : 250,

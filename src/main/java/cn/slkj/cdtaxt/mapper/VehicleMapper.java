@@ -23,6 +23,7 @@ public interface VehicleMapper {
 	
 	public List<VehicleCheck> getCheckList(HashMap<String, Object> hashMap, PageBounds pageBounds);
 
+	public List<VehicleCheck> getOutCheckList(HashMap<String, Object> hashMap, PageBounds pageBounds);
 	/*public List<Vehicle> getAllList(HashMap<String, Object> hashMap);
 
 	public List<TotalNum> getBarData(HashMap<String, Object> hashMap);

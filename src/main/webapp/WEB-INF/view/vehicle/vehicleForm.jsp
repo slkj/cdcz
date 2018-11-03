@@ -6,6 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <%@ include file="/common/taglibs.jsp"%>
+<script src="${pageContext.request.contextPath}/assets/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/My97DatePicker/skin/WdatePicker.css">
 <script type="text/javascript">
 	var $form;
 	var pkey;
@@ -100,7 +102,7 @@
 		})
 	}
 
-	function uploadCarOwnerPhoto() {
+	/* function uploadCarOwnerPhoto() {
 		imageUploadDialog = uploadImageDialog('carOwnerPhoto',
 				'vehicle/vehicleForm');
 	}
@@ -237,7 +239,7 @@
 				}
 			} ]
 		});
-	}
+	} */
 </script>
 </head>
 
@@ -291,7 +293,8 @@
 			</tr>
 			<tr>
 				<td align="right" width="70px">变更日期:</td>
-				<td><input class="easyui-textbox" name="transferDate" type="text" style="width: 200px;" /></td>
+				<td><input class="Wdate" name="transferDate"  style="width: 200px;" 
+				onfocus="WdatePicker({readOnly:true,dateFmt:'yyyy-MM-dd'})"/></td>
 				<td align="right" width="70px">变更记录:</td>
 				<td><input class="easyui-textbox" name="ownerChange" type="text" style="width: 200px;" /></td>
 			</tr>
@@ -311,7 +314,8 @@
 				<td align="right" width="70px">身份证号:</td>
 				<td><input class="easyui-textbox" name="iDNumber" type="text" style="width: 200px;" /></td>
 				<td align="right" width="70px">发证日期:</td>
-				<td><input class="easyui-textbox" name="checkDate" type="text" style="width: 200px;" /></td>
+				<td><input  class="Wdate" name="checkDate" style="width: 200px;" 
+				onfocus="WdatePicker({readOnly:true,dateFmt:'yyyy-MM-dd'})"/></td>
 				
 			</tr>
 			<tr>

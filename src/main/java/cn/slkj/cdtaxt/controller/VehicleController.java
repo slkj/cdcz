@@ -36,6 +36,7 @@ import cn.slkj.cdtaxt.echarts.TotalNum;
 import cn.slkj.cdtaxt.entity.Vehicle;
 import cn.slkj.cdtaxt.entity.VehicleCheck;
 import cn.slkj.cdtaxt.service.VehicleService;
+import cn.slkj.slUtil.UuidUtil;
 import cn.slkj.slUtil.easyuiUtil.EPager;
 import cn.slkj.slUtil.easyuiUtil.JsonResult;
 
@@ -61,6 +62,11 @@ public class VehicleController {
 	@RequestMapping("/vehicleCheckListPage")
 	public String tovehicleCheckListPage() {
 		return "vehicle/vehicleCheckList";
+	}
+	/* 跳转页面 */
+	@RequestMapping("/vehicleOutCheckListPage")
+	public String tovehicleOutCheckListPage() {
+		return "vehicle/vehicleOutCheckList";
 	}
 
 	@RequestMapping("/vehicleFormPage")
@@ -100,6 +106,22 @@ public class VehicleController {
 		PageList pageList = (PageList) list;
 		return new EPager<VehicleCheck>(pageList.getPaginator().getTotalCount(), list);
 	}
+	
+	/**
+	 * 查询列表，返回easyUI数据格式
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/outcheckList", method = { RequestMethod.POST })
+	public EPager<VehicleCheck> getOutCheckList(HttpServletRequest request, HttpSession session, @RequestParam(required = false, defaultValue = "1") Integer page, // 第几页
+			@RequestParam(required = false, defaultValue = "10") Integer rows) {
+		String sortString = "";
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("operatingnum", request.getParameter("operatingnum"));
+		PageBounds pageBounds = new PageBounds(page, rows, Order.formString(sortString));
+		List<VehicleCheck> list = vehicleService.getOutCheckList(hashMap, pageBounds);
+		PageList pageList = (PageList) list;
+		return new EPager<VehicleCheck>(pageList.getPaginator().getTotalCount(), list);
+	}
 
 	/**
 	 * 查询单条信息
@@ -127,7 +149,8 @@ public class VehicleController {
 		
 			System.out.println(ownernamepic1+"0000000000000000000000");
 			int i = -1;
-			HttpSession session = request.getSession();
+			//HttpSession session = request.getSession();
+			vehicle.setId(UuidUtil.get32UUID());
 			//i = vehicleService.save(vehicle);
 			if (i != -1) {
 				return new JsonResult(true, "添加成功。");

@@ -55,6 +55,11 @@ public class VehicleServiceImpl implements VehicleService {
 	public List<VehicleCheck> getCheckList(HashMap<String, Object> hashMap, PageBounds pageBounds) {
 		return mapper.getCheckList(hashMap, pageBounds);
 	}
+	
+	@Override
+	public List<VehicleCheck> getOutCheckList(HashMap<String, Object> hashMap, PageBounds pageBounds) {
+		return mapper.getOutCheckList(hashMap, pageBounds);
+	}
 
 /*	*//**
 	 * 导出Excel
