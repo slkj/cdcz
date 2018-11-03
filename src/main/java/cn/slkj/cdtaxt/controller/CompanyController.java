@@ -60,7 +60,7 @@ public class CompanyController {
 		map.put("unitname", request.getParameter("unitname"));
 		map.put("businessno", request.getParameter("businessno"));
 		map.put("legalrepresentative", request.getParameter("legalrepresentative"));
-		String sortString = "id.asc";
+		String sortString = "ADDTIME.DESC";
 		PageBounds pageBounds = new PageBounds(page, rows, Order.formString(sortString));
 		List<Company> list = companyService.getAll(map, pageBounds);
 		PageList pageList = (PageList) list;

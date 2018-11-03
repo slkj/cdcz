@@ -22,6 +22,7 @@
 	var comCode;
 	$(function() {
 		$form = $("#form");
+		//$form.attr("enctype", "multipart/form-data");
 		newOrEidt()
 		$('#carAddCounty').combobox('reload',
 				getContextPath() + '/company/queryComList');
@@ -56,16 +57,21 @@
 		self.location.href = getContextPath() + "/vehicle/vehicleListPage";
 	}
 	function save() {
-		var file = $('#ownernamepic1').files[0];
+		//var file = $('#ownernamepic1').files[0];
+		//var fileobj=file.files[0];
+		var file = document.getElementById('ownernamepic1').files[0];
 		alert(file);
 		//校验
 		var validate = $form.form('validate');
 		if (validate == false) {
 			return validate;
 		}
-
-		var data = serializeObject($form);
-		if (carOwnerPhotoFilePath) {
+		//var data = serializeObject($form);
+		var formData=new FormData($form[0]);	
+		//alert(formData.get("address"));
+		formData.append("ownernamepic1",file);
+		formData.append("data",data);
+		/* if (carOwnerPhotoFilePath) {
 			data.carOwnerPhoto = carOwnerPhotoFilePath;
 		}
 		if (carPhotoFilePath) {
@@ -83,13 +89,16 @@
 
 		parent.$.messager.progress({
 			text : common017
-		});
+		}); */
 		$.ajax({
 			type : "post",
 			dataType : "json",
 			url : upUrl,
-			data : data,
-			async : true,
+			data : formData,
+			async : false,
+            cache: false,
+            contentType: false,
+            processData: false,
 			success : function(result) {
 				if (result.success) {
 					parent.$.messager.progress('close');
@@ -102,6 +111,7 @@
 		})
 	}
 
+	
 	/* function uploadCarOwnerPhoto() {
 		imageUploadDialog = uploadImageDialog('carOwnerPhoto',
 				'vehicle/vehicleForm');
@@ -264,7 +274,7 @@
 	</div>
 	<div data-options="region:'center',border:true"
 		style="height: 100%; padding-left: 15px">
-		<form id="form" method="post" enctype="multipart/form-data">
+		<form id="form" method="post"  enctype="multipart/form-data">
 			<input name="id" type="hidden" />
 			<table style="width: 90%">
 			<tr>
@@ -360,7 +370,7 @@
 				<div style="width: 125px; height: 155px; margin-left: 70px;margin-top: 20px;" style="text-align: center;">
 					<img id="uploadPreviewOwnerNamePic" style="width: 125px; height: 155px;" />
 				<div style="text-align: center;">
-	         	<input id="ownernamepic1" name="ownernamepic1" type="file"/>上传车主照片
+	         	<input id="ownernamepic1" name="ownernamepic1"   type="file"/>上传车主照片
 				</div>
 	         		</div>
 				</td>

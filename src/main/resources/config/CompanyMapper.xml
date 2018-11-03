@@ -29,7 +29,6 @@
 				AND legalrepresentative LIKE '%'+ #{legalrepresentative} +'%'
 			</if>
 		</where>
-		ORDER BY ADDTIME DESC
 	</select>
 
 	<select id="queryOne" resultType="Company" parameterType="string">
@@ -42,7 +41,7 @@
 		 legalrepresentative,vehiclesnum, employeescount, manageersonnel, carnum, addtime)
 		VALUES(#{id},#{unitname}, #{phone}, #{unitaddr}, #{businessscope}, #{ businessno},
 		#{enterprisecode}, #{ regcapital}, #{ economytype}, #{legalrepresentative},
-		#{vehiclesnum}, #{employeescount}, #{manageersonnel}, #{carnum}, getdate() )
+		#{vehiclesnum}, #{employeescount}, #{manageersonnel}, #{carnum}, CONVERT(varchar(20), getdate(), 120 ) )
 	</insert>
 
 	<update id="edit" parameterType="Company">

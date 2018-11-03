@@ -20,6 +20,8 @@ public interface VehicleService {
 
 	int edit(Vehicle vehicle);
 	
+	public int delete(String id);
+	
 	List<VehicleCheck> getCheckList(HashMap<String, Object> hashMap, PageBounds pageBounds);
 	
 	List<VehicleCheck> getOutCheckList(HashMap<String, Object> hashMap, PageBounds pageBounds);

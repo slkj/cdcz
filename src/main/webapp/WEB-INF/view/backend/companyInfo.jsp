@@ -17,8 +17,7 @@ function newOrEdit() {
 	pkey = getUrlParam("pkey");
 	if(pkey){
 		upUrl = getContextPath() + '/company/editCompany';
-	
-	$.ajax({
+		$.ajax({
 		type : "post",
 		dataType : "json",
 		url : '../company/queryOne?id='+pkey,

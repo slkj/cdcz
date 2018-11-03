@@ -21,6 +21,8 @@ public interface VehicleMapper {
 
 	public int edit(Vehicle vehicle);
 	
+	int delete(String id);
+	
 	public List<VehicleCheck> getCheckList(HashMap<String, Object> hashMap, PageBounds pageBounds);
 
 	public List<VehicleCheck> getOutCheckList(HashMap<String, Object> hashMap, PageBounds pageBounds);

@@ -52,6 +52,11 @@ public class VehicleServiceImpl implements VehicleService {
 	}
 	
 	@Override
+	public int delete(String id) {
+		return mapper.delete(id);
+	}
+	
+	@Override
 	public List<VehicleCheck> getCheckList(HashMap<String, Object> hashMap, PageBounds pageBounds) {
 		return mapper.getCheckList(hashMap, pageBounds);
 	}

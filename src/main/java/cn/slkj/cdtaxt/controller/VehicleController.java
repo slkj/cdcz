@@ -81,7 +81,7 @@ public class VehicleController {
 	@RequestMapping(value = "/list", method = { RequestMethod.POST })
 	public EPager<Vehicle> getAllUsers(HttpServletRequest request, HttpSession session, @RequestParam(required = false, defaultValue = "1") Integer page, // 第几页
 			@RequestParam(required = false, defaultValue = "20") Integer rows) {
-		String sortString = "";
+		String sortString = "ADDTIME.DESC";
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("PlateNum", request.getParameter("PlateNum"));
 		hashMap.put("OpretaCertNum", request.getParameter("OpretaCertNum"));
@@ -98,7 +98,7 @@ public class VehicleController {
 	@RequestMapping(value = "/checkList", method = { RequestMethod.POST })
 	public EPager<VehicleCheck> getCheckList(HttpServletRequest request, HttpSession session, @RequestParam(required = false, defaultValue = "1") Integer page, // 第几页
 			@RequestParam(required = false, defaultValue = "10") Integer rows) {
-		String sortString = "";
+		String sortString = "ADDTIME.DESC";
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("operatingnum", request.getParameter("operatingnum"));
 		PageBounds pageBounds = new PageBounds(page, rows, Order.formString(sortString));
@@ -143,14 +143,15 @@ public class VehicleController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public JsonResult save(@RequestParam(value="ownernamepic1", required=false) MultipartFile ownernamepic1,Vehicle vehicle, HttpServletRequest request) {
+	public JsonResult save(@RequestParam(value="ownernamepic1", required=false) MultipartFile ownernamepic1,
+			@RequestParam(value="data", required=false) String data,Vehicle vehicle, HttpServletRequest request) {
 		try {
-			
-		
+					
 			System.out.println(ownernamepic1+"0000000000000000000000");
 			int i = -1;
 			//HttpSession session = request.getSession();
 			vehicle.setId(UuidUtil.get32UUID());
+			System.out.println(data+"0000000000000000000000");
 			//i = vehicleService.save(vehicle);
 			if (i != -1) {
 				return new JsonResult(true, "添加成功。");
@@ -184,6 +185,24 @@ public class VehicleController {
 		return new JsonResult(false, "操作失败！");
 	}
 
+	/** 删除 */
+	@ResponseBody
+	@RequestMapping(value = "/delete")
+	public JsonResult deletes(String id) {
+		int i = vehicleService.delete(id);
+		try {
+			if (i > 0) {
+				return new JsonResult(true, "");
+			} else {
+				return new JsonResult(false, "操作失败！");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new JsonResult(false, e.toString());
+		}
+
+	}
+	
 	/*@RequestMapping("/getWithImage")
 	public void getWithImage(String imageType, String pkey, HttpServletResponse response, HttpServletRequest request) throws Exception {
 		// 根据id获取车辆信息

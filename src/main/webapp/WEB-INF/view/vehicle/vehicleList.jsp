@@ -64,7 +64,7 @@
 							s += "|";
 							s += "<a href=\"javascript:void(0)\" onclick=\"editRow('" + row.id + "');\"><i class=\"fa fa-pencil \"></i>编辑</a>";
 							s += "|";
-							s += "<a href=\"javascript:void(0)\" onclick=\"javaScript:deleteRow('" + row.id + "');\"><i class=\"fa fa-times-rectangle danger\"></i>删除 </a>";
+							s += "<a href=\"javascript:void(0)\" onclick=\"deleteRow('" + row.id + "');\"><i class=\"fa fa-times-rectangle danger\"></i>删除 </a>";
 							if (row.parent_id == "0") {
 								return "";
 							}
@@ -95,8 +95,24 @@
 	function add() {
 		self.location.href = getContextPath() + "/vehicle/vehicleFormPage";
 	}
-
-	function showCarPhoto() {
+	function deleteRow(id) {
+		if (confirm("确定要删除吗？")) {
+				$.ajax({
+					type : "POST",
+					url : getContextPath() + '/vehicle/delete',
+					data : {
+						id : id
+					},
+					cache : false,
+					async : false,
+					success : function(data) {
+						$grid.datagrid('reload');
+					}
+				});
+			}
+		
+	}
+	/* function showCarPhoto() {
 		var url = getContextPath() + "/vehicle/vehicleFormPage";
 		dialogForShowImage(url);
 	}
@@ -115,7 +131,7 @@
 				}
 			} ]
 		});
-	}
+	} */
 
 	function query() {
 		

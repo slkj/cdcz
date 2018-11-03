@@ -27,8 +27,7 @@
 			<if test="OrigOwnerName != null and OrigOwnerName != ''">
 				AND OrigOwnerName LIKE '%'+#{OrigOwnerName}+'%'
 			</if>
-		</where>
-		ORDER BY ADDTIME DESC
+		</where>		
 	</select>
 	<select id="queryOne" parameterType="hashmap" resultType="Vehicle">
 		SELECT
@@ -60,7 +59,7 @@
 		#{sealRecord},#{address},#{phoneNum},#{iDNumber},#{ownerChange}, 
 		#{drvLicenseDate},#{vehicleInspRec},#{ownerNamePic},#{vehiclePic}, 
 		#{tonsSeat},#{carLen},#{carWidth},#{carHigh},#{frameNumber},#{engineNumber},
-		 getdate(),#{checkDate},#{transferDate}		
+		 CONVERT(varchar(20), getdate(), 120 ),#{checkDate},#{transferDate}		
 		)
 	</insert>
 
@@ -77,6 +76,9 @@
 		 CheckDate=#{checkDate}, TransferDate=#{transferDate}
 		WHERE ID = #{ id }
 	</update>
+	<delete id="delete" parameterType="string">
+		DELETE FROM TB_TAXICAR WHERE ID = #{id}
+	</delete>
 	<select id="getCheckList" resultType="VehicleCheck">
 		SELECT
 		<include refid="sql_base1"></include>
@@ -86,7 +88,6 @@
 				AND operatingnum LIKE '%'+#{operatingnum}+'%'
 			</if>
 		</where>
-		ORDER BY ADDTIME DESC
 	</select>
 	<select id="getOutCheckList" resultType="VehicleCheck">
 		SELECT
@@ -97,8 +98,8 @@
 				AND operatingnum LIKE '%'+#{operatingnum}+'%'
 			</if>			
 		<!-- </where> -->
-		ORDER BY ADDTIME DESC
 	</select>
+	
 	<!-- <select id="getBarData" parameterType="hashmap" resultType="TotalNum">
 
 		SELECT e.compname as week, count(e.compname) as count
