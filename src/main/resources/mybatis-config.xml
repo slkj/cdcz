@@ -18,6 +18,8 @@
 		<typeAlias alias="Zfry" type="cn.slkj.cdtaxt.entity.Zfry" />
 		<typeAlias alias="Zfyj" type="cn.slkj.cdtaxt.entity.Zfyj" />
 		<typeAlias alias="Cyry" type="cn.slkj.cdtaxt.entity.Cyry" />
+		<typeAlias alias="Employee" type="cn.slkj.cdtaxt.entity.Employee" />
+		<typeAlias alias="EmployeeRank" type="cn.slkj.cdtaxt.entity.EmployeeRank" />
 	</typeAliases>
 	<plugins>
 		<plugin
