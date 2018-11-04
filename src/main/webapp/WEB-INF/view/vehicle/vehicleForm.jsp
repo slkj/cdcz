@@ -46,6 +46,9 @@
 				success : function(result) {
 					if (result) {
 						$form.form("load", result);
+						//document.getElementById("uploadPreviewOwnerNamePic").src = "../vehicle/getOwnernamepic?id=" + pkey;
+						$("#uploadPreviewOwnerNamePic").attr("src","../vehicle/getOwnernamepic?id=" + pkey);
+						$("#uploadPreviewVehiclePic").attr("src","../vehicle/getVehiclepic?id=" + pkey);
 					} else {
 						showError("系统异常");
 					}
@@ -59,37 +62,16 @@
 	function save() {
 		//var file = $('#ownernamepic1').files[0];
 		//var fileobj=file.files[0];
-		var file = document.getElementById('ownernamepic1').files[0];
-		alert(file);
+		//var file = document.getElementById('ownernamepic1').files[0];
+		//alert(file);
 		//校验
 		var validate = $form.form('validate');
 		if (validate == false) {
 			return validate;
-		}
-		//var data = serializeObject($form);
-		var formData=new FormData($form[0]);	
-		//alert(formData.get("address"));
-		formData.append("ownernamepic1",file);
-		formData.append("data",data);
-		/* if (carOwnerPhotoFilePath) {
-			data.carOwnerPhoto = carOwnerPhotoFilePath;
-		}
-		if (carPhotoFilePath) {
-			data.carPhoto = carPhotoFilePath;
-		}
-		if (certificatePhotoFilePath) {
-			data.certificatePhoto = certificatePhotoFilePath;
-		}
-		if (certificatePhoto2FilePath) {
-			data.certificatePhoto2 = certificatePhoto2FilePath;
-		}
-		if (driverPhotoFilePath) {
-			data.driverPhoto = driverPhotoFilePath;
-		}
-
-		parent.$.messager.progress({
-			text : common017
-		}); */
+		}		
+		var form=document.getElementById("form");
+		var formData=new FormData(form);			
+		
 		$.ajax({
 			type : "post",
 			dataType : "json",
@@ -110,146 +92,7 @@
 			}
 		})
 	}
-
 	
-	/* function uploadCarOwnerPhoto() {
-		imageUploadDialog = uploadImageDialog('carOwnerPhoto',
-				'vehicle/vehicleForm');
-	}
-	function uploadCarPhoto() {
-		imageUploadDialog = uploadImageDialog('carPhoto', 'vehicle/vehicleForm');
-	}
-	function uploadCertificatePhoto() {
-		imageUploadDialog = uploadImageDialog('certificatePhoto',
-				'vehicle/vehicleForm');
-	}
-	function uploadCertificatePhoto2() {
-		imageUploadDialog = uploadImageDialog('certificatePhoto2',
-				'vehicle/vehicleForm');
-	}
-	function uploadDriverPhoto() {
-		imageUploadDialog = uploadImageDialog('driverPhoto',
-				'vehicle/vehicleForm');
-	}
-	function showCarOwnerPhoto() {
-		var url;
-		if (carOwnerPhotoFilePath) {
-			url = getContextPath() + "/common/filedownload?filePath="
-					+ carOwnerPhotoFilePath;
-		} else {
-			if (pkey) {
-				url = getContextPath()
-						+ "/vehicle/getWithImage?imageType=carOwnerPhoto&pkey="
-						+ pkey;
-			} else {
-				// 				url = getContextPath() + "/common/menuPage?url=noImage";
-				return;
-			}
-		}
-		dialogForShowImage(url);
-	}
-
-	function showCarPhoto() {
-		var url;
-		if (carOwnerPhotoFilePath) {
-			url = getContextPath() + "/common/filedownload?filePath="
-					+ carPhotoFilePath;
-		} else {
-			if (pkey) {
-				url = getContextPath()
-						+ "/vehicle/getWithImage?imageType=carPhoto&pkey="
-						+ pkey;
-			} else {
-				// 				url = getContextPath() + "/common/menuPage?url=noImage";
-				return;
-			}
-		}
-		dialogForShowImage(url);
-	}
-	function showCertificatePhoto() {
-		var url;
-		if (carOwnerPhotoFilePath) {
-			url = getContextPath() + "/common/filedownload?filePath="
-					+ certificatePhotoFilePath;
-		} else {
-			if (pkey) {
-				url = getContextPath()
-						+ "/vehicle/getWithImage?imageType=certificatePhoto&pkey="
-						+ pkey;
-			} else {
-				// 				url = getContextPath() + "/common/menuPage?url=noImage";
-				return;
-			}
-		}
-		dialogForShowImage(url);
-	}
-	function showCertificatePhoto2() {
-		var url;
-		if (carOwnerPhotoFilePath) {
-			url = getContextPath() + "/common/filedownload?filePath="
-					+ certificatePhoto2FilePath;
-		} else {
-			if (pkey) {
-				url = getContextPath()
-						+ "/vehicle/getWithImage?imageType=certificatePhoto2&pkey="
-						+ pkey;
-			} else {
-				// 				url = getContextPath() + "/common/menuPage?url=noImage";
-				return;
-			}
-		}
-		dialogForShowImage(url);
-	}
-	function showDriverPhoto() {
-		var url;
-		if (carOwnerPhotoFilePath) {
-			url = getContextPath() + "/common/filedownload?filePath="
-					+ driverPhotoFilePath;
-		} else {
-			if (pkey) {
-				url = getContextPath()
-						+ "/vehicle/getWithImage?imageType=driverPhoto&pkey="
-						+ pkey;
-			} else {
-				// 				url = getContextPath() + "/common/menuPage?url=noImage";
-				return;
-			}
-		}
-		dialogForShowImage(url);
-	}
-
-	function uploadImageFinish(callFlag, filePath) {
-		imageUploadDialog.dialog("destroy");
-		if (callFlag == 'carOwnerPhoto') {
-			carOwnerPhotoFilePath = filePath;
-		} else if (callFlag == 'carPhoto') {
-			carPhotoFilePath = filePath;
-		} else if (callFlag == 'certificatePhoto') {
-			certificatePhotoFilePath = filePath;
-		} else if (callFlag == 'certificatePhoto2') {
-			certificatePhoto2FilePath = filePath;
-		}
-		if (callFlag == 'driverPhoto') {
-			driverPhotoFilePath = filePath;
-		}
-		showInfo("图片上传成功！");
-	}
-	function dialogForShowImage(url) {
-		var dialog = createDialog({
-			frameID : 'imageShow',
-			title : '图片',
-			width : 900,
-			height : 600,
-			url : url,
-			toolbar : [ {
-				text : common009,
-				iconCls : 'icon-cancel',
-				handler : function() {
-					dialog.dialog("destroy");
-				}
-			} ]
-		});
-	} */
 </script>
 </head>
 
@@ -361,26 +204,21 @@
 				
 			</tr>
 			<tr>
-				<td   colspan="2"  height="170px"><!-- <a href="javascript:void(0);" class="easyui-linkbutton show"
-							data-options="iconCls:'icon-add',plain:true"
-							onclick="uploadCarOwnerPhoto();">上传车主照片</a>
-							<a href="javascript:void(0);" class="easyui-linkbutton"
-							data-options="iconCls:'icon-search',plain:true"
-							onclick="showCarOwnerPhoto();">查看车主照片</a> -->
+				<td   colspan="2"  height="170px">
 				<div style="width: 125px; height: 155px; margin-left: 70px;margin-top: 20px;" style="text-align: center;">
 					<img id="uploadPreviewOwnerNamePic" style="width: 125px; height: 155px;" />
-				<div style="text-align: center;">
-	         	<input id="ownernamepic1" name="ownernamepic1"   type="file"/>上传车主照片
+				<div style="text-align: center;"  class="show">
+	         	<input id="ownernamepic1" name="ownernamepic1"  type="file"  onchange="loadImageFileOwnerNamePic();"/>上传车主照片
 				</div>
 	         		</div>
 				</td>
-				<td   colspan="2">
-					<a href="javascript:void(0);" class="easyui-linkbutton show"
-							data-options="iconCls:'icon-add',plain:true"
-							onclick="uploadCarPhoto();">上传车身照片</a>
-				<a href="javascript:void(0);" class="easyui-linkbutton"
-							data-options="iconCls:'icon-search',plain:true"
-							onclick="showCarPhoto();">查看车身照片</a>
+				<td   colspan="2"  height="170px">
+					<div style="width: 125px; height: 155px; margin-left: 70px;margin-top: 20px;" style="text-align: center;">
+					<img id="uploadPreviewVehiclePic" style="width: 125px; height: 155px;" />
+				<div style="text-align: center;"  class="show">
+	         	<input id="vehiclepic1" name="vehiclepic1"  type="file"  onchange="loadImageFileVehiclepic();"/>上传车身照片
+				</div>
+	         		</div>
 			    </td>
 			</tr>
 			
@@ -388,5 +226,29 @@
 			
 		</form>
 	</div>
+	<script type="text/javascript">
+			 oFReaderOwnerNamePic = new FileReader(), rFilter = /^(?:image\/bmp|image\/cis\-cod|image\/gif|image\/ief|image\/jpeg|image\/jpeg|image\/jpeg|image\/pipeg|image\/png|image\/svg\+xml|image\/tiff|image\/x\-cmu\-raster|image\/x\-cmx|image\/x\-icon|image\/x\-portable\-anymap|image\/x\-portable\-bitmap|image\/x\-portable\-graymap|image\/x\-portable\-pixmap|image\/x\-rgb|image\/x\-xbitmap|image\/x\-xpixmap|image\/x\-xwindowdump)$/i;
+			oFReaderVehiclepic = new FileReader(), rFilter = /^(?:image\/bmp|image\/cis\-cod|image\/gif|image\/ief|image\/jpeg|image\/jpeg|image\/jpeg|image\/pipeg|image\/png|image\/svg\+xml|image\/tiff|image\/x\-cmu\-raster|image\/x\-cmx|image\/x\-icon|image\/x\-portable\-anymap|image\/x\-portable\-bitmap|image\/x\-portable\-graymap|image\/x\-portable\-pixmap|image\/x\-rgb|image\/x\-xbitmap|image\/x\-xpixmap|image\/x\-xwindowdump)$/i;
+			
+			oFReaderOwnerNamePic.onload = function (oFREvent) {
+			  document.getElementById("uploadPreviewOwnerNamePic").src = oFREvent.target.result;
+			};
+			oFReaderVehiclepic.onload = function (oFREvent) {
+			  document.getElementById("uploadPreviewVehiclePic").src = oFREvent.target.result;
+			}; 
+			
+			function loadImageFileOwnerNamePic() {
+			  if (document.getElementById("ownernamepic1").files.length == 0 ){return; }
+			  var oFile = document.getElementById("ownernamepic1").files[0];
+			  if (!rFilter.test(oFile.type)) { alert("上传图片类型不符!"); return; }
+			  oFReaderOwnerNamePic.readAsDataURL(oFile);
+			}
+			function loadImageFileVehiclepic() {
+			  if (document.getElementById("vehiclepic1").files.length == 0 ){return; }
+			  var oFile1 = document.getElementById("vehiclepic1").files[0];
+			  if (!rFilter.test(oFile1.type)) { alert("上传图片类型不符!"); return; }
+			  oFReaderVehiclepic.readAsDataURL(oFile1);
+			}
+		</script>
 </body>
 </html>

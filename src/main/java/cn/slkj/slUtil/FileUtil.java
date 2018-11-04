@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.MappedByteBuffer;
@@ -210,5 +211,23 @@ public class FileUtil {
 			}
 		}
 	}
+	
+	/**
+	 * 读取到字节数组
+	 * @param in
+	 * @return
+	 * @throws IOException
+	 */
+	 public static byte[] toByteArray(InputStream in)
+			    throws IOException
+			  {
+			    ByteArrayOutputStream out = new ByteArrayOutputStream();
+			    byte[] buffer = new byte[4096];
+			    int n = 0;
+			    while ((n = in.read(buffer)) != -1) {
+			      out.write(buffer, 0, n);
+			    }
+			    return out.toByteArray();
+			  }
 
 }

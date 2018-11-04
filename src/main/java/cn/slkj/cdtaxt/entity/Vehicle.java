@@ -29,8 +29,8 @@ public class Vehicle {
 	private String ownerChange;// 变更记录
 	private String drvLicenseDate;// 行驶证初次登记
 	private String vehicleInspRec;//车辆审验记录
-	private String ownerNamePic; //车主照片
-	private String vehiclePic; //车辆照片
+	private byte[] ownerNamePic; //车主照片
+	private byte[] vehiclePic; //车辆照片
 	private String tonsSeat; //吨位
 	private String carLen; //长
 	private String carWidth; //宽
@@ -148,16 +148,16 @@ public class Vehicle {
 	public void setVehicleInspRec(String vehicleInspRec) {
 		this.vehicleInspRec = vehicleInspRec;
 	}
-	public String getOwnerNamePic() {
+	public byte[] getOwnerNamePic() {
 		return ownerNamePic;
 	}
-	public void setOwnerNamePic(String ownerNamePic) {
+	public void setOwnerNamePic(byte[] ownerNamePic) {
 		this.ownerNamePic = ownerNamePic;
 	}
-	public String getVehiclePic() {
+	public byte[] getVehiclePic() {
 		return vehiclePic;
 	}
-	public void setVehiclePic(String vehiclePic) {
+	public void setVehiclePic(byte[] vehiclePic) {
 		this.vehiclePic = vehiclePic;
 	}
 	public String getTonsSeat() {

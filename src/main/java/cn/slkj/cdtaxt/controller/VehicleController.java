@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import net.sf.json.JSONObject;
+
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,6 +38,7 @@ import cn.slkj.cdtaxt.echarts.TotalNum;
 import cn.slkj.cdtaxt.entity.Vehicle;
 import cn.slkj.cdtaxt.entity.VehicleCheck;
 import cn.slkj.cdtaxt.service.VehicleService;
+import cn.slkj.slUtil.FileUtil;
 import cn.slkj.slUtil.UuidUtil;
 import cn.slkj.slUtil.easyuiUtil.EPager;
 import cn.slkj.slUtil.easyuiUtil.JsonResult;
@@ -144,15 +147,17 @@ public class VehicleController {
 	@ResponseBody
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public JsonResult save(@RequestParam(value="ownernamepic1", required=false) MultipartFile ownernamepic1,
-			@RequestParam(value="data", required=false) String data,Vehicle vehicle, HttpServletRequest request) {
+			@RequestParam(value="vehiclepic1", required=false) MultipartFile vehiclepic1,
+			Vehicle vehicle, HttpServletRequest request) {
 		try {
-					
-			System.out.println(ownernamepic1+"0000000000000000000000");
+			vehicle.setVehiclePic(FileUtil.toByteArray(vehiclepic1.getInputStream()));
+			vehicle.setOwnerNamePic(FileUtil.toByteArray(ownernamepic1.getInputStream()));
+			//System.out.println(ownernamepic1+"0000000000000000000000");
 			int i = -1;
 			//HttpSession session = request.getSession();
 			vehicle.setId(UuidUtil.get32UUID());
-			System.out.println(data+"0000000000000000000000");
-			//i = vehicleService.save(vehicle);
+			//System.out.println(vehicle.getAddress()+"0000000000000000000000");
+			i = vehicleService.save(vehicle);
 			if (i != -1) {
 				return new JsonResult(true, "添加成功。");
 			}
@@ -203,6 +208,47 @@ public class VehicleController {
 
 	}
 	
+	@RequestMapping({"/getVehiclepic"})
+	  public void getVehiclepic(String id, HttpServletRequest request, HttpServletResponse response)
+	    throws IOException
+	  {
+	    try
+	    {
+	    	HashMap<String, Object> hashMap = new HashMap<String, Object>();
+			hashMap.put("id", id);
+			Vehicle vehicle = vehicleService.queryOne(hashMap);
+	      byte[] data = vehicle.getVehiclePic();
+	      response.setContentType("image/jpg");
+	      OutputStream stream = response.getOutputStream();
+	      stream.write(data);
+	      stream.flush();
+	      stream.close();
+	    } catch (Exception e) {
+	    	System.out.println("图片无法显示");
+			e.printStackTrace();
+	    }
+	  }
+
+	  @RequestMapping({"/getOwnernamepic"})
+	  public void getOwnernamepic(String id, HttpServletRequest request, HttpServletResponse response)
+	    throws IOException
+	  {
+	    try
+	    {
+	    	HashMap<String, Object> hashMap = new HashMap<String, Object>();
+			hashMap.put("id", id);
+			Vehicle vehicle = vehicleService.queryOne(hashMap);
+	      byte[] data = vehicle.getOwnerNamePic();
+	      response.setContentType("image/jpg");
+	      OutputStream stream = response.getOutputStream();
+	      stream.write(data);
+	      stream.flush();
+	      stream.close();
+	    } catch (Exception e) {
+	    	System.out.println("图片无法显示");
+			e.printStackTrace();
+	    }
+	  }
 	/*@RequestMapping("/getWithImage")
 	public void getWithImage(String imageType, String pkey, HttpServletResponse response, HttpServletRequest request) throws Exception {
 		// 根据id获取车辆信息
@@ -254,7 +300,7 @@ public class VehicleController {
 	 * @param request
 	 * @return
 	 */
-	@RequestMapping(value = "/exporsb")
+	/*@RequestMapping(value = "/exporsb")
 	public String exporsb(HttpServletResponse response, HttpServletRequest request) {
 		response.setContentType("application/binary;charset=ISO8859_1");
 		try {
@@ -284,7 +330,7 @@ public class VehicleController {
 			e.printStackTrace();
 		}
 		return null;
-	}
+	}*/
 	  /* *//**
      * 饼状图
      * @param <T>
