@@ -38,6 +38,7 @@ import cn.slkj.cdtaxt.echarts.TotalNum;
 import cn.slkj.cdtaxt.entity.Vehicle;
 import cn.slkj.cdtaxt.entity.VehicleCheck;
 import cn.slkj.cdtaxt.service.VehicleService;
+import cn.slkj.cdtaxt.util.DateUtil;
 import cn.slkj.slUtil.FileUtil;
 import cn.slkj.slUtil.UuidUtil;
 import cn.slkj.slUtil.easyuiUtil.EPager;
@@ -150,13 +151,17 @@ public class VehicleController {
 			@RequestParam(value="vehiclepic1", required=false) MultipartFile vehiclepic1,
 			Vehicle vehicle, HttpServletRequest request) {
 		try {
+			
+			 if ((vehiclepic1 != null) && (!vehiclepic1.isEmpty())) {
 			vehicle.setVehiclePic(FileUtil.toByteArray(vehiclepic1.getInputStream()));
+			 }
+			 if ((ownernamepic1 != null) && (!ownernamepic1.isEmpty())) {
 			vehicle.setOwnerNamePic(FileUtil.toByteArray(ownernamepic1.getInputStream()));
-			//System.out.println(ownernamepic1+"0000000000000000000000");
+			 }
 			int i = -1;
 			//HttpSession session = request.getSession();
 			vehicle.setId(UuidUtil.get32UUID());
-			//System.out.println(vehicle.getAddress()+"0000000000000000000000");
+			vehicle.setaDDTIME(DateUtil.getTime());
 			i = vehicleService.save(vehicle);
 			if (i != -1) {
 				return new JsonResult(true, "添加成功。");
@@ -176,9 +181,18 @@ public class VehicleController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/edit", method = RequestMethod.POST)
-	public JsonResult editVehicle(Vehicle vehicle) {
+	public JsonResult editVehicle(@RequestParam(value="ownernamepic1", required=false) MultipartFile ownernamepic1,
+			@RequestParam(value="vehiclepic1", required=false) MultipartFile vehiclepic1,
+			Vehicle vehicle) {
 		try {
+			if ((vehiclepic1 != null) && (!vehiclepic1.isEmpty())) {
+				vehicle.setVehiclePic(FileUtil.toByteArray(vehiclepic1.getInputStream()));
+				 }
+				 if ((ownernamepic1 != null) && (!ownernamepic1.isEmpty())) {
+				vehicle.setOwnerNamePic(FileUtil.toByteArray(ownernamepic1.getInputStream()));
+				 }
 			int i = -1;
+			vehicle.setaDDTIME(DateUtil.getTime());
 			i = vehicleService.edit(vehicle);
 			if (i != -1) {
 				return new JsonResult(true, "操作成功。");

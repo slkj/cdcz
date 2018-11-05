@@ -173,7 +173,7 @@
 			</tr>
 			<tr>
 				<td align="right" width="70px">家庭住址:</td>
-				<td  colspan="3"><input class="easyui-textbox" name="address" type="text" style="width: 400px;" /></td>
+				<td  colspan="3"><input class="easyui-textbox" name="address" type="text" style="width: 722px;" /></td>
 				
 			</tr>
 			<tr>
@@ -200,7 +200,7 @@
 			</tr>
 			<tr>
 				<td align="right" width="70px" height="100px">车辆审验记录:</td>
-				<td  colspan="3"><input class="easyui-textbox" name="vehicleInspRec" type="text" style="width: 600px;height:100px;"  multiline="true"/></td>
+				<td  colspan="3"><input class="easyui-textbox" name="vehicleInspRec" type="text" style="width: 722px;height:100px;"  multiline="true"/></td>
 				
 			</tr>
 			<tr>
