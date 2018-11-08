@@ -26,6 +26,18 @@ public interface VehicleMapper {
 	public List<VehicleCheck> getCheckList(HashMap<String, Object> hashMap, PageBounds pageBounds);
 
 	public List<VehicleCheck> getOutCheckList(HashMap<String, Object> hashMap, PageBounds pageBounds);
+	
+	public VehicleCheck queryOneCheck(HashMap<String, Object> hashMap);
+	  
+	public int saveCheck(VehicleCheck vehicleCheck);
+
+	public int editCheck(VehicleCheck vehicleCheck);
+	  
+	public int deleteCheck(String id);
+	
+	public VehicleCheck checkDateByOper(String OpretaCertNum);
+	  
+	public int changeStatus(HashMap<String, Object> hashMap);
 	/*public List<Vehicle> getAllList(HashMap<String, Object> hashMap);
 
 	public List<TotalNum> getBarData(HashMap<String, Object> hashMap);

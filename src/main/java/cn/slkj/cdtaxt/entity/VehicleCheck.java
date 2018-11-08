@@ -13,12 +13,12 @@ package cn.slkj.cdtaxt.entity;
  */
 public class VehicleCheck {
 	private String id;
-	private String operatingnum; 
-	private String annualdate; 
-	private String nextannualdate; 
-	private String vehicle; 
-	private String addtime; 
-	private String status;
+	private String operatingnum; //营运证号
+	private String annualdate; //年审日期
+	private String nextannualdate; //终止日期
+	private String vehicle; //车辆级别
+	private String addtime; //插入日期
+	private String status;//审核状态
 	public String getId() {
 		return id;
 	}

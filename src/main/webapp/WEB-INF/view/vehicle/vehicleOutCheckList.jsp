@@ -49,15 +49,28 @@
 						width : 150,
 						align : 'center',
 						formatter : function(value, row) {
-							if(value==0){
-								return '<span style="color:green">年审完成</span>';
+							if(value==1){
+								return '<span style="color:Chocolate">待审核</span>';
+							}
+							else if(value==2){
+								return '<span style="color:red">通过审核</span>';
 							}
 							else if(value==3){
-								return '<span style="color:red">年审失败</span>';
+								return '<span style="color:DimGray">审核失败</span>';
 							}
 							
 						}
-					} ] ],					
+					} , {
+						field : 'opt',
+						title : '操作',
+						width : 150,
+						align : 'center',
+						formatter : function(value, row) {
+							var s = "";
+							s += "<a href=\"javascript:void(0)\" onclick=\"topCheck('" + row.id + "','" + row.operatingnum + "');\"><i class=\"fa fa-pencil \"></i>审核</a>";
+							return s;
+						}
+					}] ],					
 					onLoadSuccess : function(data) {
 						if (data && data.rows && data.rows.length > 0) {
 							$grid.datagrid("clearSelections");
@@ -68,15 +81,14 @@
 
 				});
 	}
-
-	function add() {
-		self.location.href = getContextPath() + "/vehicle/vehicleFormPage";
+	function topCheck(id,operatingnum) {		
+		self.location.href = getContextPath()
+				+ "/vehicle/vehicleTopCheckFormPage?pkey=" + id+"&opr="+operatingnum;
 	}
 
 	
 
-	function query() {
-		
+	function query() {		
 		$grid.datagrid({
 			queryParams : {
 				operatingnum : $('#operatingnum').val()
@@ -100,10 +112,6 @@
 					</button>
 				</div>
 			</div>
-		</div>
-		<div class="btnbar-tools">
-			<a href="javascript:;" class="add" onclick="add()"> <i class="fa fa-plus-square success "></i> 添加
-			</a> 
 		</div>
 	</div>
 	<div data-options="region:'center',border:true">

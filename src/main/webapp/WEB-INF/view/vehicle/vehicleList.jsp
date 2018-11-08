@@ -65,9 +65,6 @@
 							s += "<a href=\"javascript:void(0)\" onclick=\"editRow('" + row.id + "');\"><i class=\"fa fa-pencil \"></i>编辑</a>";
 							s += "|";
 							s += "<a href=\"javascript:void(0)\" onclick=\"deleteRow('" + row.id + "');\"><i class=\"fa fa-times-rectangle danger\"></i>删除 </a>";
-							if (row.parent_id == "0") {
-								return "";
-							}
 							return s;
 						}
 					} ] ],					

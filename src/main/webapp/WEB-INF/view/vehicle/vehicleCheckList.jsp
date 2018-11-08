@@ -50,14 +50,32 @@
 						align : 'center',
 						formatter : function(value, row) {
 							if(value==0){
-								return '<span style="color:green">年审完成</span>';
+								return '<span style="color:DarkGreen">年审完成</span>';
+							}
+							else if(value==1){
+								return '<span style="color:Chocolate">待上级审核</span>';
+							}
+							else if(value==2){
+								return '<span style="color:red">上级审核完成</span>';
 							}
 							else if(value==3){
-								return '<span style="color:red">年审失败</span>';
+								return '<span style="color:DimGray">上级审核失败</span>';
 							}
 							
 						}
-					} ] ],					
+					} , {
+						field : 'opt',
+						title : '操作',
+						width : 150,
+						align : 'center',
+						formatter : function(value, row) {
+							var s = "";
+							s += "<a href=\"javascript:void(0)\" onclick=\"editRow('" + row.id + "','" + row.operatingnum + "');\"><i class=\"fa fa-pencil \"></i>编辑</a>";
+							s += "|";
+							s += "<a href=\"javascript:void(0)\" onclick=\"deleteRow('" + row.id + "');\"><i class=\"fa fa-times-rectangle danger\"></i>删除 </a>";
+							return s;
+						}
+					}] ],					
 					onLoadSuccess : function(data) {
 						if (data && data.rows && data.rows.length > 0) {
 							$grid.datagrid("clearSelections");
@@ -70,9 +88,30 @@
 	}
 
 	function add() {
-		self.location.href = getContextPath() + "/vehicle/vehicleFormPage";
+		self.location.href = getContextPath() + "/vehicle/vehicleCheckAddPage";
 	}
-
+	function editRow(id,operatingnum) {		
+		self.location.href = getContextPath()
+				+ "/vehicle/vehicleCheckAddPage?pkey=" + id+"&opr="+operatingnum;
+	}
+	
+	function deleteRow(id) {
+	if (confirm("确定要删除吗？")) {
+			$.ajax({
+				type : "POST",
+				url : getContextPath() + '/vehicle/deleteCheck',
+				data : {
+					id : id
+				},
+				cache : false,
+				async : false,
+				success : function(data) {
+					$grid.datagrid('reload');
+				}
+			});
+		}
+	
+	}
 	
 
 	function query() {

@@ -77,7 +77,14 @@ public class VehicleController {
 	public String toVehicleFormPage() {
 		return "vehicle/vehicleForm";
 	}
-
+	@RequestMapping("/vehicleCheckAddPage")
+	public String toVehicleCheckAddPage() {
+		return "vehicle/vehicleCheckAdd";
+	}
+	@RequestMapping("/vehicleTopCheckFormPage")
+	public String toVehicleTopCheckFormPage() {
+		return "vehicle/vehicleTopCheckForm";
+	}
 	/**
 	 * 查询列表，返回easyUI数据格式
 	 */
@@ -118,7 +125,7 @@ public class VehicleController {
 	@RequestMapping(value = "/outcheckList", method = { RequestMethod.POST })
 	public EPager<VehicleCheck> getOutCheckList(HttpServletRequest request, HttpSession session, @RequestParam(required = false, defaultValue = "1") Integer page, // 第几页
 			@RequestParam(required = false, defaultValue = "10") Integer rows) {
-		String sortString = "";
+		String sortString = "ADDTIME.DESC";
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("operatingnum", request.getParameter("operatingnum"));
 		PageBounds pageBounds = new PageBounds(page, rows, Order.formString(sortString));
@@ -138,7 +145,17 @@ public class VehicleController {
 		Vehicle vehicle = vehicleService.queryOne(hashMap);
 		return vehicle;
 	}
-
+	/**
+	 * 查询单条信息
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/queryOneByOpr", method = { RequestMethod.POST })
+	public Vehicle queryOneByOpr(String opretaCertNum) {
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		hashMap.put("OpretaCertNum", opretaCertNum);
+		Vehicle vehicle = vehicleService.queryOne(hashMap);
+		return vehicle;
+	}
 	/**
 	 * 保存车辆信息
 	 * 
@@ -223,13 +240,14 @@ public class VehicleController {
 	}
 	
 	@RequestMapping({"/getVehiclepic"})
-	  public void getVehiclepic(String id, HttpServletRequest request, HttpServletResponse response)
+	  public void getVehiclepic(String id,String operatingnum, HttpServletRequest request, HttpServletResponse response)
 	    throws IOException
 	  {
 	    try
 	    {
 	    	HashMap<String, Object> hashMap = new HashMap<String, Object>();
 			hashMap.put("id", id);
+			hashMap.put("OpretaCertNum", operatingnum);
 			Vehicle vehicle = vehicleService.queryOne(hashMap);
 	      byte[] data = vehicle.getVehiclePic();
 	      response.setContentType("image/jpg");
@@ -244,13 +262,14 @@ public class VehicleController {
 	  }
 
 	  @RequestMapping({"/getOwnernamepic"})
-	  public void getOwnernamepic(String id, HttpServletRequest request, HttpServletResponse response)
+	  public void getOwnernamepic(String id,String operatingnum, HttpServletRequest request, HttpServletResponse response)
 	    throws IOException
 	  {
 	    try
 	    {
 	    	HashMap<String, Object> hashMap = new HashMap<String, Object>();
 			hashMap.put("id", id);
+			hashMap.put("OpretaCertNum", operatingnum);
 			Vehicle vehicle = vehicleService.queryOne(hashMap);
 	      byte[] data = vehicle.getOwnerNamePic();
 	      response.setContentType("image/jpg");
@@ -263,6 +282,117 @@ public class VehicleController {
 			e.printStackTrace();
 	    }
 	  }
+	  
+	  /**
+		 * 查询单条信息
+		 */
+		@ResponseBody
+		@RequestMapping(value = "/queryOneCheck", method = { RequestMethod.POST })
+		public VehicleCheck queryOneCheck(String id) {
+			HashMap<String, Object> hashMap = new HashMap<String, Object>();
+			hashMap.put("id", id);
+			VehicleCheck vehicleCheck = vehicleService.queryOneCheck(hashMap);
+			return vehicleCheck;
+		}
+	  
+	  /**
+		 * 保存车辆信息
+		 * 
+		 * @param vehicle
+		 * @return
+		 */
+		@ResponseBody
+		@RequestMapping(value = "/saveCheck", method = RequestMethod.POST)
+		public JsonResult saveCheck(VehicleCheck vehicleCheck,
+				HttpServletRequest request) {
+			try {
+				
+				int i = -1;
+				//HttpSession session = request.getSession();
+				vehicleCheck.setId(UuidUtil.get32UUID());
+				vehicleCheck.setAddtime(DateUtil.getTime());
+				 if (vehicleService.checkDateByOper(vehicleCheck.getOperatingnum())==null) {
+					 vehicleCheck.setStatus("0");
+			          } else {
+			         vehicleCheck.setStatus("1");
+			          }
+				i = vehicleService.saveCheck(vehicleCheck);
+				if (i != -1) {
+					return new JsonResult(true, "添加成功。");
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+				return new JsonResult(false, e.toString());
+			}
+			return new JsonResult(false, "添加失败！");
+		}
+
+		/**
+		 * 编辑车辆信息
+		 * 
+		 * @param vehicle
+		 * @return
+		 */
+		@ResponseBody
+		@RequestMapping(value = "/editCheck", method = RequestMethod.POST)
+		public JsonResult editVehicleCheck(VehicleCheck vehicleCheck) {
+			try {
+				
+				int i = -1;
+				vehicleCheck.setAddtime(DateUtil.getTime());
+				i = vehicleService.editCheck(vehicleCheck);
+				if (i != -1) {
+					return new JsonResult(true, "操作成功。");
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+				return new JsonResult(false, e.toString());
+			}
+			return new JsonResult(false, "操作失败！");
+		}
+
+		/** 删除 */
+		@ResponseBody
+		@RequestMapping(value = "/deleteCheck")
+		public JsonResult deleteCheck(String id) {
+			int i = vehicleService.deleteCheck(id);
+			try {
+				if (i > 0) {
+					return new JsonResult(true, "");
+				} else {
+					return new JsonResult(false, "操作失败！");
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+				return new JsonResult(false, e.toString());
+			}
+
+		}
+		/**
+		 * 编辑车辆信息
+		 * 
+		 * @param vehicle
+		 * @return
+		 */
+		@ResponseBody
+		@RequestMapping(value = "/editCheckStatus", method = RequestMethod.POST)
+		public JsonResult editVehicleCheckStatus(String id,String status) {
+			try {
+				
+				int i = -1;
+				HashMap<String, Object> hashMap = new HashMap<String, Object>();
+				hashMap.put("id", id);
+				hashMap.put("status", status);
+				i = vehicleService.changeStatus(hashMap);
+				if (i != -1) {
+					return new JsonResult(true, "操作成功。");
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+				return new JsonResult(false, e.toString());
+			}
+			return new JsonResult(false, "操作失败！");
+		}
 	/*@RequestMapping("/getWithImage")
 	public void getWithImage(String imageType, String pkey, HttpServletResponse response, HttpServletRequest request) throws Exception {
 		// 根据id获取车辆信息

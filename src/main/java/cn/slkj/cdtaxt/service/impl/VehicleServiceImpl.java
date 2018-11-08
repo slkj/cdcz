@@ -65,7 +65,38 @@ public class VehicleServiceImpl implements VehicleService {
 	public List<VehicleCheck> getOutCheckList(HashMap<String, Object> hashMap, PageBounds pageBounds) {
 		return mapper.getOutCheckList(hashMap, pageBounds);
 	}
+	@Override
+  public VehicleCheck queryOneCheck(HashMap<String, Object> hashMap)
+  {
+    return mapper.queryOneCheck(hashMap);
+  }
+	@Override
+  public int saveCheck(VehicleCheck vehicleCheck)
+  {
+    return mapper.saveCheck(vehicleCheck);
+  }
+	@Override
+  public int editCheck(VehicleCheck vehicleCheck)
+  {
+    return mapper.editCheck(vehicleCheck);
+  }
+	@Override
+  public int deleteCheck(String id)
+  {
+    return mapper.deleteCheck(id);
+  }
+	@Override
+  public VehicleCheck checkDateByOper(String OpretaCertNum)
+  {
+    return mapper.checkDateByOper(OpretaCertNum);
+  }
 
+  
+	@Override
+  public int changeStatus(HashMap<String, Object> hashMap)
+  {
+    return mapper.changeStatus(hashMap);
+  }
 /*	*//**
 	 * 导出Excel
 	 *//*
