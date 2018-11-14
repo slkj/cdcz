@@ -7,7 +7,7 @@
 		  vehiclesnum, employeescount, manageersonnel, carnum, addtime
 	</sql>
 	<select id="queryComList" resultType="Company" parameterType="hashmap">
-		SELECT * FROM tb_enterprise_info
+		SELECT <include refid="sql_temp" /> FROM tb_enterprise_info
 		<where>
 			<if test="unitname != null and unitname != ''">
 				AND unitname LIKE '%'+ #{unitname} +'%'

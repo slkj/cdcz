@@ -136,7 +136,7 @@
 			queryParams : {
 				PlateNum : $('#PlateNum').val(),
 				OpretaCertNum : $('#OpretaCertNum').val(),
-				OrigOwnerName : $('#OrigOwnerName').val()
+				OwnerName : $('#OwnerName').val()
 			}
 		});
 
@@ -155,7 +155,7 @@
 					<input type="text" class="easyui-textbox" id="OpretaCertNum" data-options="label:'营运证号'" />
 				</div>
 				<div class="colRow">
-					<input type="text" class="easyui-textbox" id="OrigOwnerName" data-options="label:'车主姓名'" />
+					<input type="text" class="easyui-textbox" id="OwnerName" data-options="label:'车主姓名'" />
 				</div>
 				<div class="colRow">
 					<button class="easyui-linkbutton btnDefault" onclick="query()">

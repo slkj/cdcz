@@ -13,7 +13,7 @@
 		id, operatingnum, annualdate, nextannualdate, vehicle, addtime, status
 	</sql>
 
-	<select id="getAllList" resultType="Vehicle">
+	<select id="getAllList"  parameterType="hashmap" resultType="Vehicle">
 		SELECT
 		<include refid="sql_base"></include>
 		FROM TB_TAXICAR
@@ -24,8 +24,8 @@
 			<if test="OpretaCertNum != null and OpretaCertNum != ''">
 				AND OpretaCertNum LIKE '%'+#{OpretaCertNum}+'%'
 			</if>
-			<if test="OrigOwnerName != null and OrigOwnerName != ''">
-				AND OrigOwnerName LIKE '%'+#{OrigOwnerName}+'%'
+			<if test="OwnerName != null and OwnerName != ''">
+				AND OwnerName LIKE '%'+#{OwnerName}+'%'
 			</if>
 		</where>		
 	</select>

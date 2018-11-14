@@ -23,9 +23,15 @@
 	$(function() {
 		$form = $("#form");
 		//$form.attr("enctype", "multipart/form-data");
-		newOrEidt()
-		$('#carAddCounty').combobox('reload',
-				getContextPath() + '/company/queryComList');
+		newOrEidt();		
+		$('#corpName').combobox({
+			url : getContextPath() + '/company/queryComList',
+			valueField : 'unitname',
+			textField : 'unitname',
+			onSelect : function(data) {
+				$("#corpName").textbox('setValue', data.unitname);
+			}
+		});
 
 	});
 	function newOrEidt() {
@@ -121,91 +127,91 @@
 			<input name="id" type="hidden" />
 			<table style="width: 90%">
 			<tr>
-				<td align="right" width="70px">档案号:</td>
+				<td align="right" width="110px">档案号:</td>
 				<td><input class="easyui-textbox" name="fileNum" type="text" style="width: 200px;" /></td>
-				<td align="right" width="70px">车主姓名:</td>
+				<td align="right" width="110px">车主姓名:</td>
 				<td><input class="easyui-textbox" name="ownerName" type="text" style="width: 200px;" /></td>
 			</tr>
 			<tr>
-				<td align="right" width="70px">颜色:</td>
+				<td align="right" width="110px">颜色:</td>
 				<td><input class="easyui-textbox" name="color" type="text" style="width: 200px;" /></td>
-				<td align="right" width="70px">车型:</td>
+				<td align="right" width="110px">车型:</td>
 				<td><input class="easyui-textbox" name="sign" type="text" style="width: 200px;" /></td>
 			</tr>
 			<tr>
-				<td align="right" width="70px">营运证号:</td>
+				<td align="right" width="110px">营运证号:</td>
 				<td><input class="easyui-textbox" name="opretaCertNum" type="text" style="width: 200px;" /></td>
-				<td align="right" width="70px">原车主:</td>
+				<td align="right" width="110px">原车主:</td>
 				<td><input class="easyui-textbox" name="origOwnerName" type="text" style="width: 200px;" /></td>
 			</tr>
 			<tr>
-				<td align="right" width="70px">公司名称:</td>
-				<td><input class="easyui-textbox" name="corpName" type="text" style="width: 200px;" /></td>
-				<td align="right" width="70px">联系电话:</td>
+				<td align="right" width="110px">公司名称:</td>
+				<td><input id="corpName" name="corpName" type="text" style="width: 200px;" /></td>
+				<td align="right" width="110px">联系电话:</td>
 				<td><input class="easyui-textbox" name="phoneNum" type="text" style="width: 200px;" /></td>
 			</tr>
 			<tr>
-				<td align="right" width="70px">变更日期:</td>
+				<td align="right" width="110px">变更日期:</td>
 				<td><input class="Wdate" name="transferDate"  style="width: 200px;" 
 				onfocus="WdatePicker({readOnly:true,dateFmt:'yyyy-MM-dd'})"/></td>
-				<td align="right" width="70px">变更记录:</td>
+				<td align="right" width="110px">变更记录:</td>
 				<td><input class="easyui-textbox" name="ownerChange" type="text" style="width: 200px;" /></td>
 			</tr>
 			<tr>
-				<td align="right" width="70px">车牌号:</td>
+				<td align="right" width="110px">车牌号:</td>
 				<td><input class="easyui-textbox" name="plateNum" type="text" style="width: 200px;" /></td>
-				<td align="right" width="70px">原车牌号:</td>
+				<td align="right" width="110px">原车牌号:</td>
 				<td><input class="easyui-textbox" name="origPlateNum" type="text" style="width: 200px;" /></td>
 			</tr>
 			<tr>
-				<td align="right" width="70px">查封记录:</td>
+				<td align="right" width="110px">查封记录:</td>
 				<td><input class="easyui-textbox" name="sealRecord" type="text" style="width: 200px;" /></td>
-				<td align="right" width="70px">行驶证初次登记:</td>
+				<td align="right" width="110px">行驶证初次登记:</td>
 				<td><input class="easyui-textbox" name="drvLicenseDate" type="text" style="width: 200px;" /></td>
 			</tr>
 			<tr>
-				<td align="right" width="70px">身份证号:</td>
+				<td align="right" width="110px">身份证号:</td>
 				<td><input class="easyui-textbox" name="iDNumber" type="text" style="width: 200px;" /></td>
-				<td align="right" width="70px">发证日期:</td>
+				<td align="right" width="110px">发证日期:</td>
 				<td><input  class="Wdate" name="checkDate" style="width: 200px;" 
 				onfocus="WdatePicker({readOnly:true,dateFmt:'yyyy-MM-dd'})"/></td>
 				
 			</tr>
 			<tr>
-				<td align="right" width="70px">家庭住址:</td>
+				<td align="right" width="110px">家庭住址:</td>
 				<td  colspan="3"><input class="easyui-textbox" name="address" type="text" style="width: 722px;" /></td>
 				
 			</tr>
 			<tr>
 						
-				<td align="right" width="70px">吨位:</td>
+				<td align="right" width="110px">吨位:</td>
 				<td><input class="easyui-textbox" name="tonsSeat" type="text" style="width: 200px;" /></td>
-				<td align="right" width="70px">长:</td>
+				<td align="right" width="110px">长:</td>
 				<td><input class="easyui-textbox" name="carLen" type="text" style="width: 200px;" /></td>
 							
 			</tr>
 			<tr>
 						
-				<td align="right" width="70px">宽:</td>
+				<td align="right" width="110px">宽:</td>
 				<td><input class="easyui-textbox" name="carWidth" type="text" style="width: 200px;" /></td>
-				<td align="right" width="70px">高:</td>
+				<td align="right" width="110px">高:</td>
 				<td><input class="easyui-textbox" name="carHigh" type="text" style="width: 200px;" /></td>
 							
 			</tr>
 			<tr>
-				<td align="right" width="70px" >车架号:</td>
+				<td align="right" width="110px" >车架号:</td>
 				<td><input class="easyui-textbox" name="frameNumber" type="text" style="width: 200px;" /></td>
-				<td align="right" width="70px">发动机号:</td>
+				<td align="right" width="110px">发动机号:</td>
 				<td><input class="easyui-textbox" name="engineNumber" type="text" style="width: 200px;" /></td>
 			</tr>
 			<tr>
-				<td align="right" width="70px" height="100px">车辆审验记录:</td>
+				<td align="right" width="110px" height="100px">车辆审验记录:</td>
 				<td  colspan="3"><input class="easyui-textbox" name="vehicleInspRec" type="text" style="width: 722px;height:100px;"  multiline="true"/></td>
 				
 			</tr>
 			<tr>
 				<td   colspan="2"  height="170px">
-				<div style="width: 125px; height: 155px; margin-left: 70px;margin-top: 20px;" style="text-align: center;">
+				<div style="width: 125px; height: 155px; margin-left: 110px;margin-top: 20px;" style="text-align: center;">
 					<img id="uploadPreviewOwnerNamePic" style="width: 125px; height: 155px;" />
 				<div style="text-align: center;"  class="show">
 	         	<input id="ownernamepic1" name="ownernamepic1"  type="file"  onchange="loadImageFileOwnerNamePic();"/>上传车主照片
@@ -213,7 +219,7 @@
 	         		</div>
 				</td>
 				<td   colspan="2"  height="170px">
-					<div style="width: 125px; height: 155px; margin-left: 70px;margin-top: 20px;" style="text-align: center;">
+					<div style="width: 125px; height: 155px; margin-left: 110px;margin-top: 20px;" style="text-align: center;">
 					<img id="uploadPreviewVehiclePic" style="width: 125px; height: 155px;" />
 				<div style="text-align: center;"  class="show">
 	         	<input id="vehiclepic1" name="vehiclepic1"  type="file"  onchange="loadImageFileVehiclepic();"/>上传车身照片

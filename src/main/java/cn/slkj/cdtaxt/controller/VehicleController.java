@@ -96,7 +96,7 @@ public class VehicleController {
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();
 		hashMap.put("PlateNum", request.getParameter("PlateNum"));
 		hashMap.put("OpretaCertNum", request.getParameter("OpretaCertNum"));
-		hashMap.put("OrigOwnerName", request.getParameter("OrigOwnerName"));
+		hashMap.put("OwnerName", request.getParameter("OwnerName"));
 		PageBounds pageBounds = new PageBounds(page, rows, Order.formString(sortString));
 		List<Vehicle> list = vehicleService.getAllList(hashMap, pageBounds);
 		PageList pageList = (PageList) list;

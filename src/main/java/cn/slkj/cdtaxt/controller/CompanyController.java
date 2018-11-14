@@ -71,7 +71,7 @@ public class CompanyController {
 	@RequestMapping(value = "/queryComList")
 	public List<Company> queryComList(String name) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("compName", name);
+		map.put("unitname", name);
 		return companyService.queryComList(map);
 	}
 
